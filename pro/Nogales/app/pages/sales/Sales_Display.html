@@ -1,0 +1,110 @@
+﻿<div>
+    <style>
+        @media (min-width: 1192px) and (max-width: 1551px) {
+            #topbox .col-lg-6 {
+                width: 100% !important;
+            }
+        }
+
+        .hidedisplay {
+            display: none;
+        }
+
+        .blockUI blockMsg blockPage {
+            z-index: 20060 !important;
+        }
+
+        .ft-maximize:before {
+            content: "\e978";
+        }
+
+        .ft-maximize:after {
+            content: "\e978";
+        }
+
+        .blue-grey.darken-4 {
+            color: #263238 !important;
+        }
+
+        .font-medium-3 {
+            font-size: 1.3rem !important;
+        }
+
+        .ft-minimize:before {
+            content: "\e97f";
+        }
+    </style>
+    
+ 
+
+
+    <div class="row portlet light bordered portlet-fullscreen fade-in-up" id="fullscreendiv" style="overflow:auto"  ng-cloak">
+
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              
+                <home callback-fn="stoptimer()" ng-hide="isfullscreen"></home>
+                <!--<toggle-switch ng-model="demo" style="margin-bottom: -8px;" ng-init="demo=false" ng-click="setdemomode(demo)" on-label="Demo On" off-label="Demo Off">
+
+                </toggle-switch>-->
+                <a ng-click="setfullscreen()" style="margin-bottom: 10px;float:right">
+
+                    <img style="width: 30px;" ng-if="!isfullscreen" src="../../../assets/global/img/expand.png" />
+                    <img style="width: 30px;" ng-if="isfullscreen" src="../../../assets/global/img/minimize.png" />
+                </a>
+            </div>
+
+
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="portlet light bordered">
+                    <filter-date compiletitle="'Sales (BY CATEGORY)'" filter="currentfilter" needexpand="false"></filter-date>
+                    <div class="portlet-body">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <display-tv-chart filter-type="filter.type"
+                                                  ng-model="chartData.TotalRevenue.All"
+                                                  nl-dashboard="sales"
+                                                  callback-fnapi="callbackapifn(event)"
+                                                 timerevent="stoptimerval"> >
+
+                                </display-tv-chart>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <!--<button class="btn btn-primary btn-sm orange" id="fullscreenbutton" style="position: absolute;width: 100px;right: -233%;top: 13px;z-index: 20200 !important;" ng-click="test()">{{btnnamefullscreen}}</button>-->
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <canvasgauge ng-if="meterparams.Label5"
+                                 ng-model="secondmonthPercentage"
+                                 current="first"
+                                 showdollar="true"
+                                 prior="secondmonth"
+                                 name="PriorRangeText">
+                      
+                    </canvasgauge>
+                </div>
+                <div ng-class="{'col-lg-6 col-md-6 col-sm-12 col-xs-12': meterparams.Label5,'col-lg-12 col-md-12 col-sm-12 col-xs-12': !meterparams.Label5}" >
+                    <canvasgauge  ng-model="secondyearPercentage"
+                                 current="first"
+                                 showdollar="true"
+                                 prior="secondyear"
+                                 name="'Prior Year'">
+                      
+                    </canvasgauge>
+                </div>
+            </div>
+
+
+
+
+        </div>
+    </div>
+
+</div>

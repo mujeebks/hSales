@@ -1,0 +1,376 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FF117C89-1E08-4D9D-BADC-17F000BB9B9B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Nogales.DataProvider</RootNamespace>
+    <AssemblyName>Nogales.DataProvider</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.AnalysisServices.AdomdClient, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AnalysisServices.AdomdClient.12.0.2000.8\lib\net40\Microsoft.AnalysisServices.AdomdClient.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AdminManagementDataProvider.cs" />
+    <Compile Include="BulkInsert.cs" />
+    <Compile Include="CasesSoldSalesDataProvider.cs" />
+    <Compile Include="CasesSoldProvider.cs" />
+    <Compile Include="CasesSoldRevenueDataProvider.cs" />
+    <Compile Include="CollectorManagementDataProvider.cs" />
+    <Compile Include="CommonDataProvider.cs" />
+    <Compile Include="CustomerProvider.cs" />
+    <Compile Include="DashBoardDataProvider.cs" />
+    <Compile Include="DateProvider.cs" />
+    <Compile Include="EmailTemplates\EmailTemplateResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EmailTemplateResources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ENUM\GlobalFilterEnum.cs" />
+    <Compile Include="ExpensesDataProvider.cs" />
+    <Compile Include="FinanceDataProvider.cs" />
+    <Compile Include="GlobaldataProvider.cs" />
+    <Compile Include="Infrastructure\DataAccessADO.cs" />
+    <Compile Include="Infrastructure\DataAccessADOMD.cs" />
+    <Compile Include="ItemProvider.cs" />
+    <Compile Include="JournalDataProvider.cs" />
+    <Compile Include="PayrollDataProvider.cs" />
+    <Compile Include="ProfiatbilityDataProvider.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="RevenueDataProvider.cs" />
+    <Compile Include="SalesDataProvider.cs" />
+    <Compile Include="SalesPersonMappingDataProvider.cs" />
+    <Compile Include="TransportationDataProvider.cs" />
+    <Compile Include="Utilities\CasesSoldMapperExtension.cs" />
+    <Compile Include="Utilities\CasesSoldRevenueMapperExtension.cs" />
+    <Compile Include="Utilities\Constants.cs" />
+    <Compile Include="Utilities\DateTimeExtension.cs" />
+    <Compile Include="Utilities\EmailCore.cs" />
+    <Compile Include="Utilities\EmailServices.cs" />
+    <Compile Include="Utilities\Enums.cs" />
+    <Compile Include="Utilities\ErrorLog.cs" />
+    <Compile Include="Utilities\ExpensesMapperExtension.cs" />
+    <Compile Include="Utilities\JournalMapperExtension.cs" />
+    <Compile Include="Utilities\MDXCubeQueries.cs" />
+    <Compile Include="Utilities\RevenueMapperExtension.cs" />
+    <Compile Include="Utilities\SQLQueries.cs" />
+    <Compile Include="Utilities\UtilityExtensions.cs" />
+    <Compile Include="WarehouseDataProvider.cs" />
+    <Compile Include="Web References\AOD_WS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\AOD_WS\IAeXMLBridgeservice.wsdl" />
+    <None Include="Web References\AOD_WS\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\AOD_WS\TAeACALEDMonthSumm.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AOD_WS\TAeACAMperiodRecommendation.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AOD_WS\TAeAccessAccount.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AOD_WS\TAeAccessAccountActivity.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AOD_WS\TAeAuthenticationPackage.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AOD_WS\TAeBasicDataItem.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AOD_WS\TAeBillingItem.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AOD_WS\TAeBillingItemEx.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AOD_WS\TAeBrowserMenuItem.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AOD_WS\TAeClientData.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AOD_WS\TAeClientExport.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AOD_WS\TAeClientReport.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AOD_WS\TAeClientVendorOp.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AOD_WS\TAeClientVendorOpResults.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AOD_WS\TAeControlGroup.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AOD_WS\TAeDateRange.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AOD_WS\TAeDeptXLateItem.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AOD_WS\TAeEdit.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AOD_WS\TAeEmpACAPeriod.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AOD_WS\TAeEmpActLog.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AOD_WS\TAeEmpBenefitActivity.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AOD_WS\TAeEmpBenefitBalance.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AOD_WS\TAeEmpBenefitBalanceDate.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AOD_WS\TAeEmpClosedMeasurementPeriod.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AOD_WS\TAeEmpGeoRegistration.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AOD_WS\TAeEmployeeACA.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AOD_WS\TAeEmployeeBasic.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AOD_WS\TAeEmployeeDetail.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AOD_WS\TAeEmployeeDetail2.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AOD_WS\TAeEmployeeSelfServiceOperation.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AOD_WS\TAeEmpTranRate.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AOD_WS\TAeEmpTransaction.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AOD_WS\TAeExchangeStruct.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AOD_WS\TAeImportLogItem.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AOD_WS\TAeMultiForm.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AOD_WS\TAeNewDBElement.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AOD_WS\TAePayDesMapping.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AOD_WS\TAePayDesMappingSet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AOD_WS\TAePayLine.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AOD_WS\TAePayPeriodCloseInfo.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AOD_WS\TAePayPeriodFrame.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AOD_WS\TAePayPeriodInfo.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AOD_WS\TAePayrollEmployee.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AOD_WS\TAeRateAssignment.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AOD_WS\TAeRatePayTypeAssignment.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AOD_WS\TAeSchedule.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AOD_WS\TAeSchedule2.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AOD_WS\TAeShiftLineDetail.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AOD_WS\TAeShiftLineSimple.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AOD_WS\TAeShiftSchedule.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AOD_WS\TAeShiftTransaction.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AOD_WS\TAeSiteEnvironment.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AOD_WS\TAeTimeClockStation.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AOD_WS\TAeTimeOffRequest.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AOD_WS\TAeTimeOffRequestHist.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AOD_WS\TAeTimeOffRequestState.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AOD_WS\TAeTransaction.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AOD_WS\TAeUsageItem.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AOD_WS\TAeWorkgroup.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AOD_WS\TAeWorkgroupAssignment.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AOD_WS\TAeWorkgroupLevel.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AOD_WS\TAeWorkgroupSet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AOD_WS\TAeWorkgroupXLate.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AOD_WS\TMaintainEmployeeResult.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Nogales.BusinessModel\Nogales.BusinessModel.csproj">
+      <Project>{c580bbb7-b45f-42e9-81ab-0834a6433a21}</Project>
+      <Name>Nogales.BusinessModel</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="https://aodws.attendanceondemand.com:8192/cc1.aew/wsdl/IAeXMLBridge">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\AOD_WS\</RelPath>
+      <UpdateFromURL>https://aodws.attendanceondemand.com:8192/cc1.aew/wsdl/IAeXMLBridge</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>Nogales_DataProvider_com_attendanceondemand_aodws_IAeXMLBridgeservice</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="EmailTemplates\PayrollErrorLog.html" />
+    <Content Include="SQLChageScripts\1.0.0.28.sql" />
+    <Content Include="SQLChageScripts\1.0.0.29.sql" />
+    <Content Include="SQLChageScripts\1.0.0.30.sql" />
+    <Content Include="SQLChageScripts\1.0.0.31.sql" />
+    <Content Include="SQLChageScripts\1.0.0.32.sql" />
+    <Content Include="SQLChageScripts\1.0.0.33.sql" />
+    <Content Include="SQLChageScripts\1.0.0.34.sql" />
+    <Content Include="SQLChageScripts\1.0.0.35.sql" />
+    <Content Include="SQLChageScripts\1.0.0.36.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EmailTemplates\EmailTemplateResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>EmailTemplateResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.Sql.UnitTesting.targets" Condition="'$(SQLDBExtensionsRefPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.Sql.UnitTesting.targets" Condition="'$(SQLDBExtensionsRefPath)' == ''" />
+  <PropertyGroup>
+    <SsdtUnitTestVersion>2.0</SsdtUnitTestVersion>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

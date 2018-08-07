@@ -1,0 +1,14 @@
+E:\Projects\Jason\NOgalesReportingTools\NogalesDashboard\Nogales\Nogales.DataProvider\bin\Release\Nogales.DataProvider.dll.config
+E:\Projects\Jason\NOgalesReportingTools\NogalesDashboard\Nogales\Nogales.DataProvider\bin\Release\Nogales.DataProvider.dll
+E:\Projects\Jason\NOgalesReportingTools\NogalesDashboard\Nogales\Nogales.DataProvider\bin\Release\Nogales.DataProvider.XmlSerializers.dll
+E:\Projects\Jason\NOgalesReportingTools\NogalesDashboard\Nogales\Nogales.DataProvider\bin\Release\Nogales.DataProvider.pdb
+E:\Projects\Jason\NOgalesReportingTools\NogalesDashboard\Nogales\Nogales.DataProvider\bin\Release\Microsoft.AnalysisServices.AdomdClient.dll
+E:\Projects\Jason\NOgalesReportingTools\NogalesDashboard\Nogales\Nogales.DataProvider\bin\Release\Nogales.BusinessModel.dll
+E:\Projects\Jason\NOgalesReportingTools\NogalesDashboard\Nogales\Nogales.DataProvider\bin\Release\Nogales.BusinessModel.pdb
+E:\Projects\Jason\NOgalesReportingTools\NogalesDashboard\Nogales\Nogales.DataProvider\obj\Release\Nogales.DataProvider.csprojResolveAssemblyReference.cache
+E:\Projects\Jason\NOgalesReportingTools\NogalesDashboard\Nogales\Nogales.DataProvider\obj\Release\Nogales.DataProvider.dll
+E:\Projects\Jason\NOgalesReportingTools\NogalesDashboard\Nogales\Nogales.DataProvider\obj\Release\Nogales.DataProvider.pdb
+E:\Projects\Jason\NOgalesReportingTools\NogalesDashboard\Nogales\Nogales.DataProvider\obj\Release\Nogales.DataProvider.XmlSerializers.dll
+E:\Projects\Jason\NOgalesReportingTools\NogalesDashboard\Nogales\Nogales.DataProvider\obj\Release\Nogales.DataProvider.EmailTemplates.EmailTemplateResources.resources
+E:\Projects\Jason\NOgalesReportingTools\NogalesDashboard\Nogales\Nogales.DataProvider\obj\Release\Nogales.DataProvider.csproj.GenerateResource.Cache
+E:\Projects\Jason\NOgalesReportingTools\NogalesDashboard\Nogales\Nogales.DataProvider\bin\Release\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll

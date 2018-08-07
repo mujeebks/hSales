@@ -1,0 +1,91 @@
+﻿
+
+
+<div>
+
+
+
+
+    <div class="chart-back-btn" ng-init="showChart=true;" ng-show="showChart">
+
+        <i class="fa-arrow-circle-o-left fa fa-2x" ng-show="backBtnVisible" ng-click="backBtnVisible=false " style="cursor:pointer;"></i>
+
+    </div>
+   
+       <div class="chart-back-btn" ng-if="drillDownData" ng-hide="showReport">
+
+            <i class="fa-arrow-circle-o-left fa fa-2x" ng-click="back()" style="cursor:pointer;"></i>
+
+        </div>
+
+    <div id="{{::chartId}}" class="chart" ng-show="showChart" style="width:100%;min-height:607px;"></div>
+
+  
+
+
+    <div ng-show="!showChart">
+
+     
+
+        <div class="chart-back-btn" ng-show="showReport">
+
+            <i class="fa-arrow-circle-o-left fa fa-2x" ng-click="backBtnVisible =false; reportback()" style="cursor:pointer;"></i>
+
+        </div>
+
+
+        <div style="margin-top: -46px;"  ng-show="isCasessoldReport">
+
+            <div ng-if="state=='sales'">
+                <div ng-if="!iscustomersItemReport && !IsCustomerWiseInvoiceReport " ng-include="'app/pages/cases-sold/cases-sold-report-table-by-salesperson-for-sales.html?v={{gulpindex}}'"></div>
+                <div ng-if="iscustomersItemReport" ng-include="'app/pages/sales/customer-item-table-for-sales.html'"></div>
+                <div ng-if="IsCustomerWiseInvoiceReport" ng-include="'app/pages/cases-sold/cases-sold-report-table-to-customer-for-sales.html?v={{gulpindex}}'"></div>
+            </div>
+            <div ng-if="state=='casessold'">
+                <div ng-if="!iscustomersItemReport && !IsCustomerWiseInvoiceReport " ng-include="'app/pages/cases-sold/cases-sold-report-table-by-salesperson.html?v={{gulpindex}}'"></div>
+                <div ng-if="iscustomersItemReport" ng-include="'app/pages/sales/customer-item-table.html?v={{gulpindex}}'"></div>
+                <div ng-if="IsCustomerWiseInvoiceReport" ng-include="'app/pages/cases-sold/cases-sold-report-table-to-customer.html?v={{gulpindex}}'"></div>
+            </div>
+        </div>
+        <div style="margin-top: -46px;" ng-show="!isCasessoldReport">
+            <div ng-if="state=='sales'">
+                <div ng-if="!iscustomersItemReport && !IsCustomerWiseInvoiceReport" ng-include="'app/pages/sales/sales-report-table-by-salesperson-for-sales.html?v={{gulpindex}}'" ng-show="showReport"></div>
+                <div ng-if="iscustomersItemReport" ng-include="'app/pages/sales/customer-item-table-for-sales.html?v={{gulpindex}}'"></div>
+                <div ng-if="IsCustomerWiseInvoiceReport" ng-include="'app/pages/cases-sold/cases-sold-report-table-to-customer-for-sales.html?v={{gulpindex}}'"></div>
+            </div>
+            <div ng-if="state=='casessold'">
+                <div ng-if="!iscustomersItemReport && !IsCustomerWiseInvoiceReport" ng-include="'app/pages/sales/sales-report-table-by-salesperson.html?v={{gulpindex}}'" ng-show="showReport"></div>
+                <div ng-if="iscustomersItemReport" ng-include="'app/pages/sales/customer-item-table.html?v={{gulpindex}}'"></div>
+                <div ng-if="IsCustomerWiseInvoiceReport" ng-include="'app/pages/cases-sold/cases-sold-report-table-to-customer.html?v={{gulpindex}}'"></div>
+            </div>
+        </div>
+
+        <div style="margin-top: -46px;" ng-show="IsProfitablity">
+            <div ng-if="state=='Profitablity'">
+                <div ng-if="IsProfitablityByCustomerReport" ng-include="'app/pages/profitability/profitability-report-by-item.html?v={{gulpindex}}'" ng-show="showReport"></div>
+                <div ng-if="IsProfitablityByCustomerReportDetails" ng-include="'app/pages/profitability/profitability-report-customer-details.html?v={{gulpindex}}'" ng-show="showReport"></div>
+            </div>
+         
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+    <div style="text-align:right;     margin-top: 20px; " ng-init="showToggleButton=true" ng-show="showToggleButton">
+
+        <toggle-switch ng-model="topBottomToggle" ng-init="topBottomToggle=true" on-label="{{toggleTopLabel}}" off-label="{{toggleBottomLabel}}">
+
+
+        </toggle-switch>
+
+    </div>
+
+</div>
+  

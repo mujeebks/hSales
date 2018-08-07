@@ -1,0 +1,474 @@
+<div class="page-sidebar navbar-collapse collapse">
+    <!-- BEGIN SIDEBAR MENU -->
+    <!-- DOC: Apply "page-sidebar-menu-light" class right after "page-sidebar-menu" to enable light sidebar menu style(without borders) -->
+    <!-- DOC: Apply "page-sidebar-menu-hover-submenu" class right after "page-sidebar-menu" to enable hoverable(hover vs accordion) sub menu mode -->
+    <!-- DOC: Apply "page-sidebar-menu-closed" class right after "page-sidebar-menu" to collapse("page-sidebar-closed" class must be applied to the body element) the sidebar sub menu mode -->
+    <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
+    <!-- DOC: Set data-keep-expand="true" to keep the submenues expanded -->
+    <!-- DOC: Set data-auto-speed="200" to adjust the sub menu slide up/down speed -->
+    <ul class="page-sidebar-menu" data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200" ng-class="{'page-sidebar-menu-closed': expansion==true,'page-sidebar-menu': expansion==false}">
+
+
+        <li class="nav-item start" ui-sref-active="active" ng-show="user.role == 'User'">
+            <a ui-sref="dashboard">
+                <i class="icon-home"></i>
+                <span class="title m1">Home</span>
+
+            </a>
+            <!--<h3 ui-sref="dashboard">HOME</h3>-->
+        </li>
+
+        <li open-sub-menu="casessold" ng-if="Module.CasesSold.IsShow" ng-show="user.role == 'User'">
+            <a ng-click="onMenuClick($event)">
+                <i class="fa fa-shopping-cart"></i>
+                <span class="title m1"> Cases Sold</span>
+                <span class="arrow"></span>
+            </a>
+            <ul class="sub-menu">
+
+                <li ui-sref-active="active">
+                    <a ui-sref="casessold">
+                        <i class="icon-graph"></i>
+                        <span class="title">Dashboard</span>
+                    </a>
+                </li>
+                <li ui-sref-active="active">
+                    <a ui-sref="cases-sold-categories">
+                        <i class="fa fa-tags"></i>
+                        <span class="title">Categories</span>
+                    </a>
+                </li>
+                <li ui-sref-active="active">
+                    <a ui-sref="casesold-report">
+                        <i class="fa fa-file-text"></i>
+                        <span class="title">Report</span>
+                    </a>
+                </li>
+
+            </ul>
+        </li>
+        <li class="nav-item start" ui-sref-active="active" ng-show="user.role == 'Tool Admin'">
+            <a ng-click="onMenuClick($event);gotousermanager()">
+                <i class="icon-home"></i>
+                <span class="title m1">User Management</span>
+            </a>
+        </li>
+        <li class="nav-item start" ui-sref-active="active" ng-show="user.role == 'Tool Admin'">
+            <a ng-click="onMenuClick($event);gotosalespersonmapping()">
+                <i class="fa fa-map-marker"></i>
+                <span class="title m1">Sales Person Mapping</span>
+            </a>
+        </li>
+
+        <!--<li ui-sref-active="active">
+                    <a ui-sref="sales-person-mapping">
+                        <i class="fa fa-map-marker"></i>
+                        <span class="title">Mapping</span>
+                    </a>
+                </li>-->
+
+
+
+
+
+        <li open-sub-menu="sales" ng-if="Module.Sales.IsShow" ng-show="user.role == 'User'">
+            <a ng-click="onMenuClick($event)">
+                <i class="fa fa-dollar"></i>
+                <span class="title m1"> Sales</span>
+                <span class="arrow"></span>
+            </a>
+            <ul class="sub-menu">
+
+                <li ui-sref-active="active">
+                    <a ui-sref="sales">
+                        <i class="icon-graph"></i>
+                        <span class="title">Dashboard</span>
+                    </a>
+                </li>
+                <li ui-sref-active="active">
+                    <a ui-sref="revenue-categories">
+                        <i class="fa fa-tags"></i>
+                        <span class="title">Categories</span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a ng-click="onMenuClick($event)">
+                        <i class="fa fa-bar-chart-o"></i>
+                        <span class="title"> Reports</span>
+                        <span class="arrow"></span>
+                    </a>
+                    <ul class="sub-menu">
+                        <li ui-sref-active="active">
+                            <a ui-sref="sales-report">
+                                <i class="fa fa-file-text"></i>
+                                <span class="title">Sales Report</span>
+                            </a>
+                        </li>
+                        <li ui-sref-active="active">
+                            <a ui-sref="sales-person-analysis-report">
+                                <i class="fa fa-file-text"></i>
+                                <span class="title">Sales Person Analysis Report</span>
+                            </a>
+                        </li>
+                        <li ui-sref-active="active">
+                            <a ui-sref="sales-analysis-report">
+                                <i class="fa fa-file-text"></i>
+                                <span class="title">Sales Analysis Report</span>
+                            </a>
+                        </li>
+                        <!--<li ui-sref-active="active">
+                            <a ui-sref="sales-person-margin-report">
+                                <i class="fa fa-file-text"></i>
+                                <span class="title">Sales Person Margin Report</span>
+                            </a>
+                        </li>-->
+                        <!--<li ui-sref-active="active">
+                            <a ui-sref="sales-person-mapping">
+                                <i class="fa fa-map-marker"></i>
+                                <span class="title">Mapping</span>
+                            </a>
+                        </li>-->
+
+
+                    </ul>
+                </li>
+
+            </ul>
+        </li>
+
+        <li open-sub-menu="expenses" ng-if="Module.Expenses.IsShow" ng-show="user.role == 'User'">
+            <a ng-click="onMenuClick($event)">
+                <i class="icon-wallet"></i>
+                <span class="title m1"> Expenses</span>
+                <span class="arrow"></span>
+            </a>
+            <ul class="sub-menu">
+                <li ui-sref-active="active">
+                    <a ui-sref="expenses">
+                        <i class="icon-graph"></i>
+                        <span class="title">Dashboard</span>
+                    </a>
+                </li>
+                <li id="submenulist">
+                    <a ng-click="onMenuClick($event)">
+                        <i class="fa fa-bar-chart-o"></i>
+                        <span class="title"> Reports</span>
+                        <span class="arrow"></span>
+                    </a>
+                    <ul class="sub-menu">
+                        <li ui-sref-active="active">
+                            <a ui-sref="expenses-report">
+                                <i class="fa fa-bar-chart-o"></i>
+                                <span class="title">Expense Report</span>
+                            </a>
+                        </li>
+                        <li ui-sref-active="active">
+                            <a ui-sref="Commodity-report">
+                                <i class="fa fa-bar-chart-o"></i>
+                                <span class="title">Commodity Report</span>
+                            </a>
+                        </li>
+                        <li ui-sref-active="active">
+                            <a ui-sref="payroll-report">
+                                <i class="fa fa-area-chart"></i>
+                                <span class="title">Payroll Report</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+
+        <!--<li open-sub-menu="revenue" ng-show="user.role == 'User'">
+            <a ng-click="onMenuClick($event)">
+                <i class="fa fa-line-chart"></i>
+                <span class="title m1"> Revenue</span>
+                <span class="arrow"></span>
+            </a>
+            <ul class="sub-menu">
+
+                <li ui-sref-active="active">
+                    <a ui-sref="revenue">
+                        <i class="icon-graph"></i>
+                        <span class="title">Dashboard</span>
+                    </a>
+                </li>
+                <li ui-sref-active="active">
+                    <a ui-sref="revenue-categories">
+                        <i class="fa fa-tags"></i>
+                        <span class="title">Categories</span>
+                    </a>
+                </li>
+                <li ui-sref-active="active">
+                    <a ui-sref="revenue-report">
+                        <i class="fa fa-bar-chart-o"></i>
+                        <span class="title">Report</span>
+                    </a>
+                </li>
+
+            </ul>
+        </li>-->
+
+
+
+        <li open-sub-menu="Profitablity" ng-if="Module.Profitability.IsShow" ng-show="user.role == 'User'">
+            <a ng-click="onMenuClick($event)">
+                <i class="fa fa-money"></i>
+                <span class="title m1"> Profitability</span>
+                <span class="arrow"></span>
+            </a>
+            <ul class="sub-menu">
+
+                <li ui-sref-active="active">
+                    <a ui-sref="Profitablity">
+                        <i class="icon-graph"></i>
+                        <span class="title">Dashboard</span>
+                    </a>
+                </li>
+
+            </ul>
+        </li>
+        <li open-sub-menu="warehouse" ng-if="Module.WareHouse.IsShow" ng-show="user.role == 'User'">
+            <a ng-click="onMenuClick($event)">
+                <i class="fa fa-home"></i>
+                <span class="title m1"> Warehouse</span>
+                <span class="arrow"></span>
+            </a>
+            <ul class="sub-menu">
+
+                <li ui-sref-active="active">
+                    <a ui-sref="warehouse">
+                        <i class="icon-graph"></i>
+                        <span class="title">Dashboard</span>
+                    </a>
+                </li>
+                <li id="submenulist">
+                    <a ng-click="onMenuClick($event)">
+                        <i class="fa fa-bar-chart-o"></i>
+                        <span class="title"> Reports</span>
+                        <span class="arrow"></span>
+                    </a>
+                    <ul class="sub-menu">
+                        <li ui-sref-active="active">
+                            <a ui-sref="warehouse-so-short-report">
+                                <i class="fa fa-area-chart"></i>
+                                <span class="title">SO Short Report</span>
+                            </a>
+                        </li>
+                        <li ui-sref-active="active">
+                            <a ui-sref="warehouse-wms-picker-productivity-report">
+                                <i class="fa fa-line-chart"></i>
+                                <span class="title">WMS Picker Productivity Report</span>
+                            </a>
+                        </li>
+                        <li ui-sref-active="active">
+                            <a ui-sref="sales-order-no-bin-report">
+                                <i class="fa fa-money"></i>
+                                <span class="title">Sales Order No Bin Report</span>
+                            </a>
+                        </li>
+                        <li ui-sref-active="active">
+                            <a ui-sref="dumpdonations-report">
+                                <i class="fa fa-dollar"></i>
+                                <span class="title">Dump and Donation Report</span>
+                            </a>
+                        </li>
+
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li open-sub-menu="transportation" ng-if="Module.Transportation.IsShow" ng-show="user.role == 'User'">
+            <a ng-click="onMenuClick($event)">
+                <i class="fa fa-bus"></i>
+                <span class="title m1"> Transportation</span>
+                <span class="arrow"></span>
+            </a>
+            <ul class="sub-menu">
+
+                <li ui-sref-active="active">
+                    <a ui-sref="transportation">
+                        <i class="icon-graph"></i>
+                        <span class="title">Dashboard</span>
+                    </a>
+                </li>
+                <li id="submenulist">
+                    <a ng-click="onMenuClick($event)">
+                        <i class="fa fa-bar-chart-o"></i>
+                        <span class="title"> Reports</span>
+                        <span class="arrow"></span>
+                    </a>
+                    <ul class="sub-menu">
+                        <li ui-sref-active="active">
+                            <a ui-sref="transportation-driver-report">
+                                <i class="fa fa-truck"></i>
+                                <span class="title">Driver Report</span>
+                            </a>
+                        </li>
+                        <li ui-sref-active="active">
+                            <a ui-sref="transportation-route-report">
+                                <i class="fa fa-road"></i>
+                                <span class="title">Route Report</span>
+                            </a>
+                        </li>
+                   
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li open-sub-menu="item" ng-if="Module.Item.IsShow" ng-show="user.role == 'User'">
+            <a ng-click="onMenuClick($event)">
+                <i class="fa fa-list-alt"></i>
+                <span class="title m1"> Item</span>
+                <span class="arrow"></span>
+            </a>
+            <ul class="sub-menu">
+
+
+                <li ui-sref-active="active">
+                    <a ui-sref="item-report">
+                        <i class="fa fa-file-text"></i>
+                        <span class="title">Avg Cost Report</span>
+                    </a>
+
+
+                </li>
+                <li ui-sref-active="active">
+                    <a ui-sref="costcomparison-report">
+                        <i class="fa fa-file-text"></i>
+                        <span class="title">Cost Comparison Report</span>
+                    </a>
+                </li>
+                <li ui-sref-active="active">
+                    <a ui-sref="itemvendor-report">
+                        <i class="fa fa-file-text"></i>
+                        <span class="title">Item Vendor Report</span>
+                    </a>
+                </li>
+
+            </ul>
+        </li>
+        <li open-sub-menu="customers" ng-if="Module.Customers.IsShow" ng-show="user.role == 'User'">
+            <a ng-click="onMenuClick($event)">
+                <i class="fa fa-group"></i>
+                <span class="title m1"> Customers</span>
+                <span class="arrow"></span>
+            </a>
+            <ul class="sub-menu">
+
+                <!--<li ui-sref-active="active">
+                    <a ui-sref="">
+                        <i class="icon-graph"></i>
+                        <span class="title">Dashboard</span>
+                    </a>
+                </li>-->
+                <li  >
+                    <a ng-click="onMenuClick($event)">
+                        <i class="fa fa-bar-chart-o"></i>
+                        <span class="title"> Report</span>
+                        <span class="arrow"></span>
+                    </a>
+                    <ul class="sub-menu">
+                        <li ui-sref-active="active">
+                            <a ui-sref="customer-report">
+                                <i class="fa fa-area-chart"></i>
+                                <span class="title">Customer Report</span>
+                            </a>
+                        </li>
+                        <!--<li ui-sref-active="active">
+                            <a ui-sref="lost-order-report">
+                                <i class="fa fa-area-chart"></i>
+                                <span class="title">Lost Order Report</span>
+                            </a>
+                        </li>-->
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <!--<li open-sub-menu="payroll" ng-if="Module.Payroll.IsShow" ng-show="user.role == 'User'">
+            <a ng-click="onMenuClick($event)">
+                <i class="fa fa-usd"></i>
+                <span class="title m1"> Payroll</span>
+                <span class="arrow"></span>
+            </a>
+            <ul class="sub-menu">
+
+                <li>
+                    <a ng-click="onMenuClick($event)">
+                        <i class="fa fa-bar-chart-o"></i>
+                        <span class="title"> Report</span>
+                        <span class="arrow"></span>
+                    </a>
+                    <ul class="sub-menu">
+                        <li ui-sref-active="active">
+                            <a ui-sref="payroll-report">
+                                <i class="fa fa-area-chart"></i>
+                                <span class="title">Payroll Report</span>
+                            </a>
+                        </li>
+
+                    </ul>
+                </li>
+            </ul>
+        </li>-->
+
+
+    </ul>
+
+
+    <!-- END SIDEBAR MENU -->
+</div>
+
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Your session is about to expire.</h4>
+        </div>
+        <div class="modal-body">
+            <p>
+                <span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 50px 0;"></span>
+                You will be logged off in <span style="font-weight:bold">{{timersecs}}</span> seconds.
+            </p>
+            <p>Do you want to continue your session?</p>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" ng-click="cancel()">No, Logout</button>
+            <button type="button" class="btn btn-default" ng-click="continue()">Yes, Keep Working</button>
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+    $(function () {
+        //$('.title').click(function () {
+        //    var refEl = $(this).text().trim();
+        //    var refcl = $(this).parent().parent().parent().parent().find('.m1').text().trim();
+
+        //    $('.m1').each(function (index, data) {
+
+        //        var tex = $(this).text().trim();
+
+        //        if (tex != refcl) {
+        //            var x = this;
+        //            setTimeout(function () {
+        //                $(x).parent().parent().removeClass('active open');
+        //                $(x).next().removeClass('open');
+
+        //            },1000)
+
+
+        //        }
+
+        //    });
+
+        //})
+
+    })
+
+
+</script>

@@ -1,0 +1,213 @@
+﻿<!--<div class="row page-filter">
+    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12 filter-action pull-right-lg-md">
+        <div class="btn-group pull-right-lg-md">
+            <button ng-click="refreshChartsRevenue()" class="btn btn-success" id="load" data-loading-text="<i class='fa fa-refresh fa-spin'></i> Loading new Data..."> Refresh</button>
+        </div>
+    </div>
+</div>-->
+<div class="row">
+    <div class="col-md-6 col-sm-12">
+        <div class="portlet light bordered">
+            <div class="portlet-title  tabbable-line">
+                <div class="caption caption-md">
+                    <div class="time-frame" style="float: right;position: absolute;right: 0;margin-right: 27px;">
+                        <span class="ng-binding">
+                            {{currentfilter.Periods.Current.Start | date}} - {{currentfilter.Periods.Current.End | date}}
+                        </span>
+                        <label class="ng-pristine ng-untouched ng-valid ng-isolate-scope ng-hide"></label>
+                    </div>
+
+                    <span class="caption-subject font-light-orange-haze bold uppercase text-mobile text-mobile" compile="buyertitle"></span>
+                    <span class="caption-helper hide">weekly stats</span>
+                </div>
+                <ul class="nav nav-tabs"></ul>
+                <div class="actions">
+                </div>
+            </div>
+            <div class="portlet-body" id="">
+                <div>
+                    <nogales-clustered-bar-chart-with-reportforcategories category="BUYER" filter-type="filter.type" ng-model="Categories.BuyerRevenue.All" nl-dashboard="revenue" callback-fn="categories_subjectfn(title,charttype)"></nogales-clustered-bar-chart-with-reportforcategories>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-sm-12">
+        <div class="portlet light bordered">
+            <div class="portlet-title  tabbable-line">
+                <div class="caption caption-md">
+                    <div class="time-frame" style="float: right;position: absolute;right: 0;margin-right: 27px;">
+                        <span class="ng-binding">
+                            {{currentfilter.Periods.Current.Start | date}} - {{currentfilter.Periods.Current.End | date}}
+                        </span>
+                        <label class="ng-pristine ng-untouched ng-valid ng-isolate-scope ng-hide"></label>
+                    </div>
+                    <span class="caption-subject font-light-orange-haze bold uppercase text-mobile" compile="foodservicetitle"></span>
+                    <span class="caption-helper hide">weekly stats</span>
+                </div>
+                <ul class="nav nav-tabs"></ul>
+                <div class="actions">
+                </div>
+            </div>
+            <div class="portlet-body" id="">
+                <div>
+                    <nogales-clustered-bar-chart-with-reportforcategories category="FOOD SERVICE" filter-type="filter.type" ng-model="Categories.FoodServiceRevenue.All" nl-dashboard="revenue" callback-fn="categories_subjectfn(title,charttype)"></nogales-clustered-bar-chart-with-reportforcategories>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6 col-sm-12">
+        <div class="portlet light bordered">
+            <div class="portlet-title  tabbable-line">
+                <div class="caption caption-md">
+                    <div class="time-frame" style="float: right;position: absolute;right: 0;margin-right: 27px;">
+                        <span class="ng-binding">
+                            {{currentfilter.Periods.Current.Start | date}} - {{currentfilter.Periods.Current.End | date}}
+                        </span>
+                        <label class="ng-pristine ng-untouched ng-valid ng-isolate-scope ng-hide"></label>
+                    </div>
+                    <span class="caption-subject font-light-orange-haze bold uppercase text-mobile" compile="carniceriatitle"></span>
+                    <span class="caption-helper hide">weekly stats</span>
+                </div>
+                <ul class="nav nav-tabs"></ul>
+                <div class="actions">
+                </div>
+            </div>
+            <div class="portlet-body" id="">
+                <div>
+                    <nogales-clustered-bar-chart-with-reportforcategories category="CARNICERIA" filter-type="filter.type" ng-model="Categories.CarniceriaRevenue.All" nl-dashboard="revenue" callback-fn="categories_subjectfn(title,charttype)"></nogales-clustered-bar-chart-with-reportforcategories>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-sm-12">
+        <div class="portlet light bordered">
+            <div class="portlet-title  tabbable-line">
+                <div class="caption caption-md">
+                    <div class="time-frame" style="float: right;position: absolute;right: 0;margin-right: 27px;">
+                        <span class="ng-binding">
+                            {{currentfilter.Periods.Current.Start | date}} - {{currentfilter.Periods.Current.End | date}}
+                        </span>
+                        <label class="ng-pristine ng-untouched ng-valid ng-isolate-scope ng-hide"></label>
+                    </div>
+                    <span class="caption-subject font-light-orange-haze bold uppercase text-mobile" compile="retailtitle"></span>
+                    <span class="caption-helper hide">weekly stats</span>
+                </div>
+                <ul class="nav nav-tabs"></ul>
+                <div class="actions">
+                </div>
+            </div>
+            <div>
+                <nogales-clustered-bar-chart-with-reportforcategories category="RETAIL" filter-type="filter.type" ng-model="Categories.RetailRevenue.All" nl-dashboard="revenue" callback-fn="categories_subjectfn(title,charttype)"></nogales-clustered-bar-chart-with-reportforcategories>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6 col-sm-12">
+        <div class="portlet light bordered">
+            <div class="portlet-title  tabbable-line">
+                <div class="caption caption-md">
+                    <div class="time-frame" style="float: right;position: absolute;right: 0;margin-right: 27px;">
+                        <span class="ng-binding">
+                            {{currentfilter.Periods.Current.Start | date}} - {{currentfilter.Periods.Current.End | date}}
+                        </span>
+                        <label class="ng-pristine ng-untouched ng-valid ng-isolate-scope ng-hide"></label>
+                    </div>
+                    <span class="caption-subject font-light-orange-haze bold uppercase text-mobile" compile="nationaltitle"></span>
+                    <span class="caption-helper hide">weekly stats</span>
+                </div>
+                <ul class="nav nav-tabs" ng-init="nationalTabAll=true;"></ul>
+                <div class="actions">
+                </div>
+            </div>
+            <div ng-if="nationalTabAll">
+                <nogales-clustered-bar-chart-with-reportforcategories category="National" filter-type="filter.type" ng-model="Categories.NationalRevenue.All" nl-dashboard="revenue" callback-fn="categories_subjectfn(title,charttype)"></nogales-clustered-bar-chart-with-reportforcategories>
+            </div>
+            <div ng-if="nationalTabGrocery">
+                <nl-clustered-bar-chart-casesold1 filter-type="filter.type" category="National" chart-type="Grocery" ng-model="Categories.NationalRevenue.Grocery" nl-dashboard="revenue" callback-fn="categories_subjectfn(title,charttype)"></nl-clustered-bar-chart-casesold1>
+            </div>
+            <div ng-if="nationalTabProduce">
+                <nl-clustered-bar-chart-casesold1 filter-type="filter.type" category="National" chart-type="Produce" ng-model="Categories.NationalRevenue.Produce" nl-dashboard="revenue" callback-fn="categories_subjectfn(title,charttype)"></nl-clustered-bar-chart-casesold1>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-sm-12">
+        <div class="portlet light bordered">
+            <div class="portlet-title  tabbable-line">
+                <div class="caption caption-md">
+                    <div class="time-frame" style="float: right;position: absolute;right: 0;margin-right: 27px;">
+                        <span class="ng-binding">
+                            {{currentfilter.Periods.Current.Start | date}} - {{currentfilter.Periods.Current.End | date}}
+                        </span>
+                        <label class="ng-pristine ng-untouched ng-valid ng-isolate-scope ng-hide"></label>
+                    </div>
+                    <span class="caption-subject font-light-orange-haze bold uppercase text-mobile" compile="Willcalltitle"></span>
+                    <span class="caption-helper hide">weekly stats</span>
+                </div>
+                <ul class="nav nav-tabs"></ul>
+                <div class="actions">
+                </div>
+            </div>
+
+            <div>
+                <nogales-clustered-bar-chart-with-reportforcategories category="Will Call" filter-type="filter.type" ng-model="Categories.WillCallRevenue.All" nl-dashboard="revenue" callback-fn="categories_subjectfn(title,charttype)"></nogales-clustered-bar-chart-with-reportforcategories>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6 col-sm-12">
+        <div class="portlet light bordered">
+            <div class="portlet-title  tabbable-line">
+                <div class="caption caption-md">
+                    <div class="time-frame" style="float: right;position: absolute;right: 0;margin-right: 27px;">
+                        <span class="ng-binding">
+                            {{currentfilter.Periods.Current.Start | date}} - {{currentfilter.Periods.Current.End | date}}
+                        </span>
+                        <label class="ng-pristine ng-untouched ng-valid ng-isolate-scope ng-hide"></label>
+                    </div>
+                    <span class="caption-subject font-light-orange-haze bold uppercase text-mobile" compile="Wholesalertitle"></span>
+                    <span class="caption-helper hide">weekly stats</span>
+                </div>
+                <ul class="nav nav-tabs"></ul>
+                <div class="actions">
+                </div>
+            </div>
+            <div>
+                <nogales-clustered-bar-chart-with-reportforcategories category="Wholesaler" filter-type="filter.type" ng-model="Categories.WholesalerRevenue.All" nl-dashboard="revenue" callback-fn="categories_subjectfn(title,charttype)"></nogales-clustered-bar-chart-with-reportforcategories>
+            </div>
+
+        </div>
+    </div>
+    <div class="col-md-6 col-sm-12">
+        <div class="portlet light bordered">
+            <div class="portlet-title  tabbable-line">
+                <div class="caption caption-md">
+                    <div class="time-frame" style="float: right;position: absolute;right: 0;margin-right: 27px;">
+                        <span class="ng-binding">
+                            {{currentfilter.Periods.Current.Start | date}} - {{currentfilter.Periods.Current.End | date}}
+                        </span>
+                        <label class="ng-pristine ng-untouched ng-valid ng-isolate-scope ng-hide"></label>
+                    </div>
+                    <span class="caption-subject font-light-orange-haze bold uppercase text-mobile" compile="AllOtherstitle"></span>
+                    <span class="caption-helper hide">weekly stats</span>
+                </div>
+                <ul class="nav nav-tabs"></ul>
+                <div class="actions">
+                </div>
+            </div>
+            <div>
+                <nogales-clustered-bar-chart-with-reportforcategories category="All Others" filter-type="filter.type" ng-model="Categories.AllOthersRevenue.All" nl-dashboard="revenue" callback-fn="categories_subjectfn(title,charttype)"></nogales-clustered-bar-chart-with-reportforcategories>
+            </div>
+
+        </div>
+    </div>
+</div>

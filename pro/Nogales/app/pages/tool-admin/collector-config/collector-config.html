@@ -1,0 +1,214 @@
+﻿<style>
+     [data-letters]:before {
+         content: attr(data-letters);
+         display: inline-block;
+         font-size: 1em;
+         width: 2.5em;
+         height: 2.5em;
+         line-height: 2.5em;
+         text-align: center;
+         border-radius: 50%;
+         /*background: #c9302c;*/
+         vertical-align: middle;
+         color: white;
+     }
+    
+     /*.alertify-logs {
+         width: 256px !important;
+     }
+
+     .alertify-log alertify-log-success alertify-log-show {
+         text-align: center !important;
+     }*/
+</style>
+<style>
+     .wrapper {
+         /*margin: auto;*/
+         text-align: left;
+         /*position: relative;
+         -webkit-border-radius: 5px;
+         -moz-border-radius: 5px;
+         border-radius: 5px;
+         width: 777px;
+         padding-top: 5px;*/
+     }
+   
+</style>
+<style>
+    
+     .prettybutton {
+         display: inline-flex;
+         box-shadow: 2px 2px 2px;
+         border-radius: 50% !important;
+         margin-right: 8px;
+         top:10px;
+          /*transition: all .2s ease-in-out;*/
+     }
+     .prettybutton1 {
+         display: inline-flex;
+         box-shadow:  2px 2px 2px;
+         border-radius: 50% !important;
+         margin-right: 8px;
+         top:10px;
+          /*transition: all .2s ease-in-out;*/
+     }
+     .prettybutton:hover {
+            transform: scale(1.2); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+
+            
+
+}
+      .prettybutton1:hover {
+            transform: scale(1.2); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+
+            
+
+}
+</style>
+
+<style>
+  /* you can also define the transition style
+   on the base class as well (.repeat-item) */
+/*.repeat-item.ng-enter,
+.repeat-item.ng-leave {
+  -webkit-transition:0.5s linear all !important;
+  transition:0.5s linear all !important;
+}
+
+.repeat-item.ng-enter,
+.repeat-item.ng-leave.ng-leave-active {
+  opacity:0 !important;
+
+}
+.repeat-item.ng-leave,
+.repeat-item.ng-enter.ng-enter-active {
+  opacity:1 !important;
+ 
+}*/
+.myHandle {
+  /*display: inline-block;
+  height: 20px;
+  width: 20px;
+  vertical-align: middle;
+  background-color: #000;
+  cursor: move;*/
+}
+
+</style>
+
+
+
+<div class="portlet box blue-hoki" style="">
+    <div class="portlet-title">
+        <reportfullscreen needexpand="true"></reportfullscreen>
+        <button style="margin-top: 5px; float: right;margin-right: 10px;" class="btn btn-success btn-sm" ng-click="CreateCollector(); userForm.firstName.$setPristine();">
+            Create Collector
+        </button>
+    </div>
+    <div class="portlet-body" data-st-table="CollectData" data-st-safe-src="CollectDataSafe">
+        <div class="row" style="padding:0 0 8px 0;">
+            <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+                <div class="row">
+                    <div class="col-xs-12" style="float:left; width:auto; padding-right:0; margin-bottom:10px; ">
+                        <div class="view"> View </div>
+                        <div class="view-input">
+                            <select class="form-control" style="padding: 0px;" data-ng-model="pageSize">
+                                <option value="5">5</option>
+                                <option value="10">10</option>
+                                <option value="20">20</option>
+                            </select>
+                        </div>
+                        <div class="records">records</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12" style="text-align:right;">
+                <input class="form-control" placeholder="Search ..." type="text" ng-model="gridSearchText" data-st-search data-st-functions="stInterface" />
+            </div>
+            <button style="display:none" type="button" st-reset-search table-functions="myTableFunctions"></button>
+        </div>
+        <div style="overflow: auto;">
+            <span class="caption-subject font-light-orange-haze bold uppercase text-mobile text-mobile"><span>UnAssigned Customer</span></span>
+            <div class="thumbnail" style="z-index:100 !important;min-height: 43px;" data-drop="true" ng-model='UnAssignedCustomerPrefixes' data-jqyoui-options="{accept:'.btn-draggable:not([ng-model=UnAssignedCustomerPrefixes])'}" jqyoui-droppable="{multiple:true,onDrop:'UnAssignCallback(UnAssignedCustomerPrefixes)'}">
+                <p class="btn-draggable prettybutton1" ng-repeat="item in UnAssignedCustomerPrefixes" ng-style="setStyle(item)" ng-show="item.LetterName" data-drag="true" data-jqyoui-options="{revert: 'invalid'}" ng-model="UnAssignedCustomerPrefixes" jqyoui-draggable="{index: {{$index}},animate:false,onStart:'startCallback(item, $index)'}" data-letters="{{item.LetterName}}"></p>
+            </div>
+            <table id="tblReport" class="table table-striped table-bordered table-hover table-condensed ">
+                <thead>
+                    <tr class="reportheader">
+                        <th style="text-align: left !important;min-width:60px">
+                            <div class="th-head" style="min-width:45px !important">Re-order</div>
+                        </th>
+                        <th style="text-align: left !important;min-width: 109px;">
+                            <div class="th-head">Ordinance</div>
+                        </th>
+                        <th style="text-align: left !important;min-width:111px">
+                            <div class="th-head" style="min-width:179px !important">Actions</div>
+                        </th>
+                        <th style="text-align: left !important;min-width: 160px;">
+                            <div class="th-head">Collectors</div>
+                        </th>
+                     
+                        <th style="text-align: left !important;">
+                            <div class="th-head">Customer Accounts</div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody ui-sortable="sortableOptions" ng-model="CollectData" >
+                    <tr ng-repeat="user in CollectData" ng-class="{'repeat-item': slide ,'':!slide}"    style="text-align:center;">
+                        <td  style="text-align:center;vertical-align: inherit;" class="myHandle" title="Move the row to change the ordinance">
+                            <span style="cursor:all-scroll" >
+                               <img src="../../../../assets/admin/layout4/img/drag.png" style="width:25px;height:25px"/>
+                            </span>
+                        </td>
+                        <td style="text-align:left;vertical-align: inherit; min-width: 109px;">{{user.Ordinance}}</td>
+                        <td style="text-align:left;vertical-align: inherit;">
+                           
+                            <span ng-if="!user.isedit" ng-hide="user.isnew">
+                                <button class="btn btn-info" ng-click="onEditUser(user);"> Edit</button>
+                                <button class="btn btn-danger" ng-click="onDeleteUser(user)"> Delete</button>
+                            </span>
+                            <span ng-if="user.isedit" >
+                                <button class="btn btn-info" ng-click="onUpdateUser(user,'Update');">Update</button>
+                                <button class="btn btn-danger" ng-click="canceledit(user)">Cancel</button>
+                            </span>
+                            <span ng-if="user.isnew">
+                                <button class="btn btn-info" ng-click="onUpdateUser(user,'Add');">Create</button>
+                                <button class="btn btn-danger" ng-click="cancelNewUser(user)">Cancel</button>
+                            </span>
+                        </td>
+                        <td style="text-align:left;vertical-align: inherit; cursor:default">
+                            <span ng-if="!user.isedit" ng-hide="user.isnew">{{user.CollectorName}}</span>
+                            <input ng-if="user.isedit" ng-model="user.CollectorName" class="form-control placeholder-no-fix" />
+                            <input ng-if="user.isnew" ng-model="user.CollectorName" class="form-control placeholder-no-fix" />
+                        </td>
+                        <!--<td style="text-align:left;vertical-align: inherit;">{{$index+1}}</td>-->
+                    
+                        <td>
+                            <!--data-jqyoui-options="{accept:'.btn-draggable:not([ng-model=user.list4])'}"-->
+                            <div class="" style="height:auto; min-height:50px; padding:5px 10px 5px !important;background-color: #fff;" data-drop="true" ng-model='user.CollectorAssignments' data-jqyoui-options="" jqyoui-droppable="{multiple:true,onDrop:'dropCallback(user)'}" >
+                                <div class="caption">
+                                    <div class="wrapper">
+                                        <p style="cursor:all-scroll" ng-repeat="item in user.CollectorAssignments" ng-style="setStyle(item)" class="btn-draggable prettybutton repeat-item" ng-show="item.LetterName" data-drag="true" data-jqyoui-options="{revert: 'invalid'}" ng-model="user.CollectorAssignments" jqyoui-draggable="{index: {{$index}},animate:false,onStart:'startCallback(item, $index)', onStop: 'stopCallback', onDrag: 'dragCallback(user)'}" data-letters="{{item.LetterName}}"></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+                <tbody ng-if="CollectData.length == 0">
+                    <tr>
+                        <td nodatafound style="text-align:center;vertical-align:middle;">No data found</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" data-st-pagination=""
+                     data-st-items-by-page="pageSize"
+                     data-st-template="../../../assets/global/plugins/smart-table/_TablePagination.html"
+                     style="text-align: right;" ng-init="pageSize = '10'"></div>
+            </div>
+        </div>
+    </div>
+</div>

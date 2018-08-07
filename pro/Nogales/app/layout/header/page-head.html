@@ -1,0 +1,29 @@
+<!-- BEGIN PAGE TITLE -->
+<!--<div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">-->
+<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+    <!--<div class="page-title">
+                <h1>
+            <span data-ng-bind="$state.current.data.pageTitle"></span>
+            <small data-ng-bind="$state.current.data.pageSubTitle"  ></small>
+        </h1>
+    </div>-->
+    <!--<div class="page-title">
+
+        <h1>
+            <span data-ng-bind="$state.current.data.pageTitle"></span>
+            <small data-ng-bind="$state.current.data.pageSubTitle" style="display: inline; "></small>
+        </h1>
+
+    </div>-->
+    <div ng-if="$state.current.name == 'dashboard'" class="time-frame" style="float: right;position: absolute;right: 0;">
+        <span class="ng-binding">
+            {{currentfilter.Periods.Current.Start | date}} - {{currentfilter.Periods.Current.End | date}}
+        </span>
+        <label class="ng-pristine ng-untouched ng-valid ng-isolate-scope ng-hide"></label>
+    </div>
+</div>
+<!-- END PAGE TITLE -->
+
+<div class="page-toolbar" ng-if="$state.current.name == 'dashboard'">
+    <!--<label> MTD </label>-->
+</div>

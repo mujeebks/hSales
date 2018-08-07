@@ -1,0 +1,123 @@
+﻿<style>
+    .selectedbtn {
+        background-color: #A9522F !important;
+    }
+
+    .notselectedbtn {
+        background-color: #f36a5a !important;
+    }
+</style>
+<div class="portlet light">
+
+    <div class="portlet-title report-title">
+
+        <!--<div class="tools">
+            <a href="javascript:;" class="fullscreen" data-original-title="" title=""></a>
+        </div>-->
+    </div>
+
+
+    <div class="portlet-title report-title" data-st-table="profitItemData" data-st-safe-src="profitItemDataSafe" id="caseSoldDrilldownSalesreport">
+
+        <div class="row" style="padding:0 0 8px 0;">
+            <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+                <div class="row">
+                    <div class="col-xs-12" style="float:left; width:auto; padding-right:0; margin-bottom:10px; ">
+                        <div class="view"> View </div>
+                        <div class="view-input">
+                            <select class="form-control" style="padding: 0px;" data-ng-model="pageSize">
+                                <option value="5">5</option>
+                                <option value="10">10</option>
+                                <option value="20">20</option>
+                            </select>
+                        </div>
+                        <div class="records">records</div>
+                    </div>
+
+                    <div class="col-xs-12" style="float:left; width:auto; margin-bottom:10px;">
+                       
+                        <div class="btn-group" style="margin-left: 20px; margin-bottom:0px;">
+                            <button class="btn btn-sm-new btn-circle btn-search" ng-csv="getProfitabilityByItemCsvData()" csv-header="getProfitabilityByItemCsvDataHeader()" filename="{{csvFileName}}" data-ng-disabled="profitItemData.length==0">
+                                <i class="fa fa-file-excel-o"></i>
+                                Excel (csv)
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12" style="text-align:right;">
+                <input class="form-control" placeholder="Search ..." type="text" ng-model="gridSearchText" data-st-search data-st-functions="stInterface" />
+            </div>
+            <button style="display:none" type="button" st-reset-search table-functions="myTableFunctions"></button>
+
+        </div>
+
+        <div style="overflow: auto;">
+            <table id="tblReport" class="table table-striped table-bordered table-hover table-condensed ">
+                <thead>
+                    <tr class="reportheader">
+                        <th data-st-sort="CompanyCode" style="text-align: left !important;min-width:134px"><div class="th-head">Company Code</div></th>
+                        <th data-st-sort="CompanyName" style="text-align: left !important; min-width:180px"><div class="th-head">Company Name</div></th>
+                        <th data-st-sort="PriorProfit" style="text-align: left !important; min-width:138px"><div class="th-head">Historical Profit</div></th>
+                        <th data-st-sort="CurrentProfit" st-sort-default="reverse" style="text-align: left !important; min-width:125px"><div class="th-head">Current Profit</div></th>   
+                        <th data-st-sort="DifferenceProfit" style="text-align: left !important; min-width:104px"><div class="th-head">Difference</div></th>
+                        <th data-st-sort="GrowthProfit" style="text-align: left !important; min-width:122px"><div class="th-head">Difference (%)</div></th>
+                    </tr>
+                </thead>
+                <tbody ng-repeat="(key, value) in (profitItemData|groupBy:groupProperty )">
+                    <tr ng-if="key !== 'undefined'" style="cursor: pointer; background-color:#eee;">
+
+                        <td colspan="5" class="text-left text-uppercase" ng-click="value[0].Extended = !value[0].Extended">
+                            <span class="glyphicon" data-ng-class="value[0].extended?'glyphicon-minus-sign':'glyphicon-plus-sign'"></span>
+                            <strong>
+                                &nbsp;&nbsp;
+                                <span ng-if="key == 'null'">  </span>
+                                <span ng-if="key != 'null' && groupProperty.toUpperCase().indexOf('DATE') >= 0"> {{key| date : 'yyyy-MM-dd'}} </span>
+                                <span ng-if="key != 'null' && groupProperty.toUpperCase().indexOf('DATE') < 0"> {{key}} </span>
+                            </strong>
+                        </td>
+                    </tr>
+                    <tr ng-repeat="item in value" style="text-align:center;" ng-if="value[0].Extended||key === 'undefined'">
+                        <td style="text-align:left">{{item.CompanyCode}}</td>
+                        <td style="text-align:left">
+                                 <a href="" ng-if="item.CompanyName!==0" ng-click="GetProfitByCustomerDetails(item.CompanyCode);">{{item.CompanyName}}</a>
+                                    <span ng-if="item.CompanyName==0">{{item.CompanyName}}</span>
+                        </td>
+                        
+                        <td style="text-align:right">{{item.PriorProfit | currency : "$" : 0}}</td> 
+                        <td style="text-align:right">{{item.CurrentProfit | currency : "$" : 0}}</td> 
+                        <td style="text-align:right">{{item.DifferenceProfit | number:0}}</td>
+                        <td style="text-align:right">
+                            <span class="fa fa-sort-up" style="color:forestgreen" ng-hide="item.GrowthProfit<=0"></span>
+                            <span class="fa fa-sort-down" style="color:red;" ng-show="item.GrowthProfit<=0"></span>
+                            <span>{{item.GrowthProfit | number:0}}</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th style="text-align: left !important;"><div class="th-head">Total</div></th>
+                        <th style="text-align: right !important;"><div class="th-head"></div></th>
+                        <th style="text-align: right !important;"><div class="th-head">{{TotalPriorProfit | currency : "$" : 0}}</div></th>
+                        <th style="text-align: right !important;"><div class="th-head">{{TotalCurrentProfit | currency : "$" : 0}}</div></th>
+                        <th style="text-align: right !important;"><div class="th-head"></div></th>
+                        <th style="text-align: right !important;"><div class="th-head"></div></th>
+
+                    </tr>
+                </tbody>
+                <tbody ng-if="profitItemData.length == 0">
+                    <tr>
+                        <td colspan="8" style="text-align:center;vertical-align:middle;">No data found</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" data-st-pagination=""
+                     data-st-items-by-page="pageSize"
+                     data-st-template="../../../assets/global/plugins/smart-table/_TablePagination.html"
+                     style="text-align: right;" ng-init="pageSize = '10'"></div>
+            </div>
+        </div>
+    </div>
+</div>

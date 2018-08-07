@@ -1,0 +1,147 @@
+﻿<style>
+    .selectedbtn {
+        background-color: #A9522F !important;
+    }
+
+    .notselectedbtn {
+        background-color: #f36a5a !important;
+    }
+</style>
+<div class="portlet light">
+
+    <div class="portlet-title report-title">
+
+        <!--<div class="tools">
+            <a href="javascript:;" class="fullscreen" data-original-title="" title=""></a>
+        </div>-->
+    </div>
+
+
+    <div class="portlet-title report-title" data-st-table="customersData" data-st-safe-src="customersDataSafe" id="caseSoldDrilldownSalesreport">
+
+        <div class="row" style="padding:0 0 8px 0;">
+            <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+                <div class="row">
+                    <div class="col-xs-12" style="float:left; width:auto; padding-right:0; margin-bottom:10px; ">
+                        <div class="view"> View </div>
+                        <div class="view-input">
+                            <select class="form-control" style="padding: 0px;" data-ng-model="pageSize">
+                                <option value="5">5</option>
+                                <option value="10">10</option>
+                                <option value="20">20</option>
+                            </select>
+                        </div>
+                        <div class="records">records</div>
+                    </div>
+                    <div class="col-xs-12" style="float:left; width:auto; margin-bottom:10px;">
+                        <div style="float:left" class="input-icon">
+
+                            <div class="btn-group" style="margin-left: 20px; margin-bottom:0px;">
+                                <button class="btn btn-sm-new btn-circle btn-search" ng-csv="getCsvDataProfitByCustomerDetailAndCommodity()" csv-header="getCsvDataGetProfitByCustomerDetailAndCommodityrHeader()" filename="{{csvFileName}}" data-ng-disabled="customersData.length==0">
+                                    <i class="fa fa-file-excel-o"></i>
+                                    Excel (csv)
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12" style="float:left; width:auto; margin-bottom:10px;">
+                        <div style="float:left" class="input-icon">
+                            <div class="btn-group">
+                                <span style="padding-right:0;"><button ng-class="{ 'btn btn-primary btn-circle btn-sm orange selectedbtn': currentcommodity=='All', 'btn btn-primary btn-circle btn-sm orange notselectedbtn': currentcommodity!='All' }" class="btn btn-primary btn-circle btn-sm orange" style="margin-bottom:5px" data-ng-click="FilterCommodity('All')">All</button></span>
+
+                                <span style="padding-right:0;"><button ng-class="{ 'btn btn-primary btn-circle btn-sm orange selectedbtn': currentcommodity=='Grocery', 'btn btn-primary btn-circle btn-sm orange notselectedbtn': currentcommodity!='Grocery' }" class="btn btn-primary btn-circle btn-sm orange" style="margin-bottom:5px" data-ng-click="FilterCommodity('Grocery')">Grocery</button></span>
+
+                                <span style="padding-right:0;"><button ng-class="{ 'btn btn-primary btn-circle btn-sm orange selectedbtn': currentcommodity=='Produce', 'btn btn-primary btn-circle btn-sm orange notselectedbtn': currentcommodity!='Produce' }" class="btn btn-primary btn-circle btn-sm orange" style="margin-bottom:5px" data-ng-click="FilterCommodity('Produce')">Produce</button></span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12" style="text-align:right;">
+                <input class="form-control" placeholder="Search ..." type="text" ng-model="gridSearchText" data-st-search data-st-functions="stInterface" />
+            </div>
+            <button style="display:none" type="button" st-reset-search table-functions="myTableFunctions"></button>
+
+        </div>
+
+        <div style="overflow: auto;">
+            <table id="tblReport" class="table table-striped table-bordered table-hover table-condensed ">
+                <thead>
+                    <tr class="reportheader">
+                        <th data-st-sort="Commodity" style="text-align: left !important; min-width:111px;"><div class="th-head">Commodity</div></th>
+                        <th data-st-sort="InvoiceDate" style="text-align: left !important; min-width:119px;"><div class="th-head">Invoice Date</div></th>
+                        <th data-st-sort="InvoiceNumber" style="text-align: left !important; min-width:138px;"><div class="th-head">Invoice Number</div></th>
+                        <th data-st-sort="ItemCode" style="text-align: left !important; min-width:118px;"><div class="th-head">Item Code</div></th>
+                        <th data-st-sort="ItemDescription" style="text-align: left !important; min-width:230px;"><div class="th-head">Item Description</div></th>
+                        <th data-st-sort="SalesManCode" style="text-align: left !important; min-width:138px;"><div class="th-head">SalesMan Code</div></th>
+                        <th data-st-sort="SalesManDescription" style="text-align: left !important; min-width:178px;"><div class="th-head">SalesMan Description</div></th>
+                        <th data-st-sort="SalesOrder" style="text-align: left !important; min-width:107px;"><div class="th-head">Sales Order</div></th>
+                        <th data-st-sort="Cost" style="text-align: left !important; min-width:82px;"><div class="th-head">Cost</div></th>
+                        <th data-st-sort="QtyShip" style="text-align: left !important; min-width:90px;"><div class="th-head">Qty Ship</div></th>
+                        <th data-st-sort="ExtPrice" style="text-align: left !important; min-width:94px;"><div class="th-head">Ext Price</div></th>
+                        <th data-st-sort="Profit" style="text-align: left !important; min-width:80px;"><div class="th-head">Profit</div></th>
+
+                    </tr>
+                </thead>
+                <tbody ng-repeat="(key, value) in (customersData|groupBy:groupProperty )">
+                    <tr ng-if="key !== 'undefined'" style="cursor: pointer; background-color:#eee;">
+
+                        <td colspan="5" class="text-left text-uppercase" ng-click="value[0].Extended = !value[0].Extended">
+                            <span class="glyphicon" data-ng-class="value[0].extended?'glyphicon-minus-sign':'glyphicon-plus-sign'"></span>
+                            <strong>
+                                &nbsp;&nbsp;
+                                <span ng-if="key == 'null'">  </span>
+                                <span ng-if="key != 'null' && groupProperty.toUpperCase().indexOf('DATE') >= 0"> {{key| date : 'yyyy-MM-dd'}} </span>
+                                <span ng-if="key != 'null' && groupProperty.toUpperCase().indexOf('DATE') < 0"> {{key}} </span>
+                            </strong>
+                        </td>
+                    </tr>
+                    <tr ng-repeat="item in value" style="text-align:center;" ng-if="value[0].Extended||key === 'undefined'">
+                        <td style="text-align:left">{{item.Commodity}}</td>
+                        <td style="text-align:left">{{item.InvoiceDate | date : 'yyyy-MM-dd'}}</td>
+                        <td style="text-align:left">{{item.InvoiceNumber}}</td>
+                        <td style="text-align:left">{{item.ItemCode}}</td>
+                        <td style="text-align:left">{{item.ItemDescription}}</td>
+                        <td style="text-align:left">{{item.SalesManCode}}</td>
+                        <td style="text-align:left">{{item.SalesManDescription}}</td>
+                        <td style="text-align:left">{{item.SalesOrder}}</td>
+                        <td style="text-align:right">{{item.Cost | currency : "$" : 0}}</td>
+                        <td style="text-align:right">{{item.QtyShip | numberWithCommas }}</td>
+                        <td style="text-align:right">{{item.ExtPrice | currency : "$" : 0}}</td>
+                        <td style="text-align:right">{{item.Profit | currency : "$" : 0}}</td>
+                    </tr>
+                    <tr>
+                        <th style="text-align: left !important;"><div class="th-head">Total</div></th>
+                        <th style="text-align: right !important;"><div class="th-head"></div></th>
+                        <th style="text-align: right !important;"><div class="th-head"></div></th>
+                        <th style="text-align: right !important;"><div class="th-head"></div></th>
+                        <th style="text-align: right !important;"><div class="th-head"></div></th>
+                        <th style="text-align: left !important;"><div class="th-head"></div></th>
+                        <th style="text-align: right !important;"><div class="th-head"></div></th>
+                        <th style="text-align: right !important;"><div class="th-head"></div></th>
+                        <th style="text-align: right !important;"><div class="th-head">{{Cost  | currency : "$" : 0}}</div></th>
+                        <th style="text-align: right !important;"><div class="th-head">{{QtyShip | numberWithCommas }}</div></th>
+                        <th style="text-align: right !important;"><div class="th-head">{{ExtPrice | currency : "$" : 0}}</div></th>
+                        <th style="text-align: right !important;"><div class="th-head">{{Profit  | currency : "$" : 0}}</div></th>
+                    </tr>
+                </tbody>
+                <tbody ng-if="customersData.length == 0">
+                    <tr>
+                        <td colspan="12" style="text-align:center;vertical-align:middle;">No data found</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" data-st-pagination=""
+                     data-st-items-by-page="pageSize"
+                     data-st-template="../../../assets/global/plugins/smart-table/_TablePagination.html"
+                     style="text-align: right;" ng-init="pageSize = '10'"></div>
+            </div>
+        </div>
+    </div>
+</div>

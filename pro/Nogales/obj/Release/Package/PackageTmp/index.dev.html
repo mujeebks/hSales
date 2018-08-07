@@ -1,0 +1,457 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" data-ng-app="MetronicApp">
+
+<head>
+    <title data-ng-bind="'' +$state.current.data.pageTitle=='' ? 'Nogales Produce': 'Nogales Produce | ' + $state.current.data.pageTitle"></title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta http-equiv="pragma" content="no-cache">
+    <meta content="" name="description" />
+    <meta content="" name="author" />
+
+    <!--BEGIN build:css ../assets/global/css/combined.css -->   
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />
+    <link href='https://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link href="assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/admin/layout4/css/themes/light.css" rel="stylesheet" type="text/css" id="style_color" />
+    <link href="assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/global/plugins/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet" type="text/css" />
+
+    <!--END build:css ../assets/global/css/combined.css -->
+    <link href="assets/global/plugins/pace/pace-minimal.css" rel="stylesheet" />
+    <script src="assets/global/plugins/pace/pace.js"></script>
+
+    <script>
+        Pace.options.ajax = false;
+    </script>
+
+    <!-- BEGIN GLOBAL MANDATORY STYLES -->
+
+
+
+    <link href="assets/global/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css" />
+    <link href="assets/global/css/components-rounded.css" id="style_components" rel="stylesheet" type="text/css" />
+    <link href="assets/global/css/plugins.css" rel="stylesheet" type="text/css" />
+    <link href="assets/admin/layout4/css/layout.css" rel="stylesheet" type="text/css" />
+    <link href="assets/admin/layout4/css/custom.css" rel="stylesheet" type="text/css" />
+    <link href="assets/global/plugins/angularjs/plugins/angular-toggle-switch/css/angular-toggle-switch.min.css" rel="stylesheet" />
+    <link href="assets/global/plugins/alertify/ng-alertify.css" rel="stylesheet" />
+    <link href="assets/global/plugins/select2/select2.css" rel="stylesheet" />
+
+
+    <!-- Begin: Bootstrap Modal-->
+    <link href="assets/global/plugins/bootstrap-modal/css/bootstrap-modal-bs3patch.css" rel="stylesheet" />
+    <link href="assets/global/plugins/bootstrap-modal/css/bootstrap-modal.css" rel="stylesheet" />
+    <!-- End: Bootstrap Modal-->
+    <!-- Begin: bootstrap-tagsinput-->
+    <link href="assets/global/plugins/bootstrap-tagsinput/bootstrap-tagsinput.css" rel="stylesheet" type="text/css" />
+
+    <!-- End: bootstrap-tagsinput-->
+
+    <link href="assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.css" rel="stylesheet" />
+    <!-- END THEME STYLES -->
+    <link href="app/app.style.css" rel="stylesheet" />
+
+    <link href="assets/admin/layout4/css/custom.css" rel="stylesheet" />
+
+    <!-- Begin: button spinner-->
+    <link href="assets/global/plugins/ladda/ladda-themeless.min.css" rel="stylesheet" />
+    <!-- Begin: button spinner-->
+    <!--<link href="assets/global/css/components.min.css" rel="stylesheet" />-->
+    <link href="assets/global/css/components.css" rel="stylesheet" /><link href="assets/global/css/plugins.css" rel="stylesheet" />
+
+    <link href="assets/global/plugins/icheck/skins/all.css" rel="stylesheet" />
+    <link href="assets/global/plugins/bootstrap-multiselect/bootstrap-multiselect.css" rel="stylesheet" />
+    <link href="assets/admin/layout4/css/login-5.css" rel="stylesheet" />
+    <link href="assets/admin/layout4/css/login.css" rel="stylesheet" />
+    <link href="assets/global/scripts/slider/rzslider.css" rel="stylesheet" />
+   
+
+    <!-- endbuild -->
+    <link rel="shortcut icon" href="../assets/logo/Nagales.png" />
+
+    <style>
+        .amcharts-chart-div a {
+            display: none !important;
+        }
+
+        .pace-progress {
+            display: none;
+        }
+
+        body {
+            background: inherit;
+        }
+        /*html {
+            background-image: url("assets/global/img/login/6blur.jpg") !important;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+        }*/
+
+        span > a {
+            font-size: 10px;
+        }
+
+        #mainContent:before {
+            content: "";
+            position: fixed;
+            left: 0;
+            right: 0;
+            z-index: -1;
+            display: block;
+            /*background-image: url("assets/global/img/login/6blur.jpg") !important;*/
+            width: 100%;
+            height: 100%;
+            background-repeat: no-repeat;
+            background-size: cover;
+            -webkit-filter: blur(2px);
+            -moz-filter: blur(2px);
+            -o-filter: blur(2px);
+            -ms-filter: blur(2px);
+            filter: blur(2px);
+            /* -webkit-background-size: cover;
+                  -moz-background-size: cover;
+                  -o-background-size: cover;
+                  background-size: cover;*/
+            /*background: url("assets/global/img/login/6blur.jpg") no-repeat center center fixed  !important;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;*/
+        }
+
+        #mainContent {
+            left: 0;
+            right: 0;
+            z-index: 0;
+        }
+    </style>
+</head>
+
+<body ng-controller="AppController" class="page-header-fixed page-sidebar-closed-hide-logo page-container-bg-solid page-sidebar-closed-hide-logo page-on-load" ng-class="{'page-sidebar-closed': settings.layout.pageSidebarClosed}">
+    <div id="mainContent">
+
+        <!-- BEGIN PAGE SPINNER -->
+        <div ng-spinner-bar class="page-spinner-bar">
+            <!--<div class="bounce1"></div>
+            <div class="bounce2"></div>
+
+            <div class="bounce3"></div>-->
+        </div>
+        <!-- END PAGE SPINNER -->
+        <!-- BEGIN HEADER -->
+        <div data-ng-include="'app/layout/header/header.html?v=60'" data-ng-hide="$state.current.name == 'login'|| $state.current.name == 'resetPassword'" class="page-header navbar navbar-fixed-top">
+        </div>
+        <!-- END HEADER -->
+
+        <div class="clearfix">
+        </div>
+
+        <!-- BEGIN CONTAINER -->
+        <div ng-class="{'login-container' : $state.current.name == 'login', 'page-container' : true }" style="margin-top: 95px !important">
+            <!-- BEGIN SIDEBAR -->
+            <div data-ng-include="'app/layout/sidebar/sidebar.html?v=60'" data-ng-hide="$state.current.name == 'login'|| $state.current.name == 'resetPassword'"  data-ng-controller="SidebarController" class="page-sidebar-wrapper">
+            </div>
+            <!-- END SIDEBAR -->
+            <div class="page-content-wrapper">
+                <div class="page-content">
+                    <!-- BEGIN PAGE HEAD -->
+                    <div data-ng-include="'app/layout/header/page-head.html'" data-ng-hide="$state.current.name == 'login' || $state.current.name == 'resetPassword'" data-ng-controller="PageHeadController" class="page-head">
+                    </div>
+                    <!-- END PAGE HEAD -->
+                    <!-- BEGIN ACTUAL CONTENT -->
+                    <div ui-view class="fade-in-up">
+                    </div>
+                    <!-- END ACTUAL CONTENT -->
+                </div>
+            </div>
+        </div>
+        <!-- END CONTAINER -->
+        <!-- BEGIN FOOTER -->
+        <div data-ng-include="'app/layout/footer/footer.html'" data-ng-hide="$state.current.name == 'login' || $state.current.name == 'resetPassword'"  data-ng-controller="FooterController" class="page-footer">
+        </div>
+        <!-- END FOOTER -->
+        <!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
+        <!-- BEGIN CORE JQUERY PLUGINS -->
+        <!--[if lt IE 9]>
+        <script src="../../../assets/global/plugins/respond.min.js"></script>
+        <script src="../../../assets/global/plugins/excanvas.min.js"></script>
+        <![endif]-->
+
+
+
+        <!-- build:js ../appbuild/combined.js -->
+        <script src="assets/global/plugins/pace/pace.js"></script>
+        <!--<script src="assets/global/plugins/lzstrings/jsoncompress.js"></script>
+        <script src="assets/global/plugins/lzstrings/lzStringz.js"></script>-->
+        <script src="assets/global/plugins/jquery.min.js" type="text/javascript"></script>
+        <script src="assets/global/plugins/jquery-ui/jquery-ui.min.js" type="text/javascript"></script>
+        <script src="assets/global/plugins/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js" type="text/javascript" defer></script>
+        <script src="assets/global/plugins/jquery-migrate.min.js" type="text/javascript"></script>
+        <script src="assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js" type="text/javascript"></script>
+        <script src="assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+        <script src="assets/global/plugins/jquery.blockui.min.js" type="text/javascript"></script>
+        <script src="assets/global/plugins/jquery.cokie.min.js" type="text/javascript"></script>
+        <script src="assets/global/plugins/uniform/jquery.uniform.min.js" type="text/javascript"></script>
+
+        <script src="assets/global/plugins/select2/select2.min.js"></script>
+        <script src="assets/global/plugins/backstretch/jquery.backstretch.min.js"></script>
+        <!-- END CORE JQUERY PLUGINS -->
+        <!-- BEGIN CORE ANGULARJS PLUGINS -->
+        <script src="assets/global/plugins/angularjs/angular.min.js" type="text/javascript"></script>
+
+
+
+        <script src="assets/global/plugins/angularjs/angular-sanitize.min.js" type="text/javascript"></script>
+        <script src="assets/global/plugins/angularjs/angular-touch.min.js" type="text/javascript"></script>
+        <script src="assets/global/plugins/angularjs/angular-animate.min.js" type="text/javascript"></script>
+        <script src="assets/global/plugins/angularjs/plugins/angular-ui-router.min.js" type="text/javascript"></script>
+        <!--<script src="assets/global/plugins/angularjs/plugins/ocLazyLoad.min.js" type="text/javascript"></script>-->
+        <script src="assets/global/plugins/angularjs/plugins/ui-bootstrap-tpls.min.js" type="text/javascript"></script>
+        <script src="assets/global/plugins/angularjs/plugins/angular-local-storage/angular-local-storage.min.js"></script>
+
+
+        <!-- Begin: Bootstrap Modal-->
+        <script src="assets/global/plugins/bootstrap-modal/js/bootstrap-modalmanager.js"></script>
+        <script src="assets/global/plugins/bootstrap-modal/js/bootstrap-modal.js"></script>
+        <!-- End: Bootstrap Modal-->
+
+        <script src="assets/global/plugins/select2/select2.js"></script>
+
+
+
+
+        <!-- END APP LEVEL ANGULARJS SCRIPTS -->
+        <!-- BEGIN APP LEVEL JQUERY SCRIPTS -->
+        <script src="assets/global/scripts/metronic.js" type="text/javascript"></script>
+        <script src="assets/admin/layout4/scripts/layout.js" type="text/javascript"></script>
+        <script src="assets/admin/layout4/scripts/demo.js" type="text/javascript"></script>
+        <script src="assets/global/scripts/angular-guage/angularjs-gauge.js"></script>
+        <!-- END APP LEVEL JQUERY SCRIPTS -->
+
+
+
+        <script src="app/app.js"></script>
+        <script src="app/app.config.js"></script>
+        <script src="app/app.constant.js"></script>
+        <script src="app/app.route.js"></script>
+        <!--directives-->
+        <script src="app/components/directives/sales/nogalesSalesChartInvoicedGrouping.js"></script>
+        <!--<script src="app/components/directives/sales/nogalesSalessidebysideChart.js"></script>-->
+      
+      
+        <script src="app/components/directives/nlTotalChart.js"></script>
+        <script src="app/components/directives/directives.js"></script>
+        <script src="app/components/directives/nlCommodityBarChart.js"></script>
+        <script src="app/components/directives/nlClusteredBarToggleChart.js"></script>
+     
+       
+        <script src="app/components/directives/nlDonutRadialGradientChart.js"></script>
+        <script src="app/components/directives/nlLineChart.js"></script>
+ 
+    
+        <script src="app/components/directives/nlXyChartLineGraph.js"></script>
+     
+        <script src="app/components/directives/openSubMenu.js"></script>
+        <script src="app/components/directives/selectAll.js"></script>
+        <script src="app/components/directives/nlTotalCategories.js"></script>
+   
+        <script src="app/components/directives/nlClusteredReportChart.js"></script>
+        <script src="app/components/directives/nlClusteredProfitablityTopBottom.js"></script>
+        <script src="app/components/directives/nlClusteredBarToggleChartMargin.js"></script>
+   
+        <script src="app/components/directives/sales/nlUsaheatmap.js"></script>
+        <script src="app/components/directives/pieChart.js"></script>
+        <script src="app/components/directives/sales/nlHorizontalBarChartTopBottom.js"></script>
+     
+        <script src="app/components/directives/CanvasGauge/CanvasGauge.js"></script>
+        <script src="app/components/directives/CanvasGauge/CanvasDonut.js"></script>
+        <!--<script src="app/components/directives/TotalChart.js"></script>-->
+        <script src="app/components/directives/nlClusteredBarToggleChartTransportation.js"></script>
+
+        <!--filters-->
+        <script src="app/components/filters/abs.js"></script>
+
+        <!--services-->
+        <script src="app/components/services/authentication.service.js"></script>
+        <script src="app/components/services/authInterceptor.service.js"></script>
+        <script src="app/components/services/common.service.js"></script>
+        <script src="app/components/services/data.service.js"></script>
+        <script src="app/components/services/exception.service.js"></script>
+        <script src="app/components/services/notification.service.js"></script>
+        <script src="app/components/services/HelperService.js"></script>
+
+        <!--layout-->
+        <script src="app/layout/header/header.controller.js"></script>
+        <script src="app/layout/sidebar/sidebar.controller.js"></script>
+
+        <!--pages-->
+        <script src="app/pages/cases-sold/cases-sold-report.controller.js"></script>
+        <script src="app/pages/cases-sold/cases-sold.controller.js"></script>
+        <script src="app/pages/item/item-report.controller.js"></script>
+        <script src="app/pages/change-password/change.password.controller.js"></script>
+        <script src="app/pages/dashboard/dashboard.controller.js"></script>
+        <script src="app/pages/expenses/expenses-report.controller.js"></script>
+        <script src="app/pages/expenses/expenses.controller.js"></script>
+        <script src="app/pages/login/login.controller.js"></script>
+        <script src="app/pages/profitability/profitability.controller.js"></script>
+        <script src="app/pages/reset-password/reset.controller.js"></script>
+        <script src="app/pages/revenue/revenue-report.controller.js"></script>
+        <script src="app/pages/revenue/revenue.controller.js"></script>
+        <script src="app/pages/sales/sales-person-mapping.controller.js"></script>
+        <script src="app/pages/sales/sales-report.controller.js"></script>
+        <script src="app/pages/sales/sales.controller.js"></script>
+        <script src="app/pages/tool-admin/user-management/user-manager.controller.js"></script>
+        <script src="app/pages/transportation/transportation.controller.js"></script>
+        <script src="app/pages/warehouse/so-short-report.controller.js"></script>
+        <script src="app/pages/warehouse/warehouse.controller.js"></script>
+        <script src="app/pages/warehouse/wms-picker-productivity-report.controller.js"></script>
+        <script src="app/pages/base.controller.js"></script>
+        <script src="app/pages/sales/sales-person-analysis-report-controller.js"></script>
+        <script src="app/pages/payroll/payroll-report.controller.js"></script>
+        <script src="app/pages/warehouse/sales-order-no-bin-report-controller.js"></script>
+        <script src="app/pages/warehouse/dumpdonations-report-controller.js"></script>
+        <script src="app/pages/item/costcomparisonreportController.js"></script>
+        <script src="app/pages/expenses/Commodity-report.controller.js"></script>
+        <script src="app/pages/item/Item-vendor-report-controller.js"></script>
+        <script src="app/pages/transportation/transportation-driver-report.controller.js"></script>
+        <script src="app/pages/transportation/transportation-route-report.controller.js"></script>
+        <script src="app/pages/customer/customer-report.js"></script>
+
+        <!--<script src="app/pages/customer/lost-order-report.js"></script>-->
+        <script src="app/pages/sales/sales-analysis-report.js"></script>
+        <!--<script src="app/pages/sales/sales-person-margin-report.js"></script>-->
+        <!--<script src="app/pages/cases-sold/cases-sold-Revenue-categories.controller.js"></script>-->
+        <script src="app/pages/cases-sold-Revenue-categories/cases-sold-Revenue-categories.controller.js"></script>
+        <script src="assets/global/plugins/angularjs/plugins/angular-toggle-switch/js/angular-toggle-switch.min.js"></script>
+        <script src="assets/global/plugins/bootstrap-daterangepicker/moment.min.js"></script>
+        <script src="assets/global/plugins/bootstrap-daterangepicker/daterangepicker.js"></script>
+        <script src="assets/global/plugins/bootstrap-daterangepicker/angular-daterangepicker.min.js"></script>
+        <script src="assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+        <script src="assets/global/plugins/smart-table/smart-table.js"></script>
+        <script src="assets/global/plugins/angularjs/plugins/angular-filter/angular-filter.min.js"></script>
+        <script src="assets/global/plugins/angularjs/plugins/ng-csv/ng-csv.min.js"></script>
+        <script src="app/components/directives/openSubMenu.js"></script>
+        <script src="assets/global/scripts/jquery.mtz.monthpicker.js"></script>
+        <!--<link href="assets/global/plugins/autocomplete/simple-autocomplete.css" rel="stylesheet" />
+        <script src="assets/global/plugins/autocomplete/simple-autocomplete.js"></script>-->
+        <!-- Begin: bootstrap-tagsinput-->
+        <!-- Begin: button spinner-->
+        <script src="assets/global/plugins/ladda/spin.min.js"></script>
+        <script src="assets/global/plugins/ladda/ladda.min.js"></script>
+
+
+
+        <!-- Begin: button spinner-->
+        <!--<script src="assets/global/plugins/typeahead/handlebars.min.js"></script>
+        <script src="assets/global/plugins/typeahead/typeahead.bundle.min.js"></script>
+        <script src="assets/pages/scripts/components-bootstrap-tagsinput.min.js"></script>-->
+        <!-- End: bootstrap-tagsinput-->
+        <!-- Start: bootstrap-tagsinput-->
+        <script src="assets/global/plugins/bootstrap-multiselect/bootstrap-multiselect.js"></script>
+        <script src="assets/global/plugins/bootstrap-multiselect/multiselect.js"></script>
+        <!-- End: bootstrap-tagsinput-->
+
+        <script src="assets/global/plugins/bootstrap-show-password/bootstrap-show-password.min.js"></script>
+
+        <script src="assets/global/plugins/icheck/icheck.min.js"></script>
+        <script src="assets/global/scripts/canvasgauge/canvasjs.min.js"></script>
+        <!--<script src="app/components/directives/icheck.js"></script>-->
+        <!-- Start: select2-->
+        <!-- End: select2-->
+
+
+
+        <!-- endbuild -->
+        <!--<script data-require="d3@*" data-semver="3.2.2" src="//cdnjs.cloudflare.com/ajax/libs/d3/3.2.2/d3.min.js"></script>
+        <script data-require="d3@*" data-semver="3.2.2" src="//cdnjs.cloudflare.com/ajax/libs/d3/3.2.2/d3.v3.min.js"></script>-->
+        <script src="assets/global/scripts/canvasgauge/canvasgauge.js"></script>
+        <script src="assets/global/scripts/slider/rzslider.js"></script>
+
+
+
+
+
+
+        <!--live amchart assets-->
+
+        <!--<script type="text/javascript" src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+        <script type="text/javascript" src="https://www.amcharts.com/lib/3/serial.js"></script>
+        <script src="https://www.amcharts.com/lib/3/gauge.js"></script>
+        <script src="https://www.amcharts.com/lib/3/pie.js"></script>
+        <script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
+        <script src="https://www.amcharts.com/lib/3/xy.js"></script>
+        <script src="https://www.amcharts.com/lib/3/ammap.js"></script>
+        <script src="https://www.amcharts.com/lib/3/maps/js/usaLow.js"></script>
+        <script type="text/javascript" src="//live.amcharts.com/vendor/amcharts/plugins/responsive/responsive.min.js?20161013-01"></script>-->
+
+
+
+
+        <!--Js files amchart Assests-->
+        <script src="assets/global/scripts/amchartassets/amcharts.js"></script>
+        <script src="assets/global/scripts/amchartassets/serial.js"></script>
+        <script src="assets/global/scripts/amchartassets/pie.js"></script>
+        <script src="assets/global/scripts/amchartassets/light.js"></script>
+        <script src="assets/global/scripts/amchartassets/xy.js"></script>
+        <script src="assets/global/scripts/amchartassets/ammap.js"></script>
+        <script src="assets/global/scripts/amchartassets/usaLow.js"></script>
+        <script src="assets/global/scripts/amchartassets/responsive.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+        <script src="assets/global/plugins/alertify/ng-alertify.js"></script>
+        <link href="assets/global/plugins/autocomplete/simple-autocomplete.css" rel="stylesheet" />
+        <script src="assets/global/plugins/autocomplete/simple-autocomplete.js"></script>
+        <link href="assets/global/scripts/timepicker/wickedpicker.css" rel="stylesheet" />
+        <script src="assets/global/scripts/timepicker/wickedpicker.js"></script>
+        <!--<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/themes/smoothness/jquery-ui.css">
+        <script src="assets/global/scripts/jquery.mtz.monthpicker.js"></script>-->
+
+        <script type="text/javascript">
+            /* Init Metronic's core jquery plugins and layout scripts */
+            $(document).ready(function () {
+                Metronic.init(); // Run metronic theme
+                Metronic.setAssetsPath('../../../assets/'); // Set the assets folder path
+                Layout.init();
+            });
+        </script>
+        <script>
+
+
+
+            var versionString = $('html').find('script').attr('src');
+            var parts = versionString.split('=');
+            window.version = parts.pop();
+
+
+
+        </script>
+
+
+        <!-- END JAVASCRIPTS -->
+    </div>
+</body>
+<!-- END BODY -->
+</html>
+<style>
+    body {
+        background-color: #f9f9f9;
+    }
+
+    .select2-search-choice-close {
+        background-image: url('assets/admin/layout4/img/select2.png') !important;
+    }
+</style>

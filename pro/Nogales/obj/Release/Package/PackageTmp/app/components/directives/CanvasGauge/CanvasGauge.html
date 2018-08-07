@@ -1,0 +1,121 @@
+﻿
+
+<div>
+    <style>
+        @media (min-width: 1200px )and (max-width: 1550px ) {
+
+            #metergauges .col-lg-3 {
+                width: 33% !important;
+            }
+        }
+
+
+        .percentageDisplayDiv {
+            font-size: 37px;
+            font-weight: bold;
+            margin: auto;
+            margin-top: -171px;
+        }
+
+
+
+        @keyframes placeHolderShimmer{
+    0%{
+        background-position: -468px 0
+    }
+    100%{
+        background-position: 468px 0
+    }
+}
+
+.animated-background {
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-name: placeHolderShimmer;
+    animation-timing-function: linear;
+    background: #f6f7f8;
+    background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
+    /*background-size: 800px 104px;
+    height: 96px;*/
+    position: relative;
+}
+    </style>
+    <!--<div>-->
+        <div class="portlet light bordered" style="padding:10px 0 30px 0"  ng-show="showchart">
+      
+              <div style="font-size: 18px;position: relative;color: gray;z-index: 1000;top: 180px;font-weight: bold; text-align:center;">
+                  {{percentageDisplay}}
+              </div>
+              <div style="font-size: 17px;color: #AAB5BC;font-weight: 600;text-transform: uppercase;text-align: center;height: 39px;margin-top: -21px;">
+                  <div class="icon" style="position:absolute;text-align: right;right:56px;top: 22px;" ng-if="Icon">
+                      <i style="color: #cbd4e0;font-size: 16px;position: absolute;" class="{{Icon}}"></i>
+                  </div>
+                  <a style="color:#AAB5BC !important" ng-if="NavigateTo" ng-click="navigatepage()"><small>{{GaugeName}}</small></a>
+                  <span ng-if="!NavigateTo"><small>{{GaugeName}}</small></span>
+              </div>
+              <div style="height: 220px;text-align: center;">
+                  <canvas id="{{::chartid}}" style="position: relative;z-index: 1;left: 0px;"></canvas>
+                  <div class="percentageDisplayDiv">
+                      <span>{{percentage |number:0}}%</span>
+                  </div>
+              </div>
+              <div style="text-align: center; margin:-16px 20px 0 20px;background: linear-gradient(90deg,#ff784f,#ff5370);font-size: 31px;position:relative;z-index:2">
+                  <span style="border:1px;">
+                      <span ng-if="CurrentText">{{CurrentText}}</span>
+                      <span ng-if="ShowDollar" style="color: white;font-weight: bold;">{{GaugeCurrent | currency:"$":0 }}</span>
+                      <span ng-if="!ShowDollar" style="color: white;font-weight: bold;">{{GaugeCurrent  |currency:" ":0 }}</span>
+                  </span>
+              </div>
+              <br>
+              <div style="text-align: center; margin-top: -16px;z-index: 2;position: relative;top: 9px;">
+                  <span style="border:1px;">
+                      <span ng-if="PriorText">{{PriorText}}</span>
+                      <span style="font-weight: bold;" ng-if="ShowDollar">{{GaugePrior |currency:"$":0}}</span>
+                      <span style="font-weight: bold;" ng-if="!ShowDollar">{{GaugePrior  |currency:" ":0}}</span>
+
+                  </span>
+              </div>
+        
+       
+        </div>
+        <div ng-show="!showchart" class="portlet light bordered animated-background">
+            <div style="font-size: 18px;position: relative;color: gray;z-index: 1000;top: 180px;font-weight: bold; text-align:center;">
+               .....
+            </div>
+            <div style="font-size: 17px;color: #AAB5BC;font-weight: 600;text-transform: uppercase;text-align: center;height: 39px;margin-top: -21px;">
+                <div class="icon" style="position:absolute;text-align: right;right:56px;top: 22px;" ng-if="Icon">
+                    <i style="color: #cbd4e0;font-size: 16px;position: absolute;" class="{{Icon}}"></i>
+                </div>
+               
+                <span ><small>....</small></span>
+            </div>
+            <div style="height: 220px;text-align: center;">
+                <canvas id="{{::chartid}}" style="position: relative;z-index: 1;left: 0px;"></canvas>
+                <div class="percentageDisplayDiv">
+                    <span>...</span>
+                </div>
+            </div>
+            <div style="text-align: center; margin:-16px 20px 0 20px;background: linear-gradient(90deg,#E7E7E7,#E7E7E7);font-size: 31px;position:relative;">
+                <span style="border:1px;">
+                    <span>....</span>
+                   
+                </span>
+            </div>
+            <br>
+            <div style="text-align: center; margin-top: -16px;z-index: 2;position: relative;top: 9px;">
+                <span style="border:1px;">
+                    <span >...</span>
+                   
+
+                </span>
+            </div>
+        </div>
+    <!--</div>-->
+</div>
+
+
+
+
+
+

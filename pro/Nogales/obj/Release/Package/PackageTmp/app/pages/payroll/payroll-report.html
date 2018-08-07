@@ -1,0 +1,279 @@
+﻿
+<style>
+    .portlet-body .btn {
+        padding-right: 13px;
+        padding-left: 16px;
+    }
+
+    .btnselected {
+        background-color: #A9522F !important;
+    }
+
+    .btnnonactive {
+        background-color: #f36a5a !important;
+    }
+</style>
+<div class="portlet light">
+    <div class="portlet-title">
+        <div class="caption caption-md">
+            <i class="glyphicon glyphicon-search"></i>
+            <span class="caption-subject   bold uppercase">Search Criteria</span>
+        </div>
+        <div class="tools">
+            <a href="javascript:;" class="collapse" data-original-title="" title="">
+            </a>
+
+        </div>
+    </div>
+
+    <div class="portlet-body" style="padding-bottom:30px">
+        <div class="row">
+            <form name="filterForm" novalidate>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="col-lg-1 col-md-1 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                               Employees
+                            </div>
+                        </div>
+                        <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <select select-all="availableEmployees" 
+                                        data-ui-select2 data-container="body" 
+                                        data-placement="right" 
+                                        data-original-title="Tooltip in right" 
+                                        multiple="multiple" 
+                                        class="form-control select-md tooltips" 
+                                        name="wasteCategory" 
+                                        data-placeholder="Employees" 
+                                        data-ng-model="selectedEmployees" 
+                                        required>
+                                    <option ng-repeat="Employees in availableEmployees" 
+                                            value="{{Employees}}">
+                                        {{Employees.Value}}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="col-lg-1 col-md-1 col-sm-12 col-xs-12">
+                            <div class="form-group">Invoice Date</div>
+                        </div>
+                        <div class="col-lg-11 col-md-11 col-sm-12 col-xs-12">
+                            <div class="btn-group">
+                                <span style="padding-right:0;"><button class="btn btn-primary btn-circle btn-sm orange" style="margin-bottom:5px" data-ng-click="search('ThisMonth')" ng-class="{ 'btnselected': CurrentFilter=='ThisMonth', 'btnnonactive': CurrentFilter!='ThisMonth' }" title="This Month">This Month</button></span>
+                                <span style="padding-right:0;"><button class="btn btn-primary btn-circle btn-sm orange" style="margin-bottom:5px" data-ng-click="search('LastMonth')" ng-class="{ 'btnselected': CurrentFilter=='LastMonth', 'btnnonactive': CurrentFilter!='LastMonth' }" title="Last Month">Last Month</button></span>
+                                <span style="padding-right:0;"><button class="btn btn-primary btn-circle btn-sm orange" style="margin-bottom:5px" data-ng-click="search('ThisQuarter')" ng-class="{ 'btnselected': CurrentFilter=='ThisQuarter', 'btnnonactive': CurrentFilter!='ThisQuarter' }" title="This Quarter">This QTR</button></span>
+                                <span style="padding-right:0;"><button class="btn btn-primary btn-circle btn-sm orange" style="margin-bottom:5px" data-ng-click="search('LastQuarter')" ng-class="{ 'btnselected': CurrentFilter=='LastQuarter', 'btnnonactive': CurrentFilter!='LastQuarter' }" title="Last Quarter">Last QTR</button></span>
+                                <span style="padding-right:0;"><button class="btn btn-primary btn-circle btn-sm orange" style="margin-bottom:5px" data-ng-click="search('YTD')" ng-class="{ 'btnselected': CurrentFilter=='YTD', 'btnnonactive': CurrentFilter!='YTD' }" title="Year To Date">YTD</button></span>
+                                <span style="padding-right:0;"><button class="btn btn-primary btn-circle btn-sm orange" style="margin-bottom:5px" data-ng-click="search('LastYear')" ng-class="{ 'btnselected': CurrentFilter=='LastYear', 'btnnonactive': CurrentFilter!='LastYear' }" title="Last Year">Last Year</button></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="col-lg-1 col-md-1 col-sm-12 col-xs-12"><div class="form-group view">Start Date</div></div>
+                        <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <div class="input-icon">
+                                    <i class="fa fa-calendar"></i>
+                                    <input class="form-control placeholder-no-fix invoice-date"
+                                           ng-class="{'has-error':searchClicked && !isDate(beginDate)}"
+                                           type="text" autocomplete="off"
+                                           placeholder="Start Date" id="scheduledLoadStartDate" name="scheduledLoadStartDate"
+                                           data-ng-model="beginDate" ng-blur="beginDate = clearDate(beginDate)" />
+                                    <span ng-show="searchClicked && !isDate(beginDate)" style="color: #e73d4a;"
+                                          class="help-block help-block-error">Please enter a valid Date.</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-1 col-md-1 col-sm-12 col-xs-12"><div class="form-group view">End Date</div></div>
+                        <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <div class="input-icon">
+                                    <i class="fa fa-calendar"></i>
+                                    <input class="form-control placeholder-no-fix invoice-date"
+                                           ng-class="{'has-error':searchClicked && !isDate(endDate)}"
+                                           type="text" autocomplete="off"
+                                           placeholder="End Date" id="scheduledLoadEndDate" name="scheduledLoadEndDate"
+                                           data-ng-model="endDate" ng-blur="endDate = clearDate(endDate)" />
+                                    <span ng-show="searchClicked && !isDate(endDate)" style="color: #e73d4a;"
+                                          class="help-block help-block-error">Please enter a valid Date.</span>
+                                    <span ng-show="searchClicked && isPreviouseDate(beginDate,endDate)" style="color: #e73d4a;"
+                                          class="help-block help-block-error">To Date should be greater than From Date</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="col-lg-1 col-md-1 col-sm-12 col-xs-12"></div>
+                        <div class="col-lg-5 col-md-6 col-sm-12 col-xs-12">
+                            <button class="btn btn-primary btn-circle btn-sm ingenium-blue mt-ladda-btn ladda-button btn-search"
+                                    data-style="zoom-out"
+                                    id="search"
+                                    style="opacity:1; color: white;"
+                                    data-ng-click="search()">
+                                <i class="fa fa-search"></i>
+                                <span class="">Search</span>
+                                <span class="ladda-spinner">Search</span>
+                            </button>
+
+                            <button class="btn btn-circle btn-sm orange btn-info"
+                                    data-ng-click="resetSearch()">
+                                <i class="fa fa-refresh"></i>
+                                Reset
+                            </button>
+                            <button class="btn btn-circle btn-sm btn-danger margin-top-xs" ng-disabled="iscanceldisabled" data-ng-click="abortExecutingApi()">
+                                <i class="fa fa-times"></i>
+                                Cancel
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<div class="portlet light">
+    <div class="portlet-title report-title">
+        <div class="caption caption-md">
+            <i class="glyphicon glyphicon-tag"></i>
+            <span class="caption-subject  bold uppercase">Payroll Report</span>
+        </div>
+        <div class="btn-group" style="margin-left: 20px; margin-top: 6px;">
+            <button class="btn btn-sm-new btn-circle btn-search" ng-csv="getCsvData()" csv-header="getCsvHeader()" filename="{{csvFileName}}" data-ng-disabled="PayRollReport.length==0">
+                <i class="fa fa-file-excel-o"></i>
+                Excel (csv)
+            </button>
+        </div>
+        <reportfullscreen needexpand="true"></reportfullscreen>
+        <!--<div class="tools">
+            <a href="javascript:;" class="fullscreen" data-original-title="" title=""></a>
+        </div>-->
+    </div>
+
+    <div class="portlet-body" data-st-table="PayRollReport" data-st-safe-src="PayRollReportMaster">
+        <div class="row" style="padding:0 0 8px 0;">
+            <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+                <div class="row">
+                    <div class="col-xs-12" style="float:left; width:auto; padding-right:0; margin-bottom:10px; ">
+                        <div class="view"> View </div>
+                        <div class="view-input">
+                            <select class="form-control" style="padding: 0px;" data-ng-model="pageSize">
+                                <option value="20">20</option>
+                                <option value="50">50</option>
+                                <option value="100">100</option>
+                            </select>
+                        </div>
+                        <div class="records">records</div>
+                    </div>
+                    <div class="col-xs-12" style="float:left; width:auto; margin-bottom:10px;">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12" style="text-align:right;">
+                <input class="form-control" placeholder="Search ..." type="text" ng-model="gridSearchText" data-st-search data-st-functions="stInterface" />
+            </div>
+            <button style="display:none" type="button" st-reset-search table-functions="myTableFunctions"></button>
+        </div>
+
+        <div style="overflow: auto;">
+            <table id="tblReport" class="table table-striped table-bordered table-hover">
+                <thead>
+                    <tr class="reportheader">
+                        <th data-st-sort="Employee" style="text-align: left !important;min-width:145px">Employee</th>
+                        <th data-st-sort="IdNumber" style="text-align: left !important;min-width:113px">ID Number</th>
+                        <th data-st-sort="Department" style="text-align: left !important;min-width:200px"><div class="th-head">Department</div></th>
+                        <th data-st-sort="Status" style="text-align: left !important;min-width:156px"><div class="th-head">Status</div></th>
+                        <th data-st-sort="Supervisor" style="text-align: left !important;min-width:120px"><div class="th-head">Supervisor</div></th>
+                        <!--<th data-st-sort="Rate" style="text-align: left !important;min-width:120px"><div class="th-head">Rate</div></th>-->
+                        <th data-st-sort="RegularSortValue" style="text-align: left !important;min-width:95px"><div class="th-head">Regular</div></th>
+                        <th data-st-sort="OvertimeSortValue" style="text-align: left !important;min-width:99px"><div class="th-head">Overtime</div></th>
+                        <!--<th data-st-sort="Orient" style="text-align: left !important;min-width:91px"><div class="th-head">Orient</div></th>-->
+                        <th data-st-sort="TotalSortValue"  st-sort-default="true" style="text-align: left !important;min-width:79px"><div class="th-head" >Total</div></th>
+                    </tr>
+                </thead>
+                <tbody ng-repeat="(key, value) in (PayRollReport|groupBy:groupProperty )">
+                    <tr ng-repeat="shipment in value" style="text-align:center;" ng-if="value[0].Extended||key === 'undefined'">
+                        <td style="text-align:left">{{shipment.Employee}}</td>
+                        <td style="text-align:left">{{shipment.IdNumber}}</td>
+                        <td style="text-align:left">{{shipment.Department}}</td>
+                        <td style="text-align:left">{{shipment.Status}}</td>
+                        <td style="text-align:left">{{shipment.Supervisor}}</td>
+                        <!--<td style="text-align:left">{{shipment.Rate}}</td>-->
+                        <td style="text-align:right">{{shipment.Regular }}</td>
+                        <td style="text-align:right">{{shipment.Overtime}}</td>
+                        <!--<td style="text-align:right">${{shipment.Orient }}</td>-->
+                        <td style="text-align:right">{{shipment.Total}}</td>
+                        <!--<td style="text-align:right"><a href="" style="{{shipment.Difference}}" ng-click="getDetailedReport(shipment)">${{shipment.Cost| number:0}}</a></td>
+                        <td style="text-align:right">${{shipment.Price | number:0}}</td>-->
+                    </tr>
+                    <tr>
+                        <th style="text-align: left !important;"><div class="th-head">Total</div></th>
+                        <th style="text-align: left !important;"><div class="th-head"></div></th>
+                        <th style="text-align: left !important;"><div class="th-head"></div></th>
+                        <th style="text-align: right !important;"><div class="th-head"></div></th>
+                        <!--<th style="text-align: right !important;"><div class="th-head"></div></th>-->
+                        <th style="text-align: right !important;"><div class="th-head"></div></th>
+                        <th style="text-align: right !important;"><div class="th-head">{{TotalRegular}}</div></th>
+                        <!--<th style="text-align: right !important;"><div class="th-head"></div></th>-->
+                        <th style="text-align: right !important;"><div class="th-head">{{TotalOverTime}}</div></th>
+                        <th style="text-align: right !important;"><div class="th-head">{{TotalTotal}}</div></th>
+                    </tr>
+                </tbody>
+                <tbody ng-if="PayRollReport.length == 0">
+                    <tr>
+                        <td colspan="8" style="text-align:center;vertical-align:middle;">No data found</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" data-st-pagination=""
+                     data-st-items-by-page="pageSize"
+                     data-st-template="../../../assets/global/plugins/smart-table/_TablePagination.html"
+                     style="text-align: right;"></div>
+            </div>
+        </div>
+
+    </div>
+  
+</div>
+
+<toaster-container></toaster-container>
+<style>
+    
+    .th-head {
+        min-width: 80px;
+    }
+
+    .th-head-two {
+        min-width: 125px;
+    }
+
+    .th-head-three {
+        min-width: 180px;
+    }
+    /*for solving the issue x-axis scroll in select2*/
+    .select2-choices {
+        overflow-x: hidden !important;
+    }
+
+    .btn-group {
+        margin-bottom: 15px;
+    }
+</style>
+

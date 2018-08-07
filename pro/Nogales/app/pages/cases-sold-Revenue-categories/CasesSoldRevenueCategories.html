@@ -1,0 +1,27 @@
+﻿<style>
+    .portlet light portlet-fullscreen {
+        opacity: 0;
+        transition: opacity 3s;
+    }
+    [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+        display: none !important;
+    }
+</style>
+<refresh callback-fn="refreshCharts()"></refresh>
+<div class="row">
+    <div class="col-md-12 col-sm-12 col-lg-6 col-xs-12" ng-repeat="chart in chartData track by $index">
+        <div class="portlet light" fullscreen="IsFullScreen==chart.xtitle" ng-style="{ 'overflow' : (IsFullScreen==chart.xtitle) ? 'scroll' : 'hidden' }">
+            <filter-date compiletitle="chart.Title" filter="currentfilter"></filter-date>
+            <div class="portlet-body">
+                <nl-total-categories category="{{chart.GroupName}}"
+                                                                      filter-type="filter.type"
+                                                                      ng-model="chart"
+                                                                      callback-fullscreen="callbackfullscreenfn(category)"
+                                                                      xtitle="{{chart.xtitle}}" 
+                                                                      callback-fn="categories_subjectfn(title,charttype,chart)">
+                </nl-total-categories>
+            </div>
+        </div>
+    </div>
+</div>
+

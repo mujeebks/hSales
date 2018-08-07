@@ -1,0 +1,13 @@
+E:\Projects\Jason\NOgalesReportingTools\NogalesDashboard\Nogales\Nogales.BusinessModel\bin\Release\Nogales.BusinessModel.dll.config
+E:\Projects\Jason\NOgalesReportingTools\NogalesDashboard\Nogales\Nogales.BusinessModel\bin\Release\Nogales.BusinessModel.dll
+E:\Projects\Jason\NOgalesReportingTools\NogalesDashboard\Nogales\Nogales.BusinessModel\bin\Release\Nogales.BusinessModel.pdb
+E:\Projects\Jason\NOgalesReportingTools\NogalesDashboard\Nogales\Nogales.BusinessModel\bin\Release\Microsoft.Owin.dll
+E:\Projects\Jason\NOgalesReportingTools\NogalesDashboard\Nogales\Nogales.BusinessModel\bin\Release\Microsoft.Owin.Security.dll
+E:\Projects\Jason\NOgalesReportingTools\NogalesDashboard\Nogales\Nogales.BusinessModel\bin\Release\Owin.dll
+E:\Projects\Jason\NOgalesReportingTools\NogalesDashboard\Nogales\Nogales.BusinessModel\bin\Release\Microsoft.Owin.xml
+E:\Projects\Jason\NOgalesReportingTools\NogalesDashboard\Nogales\Nogales.BusinessModel\bin\Release\Microsoft.Owin.Security.xml
+E:\Projects\Jason\NOgalesReportingTools\NogalesDashboard\Nogales\Nogales.BusinessModel\obj\Release\Nogales.BusinessModel.csprojResolveAssemblyReference.cache
+E:\Projects\Jason\NOgalesReportingTools\NogalesDashboard\Nogales\Nogales.BusinessModel\obj\Release\Nogales.BusinessModel.dll
+E:\Projects\Jason\NOgalesReportingTools\NogalesDashboard\Nogales\Nogales.BusinessModel\obj\Release\Nogales.BusinessModel.pdb
+E:\Projects\Jason\NOgalesReportingTools\NogalesDashboard\Nogales\Nogales.BusinessModel\obj\Release\Nogales.BusinessModel.NogalesResources.resources
+E:\Projects\Jason\NOgalesReportingTools\NogalesDashboard\Nogales\Nogales.BusinessModel\obj\Release\Nogales.BusinessModel.csproj.GenerateResource.Cache

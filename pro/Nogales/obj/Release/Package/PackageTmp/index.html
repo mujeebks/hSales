@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+
+<html lang="en" data-ng-app="MetronicApp">
+
+<head>
+    <title data-ng-bind="'Nogales Produce | ' + $state.current.data.pageTitle"></title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta http-equiv="pragma" content="no-cache">
+    <meta content="" name="description" />
+    <meta content="" name="author" />
+
+    <!--BEGIN build:css ../assets/global/css/combined.css -->   
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all&v=9fb42ba91fbb6f97c7cbf75cbd092ab0" rel="stylesheet" type="text/css" />
+    <link href='https://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext&v=9fb42ba91fbb6f97c7cbf75cbd092ab0' rel='stylesheet' type='text/css'>
+    <link href="assets/global/plugins/font-awesome/css/font-awesome.min.css?v=9fb42ba91fbb6f97c7cbf75cbd092ab0" rel="stylesheet" type="text/css" />
+    <link href="assets/global/plugins/simple-line-icons/simple-line-icons.min.css?v=9fb42ba91fbb6f97c7cbf75cbd092ab0" rel="stylesheet" type="text/css" />
+    <link href="assets/admin/layout4/css/themes/light.css?v=9fb42ba91fbb6f97c7cbf75cbd092ab0" rel="stylesheet" type="text/css" id="style_color" />
+    <link href="assets/global/plugins/bootstrap/css/bootstrap.min.css?v=9fb42ba91fbb6f97c7cbf75cbd092ab0" rel="stylesheet" type="text/css" />
+    <link href="assets/global/plugins/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css?v=9fb42ba91fbb6f97c7cbf75cbd092ab0" rel="stylesheet" type="text/css" />
+
+    <!--END build:css ../assets/global/css/combined.css -->
+    <link href="assets/global/plugins/pace/pace-minimal.css?v=9fb42ba91fbb6f97c7cbf75cbd092ab0" rel="stylesheet" />
+    <script src="assets/global/plugins/pace/pace.js?v=9fb42ba91fbb6f97c7cbf75cbd092ab0"></script>
+
+    <script>
+        Pace.options.ajax = false;
+    </script>
+
+    <!-- BEGIN GLOBAL MANDATORY STYLES -->
+
+
+
+    <link href="assets/global/plugins/uniform/css/uniform.default.css?v=9fb42ba91fbb6f97c7cbf75cbd092ab0" rel="stylesheet" type="text/css" />
+    <link href="assets/global/css/components-rounded.css?v=9fb42ba91fbb6f97c7cbf75cbd092ab0" id="style_components" rel="stylesheet" type="text/css" />
+    <link href="assets/global/css/plugins.css?v=9fb42ba91fbb6f97c7cbf75cbd092ab0" rel="stylesheet" type="text/css" />
+    <link href="assets/admin/layout4/css/layout.css?v=9fb42ba91fbb6f97c7cbf75cbd092ab0" rel="stylesheet" type="text/css" />
+    <link href="assets/admin/layout4/css/custom.css?v=9fb42ba91fbb6f97c7cbf75cbd092ab0" rel="stylesheet" type="text/css" />
+    <link href="assets/global/plugins/angularjs/plugins/angular-toggle-switch/css/angular-toggle-switch.min.css?v=9fb42ba91fbb6f97c7cbf75cbd092ab0" rel="stylesheet" />
+    <link href="assets/global/plugins/alertify/ng-alertify.css?v=9fb42ba91fbb6f97c7cbf75cbd092ab0" rel="stylesheet" />
+    <link href="assets/global/plugins/select2/select2.css?v=9fb42ba91fbb6f97c7cbf75cbd092ab0" rel="stylesheet" />
+
+
+    <!-- Begin: Bootstrap Modal-->
+    <link href="assets/global/plugins/bootstrap-modal/css/bootstrap-modal-bs3patch.css?v=9fb42ba91fbb6f97c7cbf75cbd092ab0" rel="stylesheet" />
+    <link href="assets/global/plugins/bootstrap-modal/css/bootstrap-modal.css?v=9fb42ba91fbb6f97c7cbf75cbd092ab0" rel="stylesheet" />
+    <!-- End: Bootstrap Modal-->
+    <!-- Begin: bootstrap-tagsinput-->
+    <link href="assets/global/plugins/bootstrap-tagsinput/bootstrap-tagsinput.css?v=9fb42ba91fbb6f97c7cbf75cbd092ab0" rel="stylesheet" type="text/css" />
+
+    <!-- End: bootstrap-tagsinput-->
+
+    <link href="assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.css?v=9fb42ba91fbb6f97c7cbf75cbd092ab0" rel="stylesheet" />
+    <!-- END THEME STYLES -->
+    <link href="app/app.style.css?v=9fb42ba91fbb6f97c7cbf75cbd092ab0" rel="stylesheet" />
+
+    <link href="assets/admin/layout4/css/custom.css?v=9fb42ba91fbb6f97c7cbf75cbd092ab0" rel="stylesheet" />
+
+    <!-- Begin: button spinner-->
+    <link href="assets/global/plugins/ladda/ladda-themeless.min.css?v=9fb42ba91fbb6f97c7cbf75cbd092ab0" rel="stylesheet" />
+    <!-- Begin: button spinner-->
+    <!--<link href="assets/global/css/components.min.css?v=9fb42ba91fbb6f97c7cbf75cbd092ab0" rel="stylesheet" />-->
+    <link href="assets/global/css/components.css?v=9fb42ba91fbb6f97c7cbf75cbd092ab0" rel="stylesheet" /><link href="assets/global/css/plugins.css?v=9fb42ba91fbb6f97c7cbf75cbd092ab0" rel="stylesheet" />
+
+    <link href="assets/global/plugins/icheck/skins/all.css?v=9fb42ba91fbb6f97c7cbf75cbd092ab0" rel="stylesheet" />
+    <link href="assets/global/plugins/bootstrap-multiselect/bootstrap-multiselect.css?v=9fb42ba91fbb6f97c7cbf75cbd092ab0" rel="stylesheet" />
+    <link href="assets/admin/layout4/css/login-5.css?v=9fb42ba91fbb6f97c7cbf75cbd092ab0" rel="stylesheet" />
+    <link href="assets/admin/layout4/css/login.css?v=9fb42ba91fbb6f97c7cbf75cbd092ab0" rel="stylesheet" />
+    <link href="assets/global/scripts/slider/rzslider.css?v=9fb42ba91fbb6f97c7cbf75cbd092ab0" rel="stylesheet" />
+   
+
+    <!-- endbuild -->
+    <link rel="shortcut icon" href="../assets/logo/Nagales.png" />
+
+    <style>
+        .amcharts-chart-div a {
+            display: none !important;
+        }
+
+        .pace-progress {
+            display: none;
+        }
+
+        body {
+            background: inherit;
+        }
+        /*html {
+            background-image: url("assets/global/img/login/6blur.jpg") !important;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+        }*/
+
+        span > a {
+            font-size: 10px;
+        }
+
+        #mainContent:before {
+            content: "";
+            position: fixed;
+            left: 0;
+            right: 0;
+            z-index: -1;
+            display: block;
+            /*background-image: url("assets/global/img/login/6blur.jpg") !important;*/
+            width: 100%;
+            height: 100%;
+            background-repeat: no-repeat;
+            background-size: cover;
+            -webkit-filter: blur(2px);
+            -moz-filter: blur(2px);
+            -o-filter: blur(2px);
+            -ms-filter: blur(2px);
+            filter: blur(2px);
+            /* -webkit-background-size: cover;
+                  -moz-background-size: cover;
+                  -o-background-size: cover;
+                  background-size: cover;*/
+            /*background: url("assets/global/img/login/6blur.jpg") no-repeat center center fixed  !important;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;*/
+        }
+
+        #mainContent {
+            left: 0;
+            right: 0;
+            z-index: 0;
+        }
+    </style>
+</head>
+
+<body ng-controller="AppController" class="page-header-fixed page-sidebar-closed-hide-logo page-container-bg-solid page-sidebar-closed-hide-logo page-on-load" ng-class="{'page-sidebar-closed': settings.layout.pageSidebarClosed}">
+    <div id="mainContent">
+
+        <!-- BEGIN PAGE SPINNER -->
+        <div ng-spinner-bar class="page-spinner-bar">
+            <!--<div class="bounce1"></div>
+            <div class="bounce2"></div>
+
+            <div class="bounce3"></div>-->
+        </div>
+        <!-- END PAGE SPINNER -->
+        <!-- BEGIN HEADER -->
+        <div data-ng-include="'app/layout/header/header.html?v=60'" data-ng-hide="$state.current.name == 'login'|| $state.current.name == 'resetPassword'" class="page-header navbar navbar-fixed-top">
+        </div>
+        <!-- END HEADER -->
+
+        <div class="clearfix">
+        </div>
+
+        <!-- BEGIN CONTAINER -->
+        <div ng-class="{'login-container' : $state.current.name == 'login', 'page-container' : true }" style="margin-top: 95px !important">
+            <!-- BEGIN SIDEBAR -->
+            <div data-ng-include="'app/layout/sidebar/sidebar.html?v=60'" data-ng-hide="$state.current.name == 'login'|| $state.current.name == 'resetPassword'"  data-ng-controller="SidebarController" class="page-sidebar-wrapper">
+            </div>
+            <!-- END SIDEBAR -->
+            <div class="page-content-wrapper">
+                <div class="page-content">
+                    <!-- BEGIN PAGE HEAD -->
+                    <div data-ng-include="'app/layout/header/page-head.html'" data-ng-hide="$state.current.name == 'login' || $state.current.name == 'resetPassword'" data-ng-controller="PageHeadController" class="page-head">
+                    </div>
+                    <!-- END PAGE HEAD -->
+                    <!-- BEGIN ACTUAL CONTENT -->
+                    <div ui-view class="fade-in-up">
+                    </div>
+                    <!-- END ACTUAL CONTENT -->
+                </div>
+            </div>
+        </div>
+        <!-- END CONTAINER -->
+        <!-- BEGIN FOOTER -->
+        <div data-ng-include="'app/layout/footer/footer.html'" data-ng-hide="$state.current.name == 'login' || $state.current.name == 'resetPassword'"  data-ng-controller="FooterController" class="page-footer">
+        </div>
+        <!-- END FOOTER -->
+        <!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
+        <!-- BEGIN CORE JQUERY PLUGINS -->
+        <!--[if lt IE 9]>
+        <script src="../../../assets/global/plugins/respond.min.js?v=9fb42ba91fbb6f97c7cbf75cbd092ab0"></script>
+        <script src="../../../assets/global/plugins/excanvas.min.js?v=9fb42ba91fbb6f97c7cbf75cbd092ab0"></script>
+        <![endif]-->
+
+
+
+        <script src="../appbuild/combined.js?v=9fb42ba91fbb6f97c7cbf75cbd092ab0"></script>
+        <!--<script data-require="d3@*" data-semver="3.2.2" src="//cdnjs.cloudflare.com/ajax/libs/d3/3.2.2/d3.min.js?v=9fb42ba91fbb6f97c7cbf75cbd092ab0"></script>
+        <script data-require="d3@*" data-semver="3.2.2" src="//cdnjs.cloudflare.com/ajax/libs/d3/3.2.2/d3.v3.min.js?v=9fb42ba91fbb6f97c7cbf75cbd092ab0"></script>-->
+        <script src="assets/global/scripts/canvasgauge/canvasgauge.js?v=9fb42ba91fbb6f97c7cbf75cbd092ab0"></script>
+        <script src="assets/global/scripts/slider/rzslider.js?v=9fb42ba91fbb6f97c7cbf75cbd092ab0"></script>
+
+
+
+
+
+
+        <!--live amchart assets-->
+
+        <!--<script type="text/javascript" src="https://www.amcharts.com/lib/3/amcharts.js?v=9fb42ba91fbb6f97c7cbf75cbd092ab0"></script>
+        <script type="text/javascript" src="https://www.amcharts.com/lib/3/serial.js?v=9fb42ba91fbb6f97c7cbf75cbd092ab0"></script>
+        <script src="https://www.amcharts.com/lib/3/gauge.js?v=9fb42ba91fbb6f97c7cbf75cbd092ab0"></script>
+        <script src="https://www.amcharts.com/lib/3/pie.js?v=9fb42ba91fbb6f97c7cbf75cbd092ab0"></script>
+        <script src="https://www.amcharts.com/lib/3/themes/light.js?v=9fb42ba91fbb6f97c7cbf75cbd092ab0"></script>
+        <script src="https://www.amcharts.com/lib/3/xy.js?v=9fb42ba91fbb6f97c7cbf75cbd092ab0"></script>
+        <script src="https://www.amcharts.com/lib/3/ammap.js?v=9fb42ba91fbb6f97c7cbf75cbd092ab0"></script>
+        <script src="https://www.amcharts.com/lib/3/maps/js/usaLow.js?v=9fb42ba91fbb6f97c7cbf75cbd092ab0"></script>
+        <script type="text/javascript" src="//live.amcharts.com/vendor/amcharts/plugins/responsive/responsive.min.js?20161013-01&v=9fb42ba91fbb6f97c7cbf75cbd092ab0"></script>-->
+
+
+
+
+        <!--Js files amchart Assests-->
+        <script src="assets/global/scripts/amchartassets/amcharts.js?v=9fb42ba91fbb6f97c7cbf75cbd092ab0"></script>
+        <script src="assets/global/scripts/amchartassets/serial.js?v=9fb42ba91fbb6f97c7cbf75cbd092ab0"></script>
+        <script src="assets/global/scripts/amchartassets/pie.js?v=9fb42ba91fbb6f97c7cbf75cbd092ab0"></script>
+        <script src="assets/global/scripts/amchartassets/light.js?v=9fb42ba91fbb6f97c7cbf75cbd092ab0"></script>
+        <script src="assets/global/scripts/amchartassets/xy.js?v=9fb42ba91fbb6f97c7cbf75cbd092ab0"></script>
+        <script src="assets/global/scripts/amchartassets/ammap.js?v=9fb42ba91fbb6f97c7cbf75cbd092ab0"></script>
+        <script src="assets/global/scripts/amchartassets/usaLow.js?v=9fb42ba91fbb6f97c7cbf75cbd092ab0"></script>
+        <script src="assets/global/scripts/amchartassets/responsive.min.js?v=9fb42ba91fbb6f97c7cbf75cbd092ab0"></script>
+
+
+
+
+
+
+
+
+
+
+        <script src="assets/global/plugins/alertify/ng-alertify.js?v=9fb42ba91fbb6f97c7cbf75cbd092ab0"></script>
+        <link href="assets/global/plugins/autocomplete/simple-autocomplete.css?v=9fb42ba91fbb6f97c7cbf75cbd092ab0" rel="stylesheet" />
+        <script src="assets/global/plugins/autocomplete/simple-autocomplete.js?v=9fb42ba91fbb6f97c7cbf75cbd092ab0"></script>
+        <link href="assets/global/scripts/timepicker/wickedpicker.css?v=9fb42ba91fbb6f97c7cbf75cbd092ab0" rel="stylesheet" />
+        <script src="assets/global/scripts/timepicker/wickedpicker.js?v=9fb42ba91fbb6f97c7cbf75cbd092ab0"></script>
+        <!--<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/themes/smoothness/jquery-ui.css?v=9fb42ba91fbb6f97c7cbf75cbd092ab0">
+        <script src="assets/global/scripts/jquery.mtz.monthpicker.js?v=9fb42ba91fbb6f97c7cbf75cbd092ab0"></script>-->
+
+        <script type="text/javascript">
+            /* Init Metronic's core jquery plugins and layout scripts */
+            $(document).ready(function () {
+                Metronic.init(); // Run metronic theme
+                Metronic.setAssetsPath('../../../assets/'); // Set the assets folder path
+                Layout.init();
+            });
+        </script>
+        <script>
+
+
+
+            var versionString = $('html').find('script').attr('src');
+            var parts = versionString.split('=');
+            window.version = parts.pop();
+
+
+
+        </script>
+
+
+        <!-- END JAVASCRIPTS -->
+    </div>
+</body>
+<!-- END BODY -->
+</html>
+<style>
+    body {
+        background-color: #f9f9f9;
+    }
+
+    .select2-search-choice-close {
+        background-image: url('assets/admin/layout4/img/select2.png') !important;
+    }
+</style>

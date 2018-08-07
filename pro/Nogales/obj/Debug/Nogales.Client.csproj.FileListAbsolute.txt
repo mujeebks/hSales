@@ -1,0 +1,12 @@
+E:\Projects\Jason\NOgalesReportingTools\NogalesDashboard\Nogales\Nogales\bin\Nogales.Client.dll.config
+E:\Projects\Jason\NOgalesReportingTools\NogalesDashboard\Nogales\Nogales\bin\Nogales.Client.dll
+E:\Projects\Jason\NOgalesReportingTools\NogalesDashboard\Nogales\Nogales\bin\Nogales.Client.pdb
+E:\Projects\Jason\NOgalesReportingTools\NogalesDashboard\Nogales\Nogales\obj\Debug\Nogales.Client.dll
+E:\Projects\Jason\NOgalesReportingTools\NogalesDashboard\Nogales\Nogales\obj\Debug\Nogales.Client.pdb
+E:\Projects\Jason\NOgalesReportingTools\NogalesDashboard\Nogales\Nogales\obj\Debug\Nogales.Client.csprojResolveAssemblyReference.cache
+C:\Users\Riyas-KS\Desktop\hSales\pro\Nogales\bin\Nogales.Client.dll.config
+C:\Users\Riyas-KS\Desktop\hSales\pro\Nogales\bin\Nogales.Client.dll
+C:\Users\Riyas-KS\Desktop\hSales\pro\Nogales\bin\Nogales.Client.pdb
+C:\Users\Riyas-KS\Desktop\hSales\pro\Nogales\obj\Debug\Nogales.Client.csprojResolveAssemblyReference.cache
+C:\Users\Riyas-KS\Desktop\hSales\pro\Nogales\obj\Debug\Nogales.Client.dll
+C:\Users\Riyas-KS\Desktop\hSales\pro\Nogales\obj\Debug\Nogales.Client.pdb

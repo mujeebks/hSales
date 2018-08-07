@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>Microsoft.AnalysisServices.AdomdClient</id>
+    <version>12.0.2000.8</version>
+    <title>Microsoft.AnalysisServices.AdomdClient</title>
+    <authors>Microsoft</authors>
+    <owners>Microsoft</owners>
+    <projectUrl>http://www.microsoft.com/en-us/download/details.aspx?id=42295</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Microsoft.AnalysisServices.AdomdClient.dll file from Microsoft SQL Server 2014 Feature Pack</description>
+    <summary />
+    <releaseNotes />
+    <copyright>Microsoft Corp. All rights reserved.</copyright>
+    <tags>ssas</tags>
+  </metadata>
+</package>

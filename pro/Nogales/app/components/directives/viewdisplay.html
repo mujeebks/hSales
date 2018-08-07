@@ -1,0 +1,68 @@
+﻿<div>
+    <style>
+        @media (min-width: 1192px) and (max-width: 1551px) {
+            #topbox .col-lg-6 {
+                width: 100% !important;
+            }
+        }
+        .hidedisplay{
+            display:none;
+        }
+        .blockUI blockMsg blockPage{
+            z-index:20060 !important
+        }
+    </style>
+   <div class="row portlet light bordered portlet-fullscreen fade-in-up hidedisplay" id="fullscreendiv" ng-class="{'row portlet light bordered portlet-fullscreen fade-in-up':showviewdisplay,'hidedisplay' : !showviewdisplay}" ng-cloak">
+       <!--<div class="row">
+           <span class="caption-subject font-light-orange-haze bold uppercase text-mobile text-mobile" compile="title"><span>Commodity Expenses</span></span>
+       </div>-->
+     
+       <div class="row">
+           <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+               <button ng-click="exit()">exit</button>
+                   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                       <canvasgauge ng-if="meterparams.Label5"
+                                    ng-model="TotalMonthlyDifference"
+                                    current="firstrange"
+                                    showdollar="false"
+                                    prior="secondrangeMonth"
+                                    name="PriorRangeText">
+                           <!--currenttext="meterparams.Label1+' :'"
+        priortext="meterparams.Label5+' :'"-->
+                       </canvasgauge>
+                   </div>
+               <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                   <canvasgauge ng-if="TotalYearlyDifference"
+                                ng-model="BlstatiticsData.casesSold.Change"
+                                current="firstrange"
+                                showdollar="false"
+                                prior="secondrangeYear"
+                                name="'Prior Year'">
+                       <!--currenttext="meterparams.Label1+' :'"
+        priortext="meterparams.Label4+' :'">-->
+                   </canvasgauge>
+               </div>
+           </div>
+           <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+               <div class="portlet light bordered">
+                   <filter-date compiletitle="'CASES SOLD (BY CATEGORY)'" filter="currentfilter" needexpand="false"></filter-date>
+                   <div class="portlet-body">
+                       <div class="row">
+                           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                               <nl-total-chart filter-type="filter.type"
+                                               ng-model="PiechartCasessold"
+                                               nl-dashboard="casesold"
+                                               callback-fn="caption_subjectfn(title)">
+                               </nl-total-chart>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+           </div>
+       
+       </div>
+   </div>
+  
+</div>
+
+

@@ -1,0 +1,44 @@
+﻿<div class="portlet-body" ng-init="showChart=true">
+     
+   <div ng-show="showChart">
+         
+        <div class="chart-back-btn" ng-init="backBtnVisible = false" ng-show="backBtnVisible">
+           
+            <i class="fa-arrow-circle-o-left fa fa-2x" ng-click="showReport=false;showChart=true; backChart()" style="cursor:pointer;"></i>
+
+
+        </div>
+        <div id="{{::myId}}" class="chart" style="width:100%;min-height:500px;"></div>
+        <div ng-show="drillDownCount==0" id="{{::legendDiv}}" class="clusteredBarChartLegenddiv1" style="margin-top: 20px;"></div>
+        
+    </div> 
+    <div ng-show="showReport">
+        
+        <div class="chart-back-btn" ng-init="chartBackBtnVisible = true" ng-show="chartBackBtnVisible">
+            
+            <i class="fa-arrow-circle-o-left fa fa-2x" ng-click="reportback()" style="cursor:pointer;"></i>
+
+            
+        </div>
+        <div style="margin-top: -46px;" ng-if="nlDashboard=='casesold'">
+            <div ng-if="!iscustomersItemReport && customersData" ng-include="'app/pages/cases-sold/cases-sold-report-table-by-salesperson.html?v={{gulpindex}}'"></div>
+            <div ng-if="iscustomersItemReport && customersItemData" ng-include="'app/pages/sales/customer-item-table.html?v={{gulpindex}}'"></div>
+        </div>
+        <div style="margin-top: -46px;" ng-if="nlDashboard=='sales'">
+            <div ng-if="!iscustomersItemReport" ng-include="'app/pages/sales/sales-report-table.html'"></div>
+            <div ng-if="iscustomersItemReport" ng-include="'app/pages/sales/customer-item-table.html'"></div>
+        </div>
+        <div style="margin-top: -46px;" ng-if="nlDashboard=='profitability'">
+            <div ng-if="!iscustomersItemReport" ng-include="'app/pages/profitability/profitability-report-table-by-salesperson.html'"></div>
+            <div ng-if="iscustomersItemReport" ng-include="'app/pages/sales/customer-item-table.html'"></div>
+        </div>
+          
+
+        <div style="margin-top: -46px;" ng-if="nlDashboard=='expenses'">
+            <div ng-if="!iscustomersItemReport" ng-include="'app/pages/expenses/expenses-report-table-by-salesperson.html'"></div>
+            <div ng-if="iscustomersItemReport" ng-include="'app/pages/expenses/customer-item-table.html'"></div>
+        </div>
+
+        </div>
+    
+</div>

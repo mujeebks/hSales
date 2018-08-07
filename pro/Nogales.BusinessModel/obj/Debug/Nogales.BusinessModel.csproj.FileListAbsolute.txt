@@ -1,0 +1,13 @@
+E:\Projects\Jason\NOgalesReportingTools\NogalesDashboard\Nogales\Nogales.BusinessModel\obj\Debug\Nogales.BusinessModel.dll
+E:\Projects\Jason\NOgalesReportingTools\NogalesDashboard\Nogales\Nogales.BusinessModel\obj\Debug\Nogales.BusinessModel.NogalesResources.resources
+E:\Projects\Jason\NOgalesReportingTools\NogalesDashboard\Nogales\Nogales.BusinessModel\obj\Debug\Nogales.BusinessModel.csproj.GenerateResource.Cache
+E:\Projects\Jason\NOgalesReportingTools\NogalesDashboard\Nogales\Nogales.BusinessModel\bin\Debug\Nogales.BusinessModel.dll.config
+E:\Projects\Jason\NOgalesReportingTools\NogalesDashboard\Nogales\Nogales.BusinessModel\bin\Debug\Nogales.BusinessModel.dll
+E:\Projects\Jason\NOgalesReportingTools\NogalesDashboard\Nogales\Nogales.BusinessModel\bin\Debug\Nogales.BusinessModel.pdb
+E:\Projects\Jason\NOgalesReportingTools\NogalesDashboard\Nogales\Nogales.BusinessModel\bin\Debug\Microsoft.Owin.dll
+E:\Projects\Jason\NOgalesReportingTools\NogalesDashboard\Nogales\Nogales.BusinessModel\bin\Debug\Microsoft.Owin.Security.dll
+E:\Projects\Jason\NOgalesReportingTools\NogalesDashboard\Nogales\Nogales.BusinessModel\bin\Debug\Owin.dll
+E:\Projects\Jason\NOgalesReportingTools\NogalesDashboard\Nogales\Nogales.BusinessModel\bin\Debug\Microsoft.Owin.xml
+E:\Projects\Jason\NOgalesReportingTools\NogalesDashboard\Nogales\Nogales.BusinessModel\bin\Debug\Microsoft.Owin.Security.xml
+E:\Projects\Jason\NOgalesReportingTools\NogalesDashboard\Nogales\Nogales.BusinessModel\obj\Debug\Nogales.BusinessModel.csprojResolveAssemblyReference.cache
+E:\Projects\Jason\NOgalesReportingTools\NogalesDashboard\Nogales\Nogales.BusinessModel\obj\Debug\Nogales.BusinessModel.pdb
