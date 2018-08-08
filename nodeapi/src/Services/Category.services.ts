@@ -66,7 +66,7 @@ export class CategoryService {
     }
   };
 
-  public DeleteEmployee = async (req: any, res: any, next: any) => {
+  public DeleteCategory = async (req: any, res: any, next: any) => {
     let { id } = req.params;
 
     if (id) {
@@ -87,7 +87,7 @@ export class CategoryService {
     }
   };
 
-  public SaveEmployees = async (req: any, res: any, next: any) => {
+  public SaveCategories = async (req: any, res: any, next: any) => {
     debugger
     let { id } = req.params;
 
@@ -97,14 +97,20 @@ export class CategoryService {
     try {
       let Model = req.body
       if (!id) {
-        await tables.mtrCategory.create(Model,{ logging: config.logging}).then(data => {
+        await tables.mtrCategory.create(
+      
+          Model,
+          { logging: config.logging},
+          
+        )
+          .then(data => {
           return res.json("Created");
         });
       } else {
         //update
         await tables.mtrCategory.update(Model, {
           logging: config.logging,
-          where: { EmployeeId: id }
+          where: { categoryid: id }
           
         }).then(data => {
           return res.json("Updated");

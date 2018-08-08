@@ -132,7 +132,23 @@ MetronicApp.controller('CategoryController', ['$scope', 'dataService', '$filter'
         //    catch (e) {}
         //};
 
+        $scope.cat={};
+        $scope.Save=function(cat){
+  
+           dataService.SaveCategories(cat)
+          
+            .then(function (response) {
+                if (response) {
+                    debugger
+                    $scope.search();
+                   $scope.cancel();
+                }
 
+            })
+            .catch(function (error) {
+            });
+
+        }
         $scope.search()
 
         $scope.getCsvHeader = function () {
@@ -175,7 +191,7 @@ MetronicApp.controller('CategoryController', ['$scope', 'dataService', '$filter'
         $scope.cancel = function () {
             $mdDialog.cancel();
         }
-        $scope.showAdvanced = function (ev) {
+        $scope.showcreate = function (ev) {
             $mdDialog.show({
                 controller: 'CategoryController',
                 scope: $scope,        // use parent scope in template

@@ -19,3 +19,6 @@ E:\SequalizeORMNode\SequilizeEntityGenerateSql\SequilizeEntityGenerateSql\obj\De
 C:\Users\Riyas-KS\Desktop\hSales\pro\SequalizeORMNode\SequilizeEntityGenerateSql\SequilizeEntityGenerateSql\bin\Debug\SequilizeEntityGenerateSql.exe.config
 C:\Users\Riyas-KS\Desktop\hSales\pro\SequalizeORMNode\SequilizeEntityGenerateSql\SequilizeEntityGenerateSql\obj\Debug\SequilizeEntityGenerateSql.exe
 C:\Users\Riyas-KS\Desktop\hSales\pro\SequalizeORMNode\SequilizeEntityGenerateSql\SequilizeEntityGenerateSql\obj\Debug\SequilizeEntityGenerateSql.pdb
+C:\Users\Riyas-KS\Desktop\hSales\SequilizeEntityGenerateSql\SequilizeEntityGenerateSql\bin\Debug\SequilizeEntityGenerateSql.exe.config
+C:\Users\Riyas-KS\Desktop\hSales\SequilizeEntityGenerateSql\SequilizeEntityGenerateSql\obj\Debug\SequilizeEntityGenerateSql.exe
+C:\Users\Riyas-KS\Desktop\hSales\SequilizeEntityGenerateSql\SequilizeEntityGenerateSql\obj\Debug\SequilizeEntityGenerateSql.pdb

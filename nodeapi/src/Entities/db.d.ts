@@ -2,6 +2,24 @@
 import * as Sequelize from 'sequelize';
 
 
+// table: companySettings
+export interface companySettingsAttribute {
+  id:number;
+  KeyName?:string;
+  ValueName?:string;
+}
+export interface companySettingsInstance extends Sequelize.Instance<companySettingsAttribute>, companySettingsAttribute { }
+export interface companySettingsModel extends Sequelize.Model<companySettingsInstance, companySettingsAttribute> { }
+
+// table: mtrCategory
+export interface mtrCategoryAttribute {
+  categoryid:number;
+  category:string;
+  deActive?:boolean;
+}
+export interface mtrCategoryInstance extends Sequelize.Instance<mtrCategoryAttribute>, mtrCategoryAttribute { }
+export interface mtrCategoryModel extends Sequelize.Model<mtrCategoryInstance, mtrCategoryAttribute> { }
+
 // table: InvoiceSettings
 export interface InvoiceSettingsAttribute {
   InvoiceId:number;
@@ -21,41 +39,6 @@ export interface InvoiceSettingsAttribute {
 }
 export interface InvoiceSettingsInstance extends Sequelize.Instance<InvoiceSettingsAttribute>, InvoiceSettingsAttribute { }
 export interface InvoiceSettingsModel extends Sequelize.Model<InvoiceSettingsInstance, InvoiceSettingsAttribute> { }
-
-// table: companySettings
-export interface companySettingsAttribute {
-  id:number;
-  KeyName?:string;
-  ValueName?:string;
-}
-export interface companySettingsInstance extends Sequelize.Instance<companySettingsAttribute>, companySettingsAttribute { }
-export interface companySettingsModel extends Sequelize.Model<companySettingsInstance, companySettingsAttribute> { }
-
-// table: Company
-export interface CompanyAttribute {
-  companyid:number;
-  cdbName?:string;
-  companyName?:string;
-  blnHide?:boolean;
-  productKey?:string;
-  licenseKey?:string;
-  registered?:boolean;
-  expired?:boolean;
-  SSMA_TimeStamp:Date;
-  AppID?:number;
-}
-export interface CompanyInstance extends Sequelize.Instance<CompanyAttribute>, CompanyAttribute { }
-export interface CompanyModel extends Sequelize.Model<CompanyInstance, CompanyAttribute> { }
-
-// table: mtrCategory
-export interface mtrCategoryAttribute {
-  categoryid:number;
-  category:string;
-  deActive?:boolean;
-  SSMA_TimeStamp:Date;
-}
-export interface mtrCategoryInstance extends Sequelize.Instance<mtrCategoryAttribute>, mtrCategoryAttribute { }
-export interface mtrCategoryModel extends Sequelize.Model<mtrCategoryInstance, mtrCategoryAttribute> { }
 
 // table: mtrArea
 export interface mtrAreaAttribute {
@@ -78,13 +61,21 @@ export interface mtrAccountGroupAttribute {
 export interface mtrAccountGroupInstance extends Sequelize.Instance<mtrAccountGroupAttribute>, mtrAccountGroupAttribute { }
 export interface mtrAccountGroupModel extends Sequelize.Model<mtrAccountGroupInstance, mtrAccountGroupAttribute> { }
 
-// table: mtrItemImage
-export interface mtrItemImageAttribute {
-  itemId:number;
-  itemImage?:any;
+// table: Company
+export interface CompanyAttribute {
+  companyid:number;
+  cdbName?:string;
+  companyName?:string;
+  blnHide?:boolean;
+  productKey?:string;
+  licenseKey?:string;
+  registered?:boolean;
+  expired?:boolean;
+  SSMA_TimeStamp:Date;
+  AppID?:number;
 }
-export interface mtrItemImageInstance extends Sequelize.Instance<mtrItemImageAttribute>, mtrItemImageAttribute { }
-export interface mtrItemImageModel extends Sequelize.Model<mtrItemImageInstance, mtrItemImageAttribute> { }
+export interface CompanyInstance extends Sequelize.Instance<CompanyAttribute>, CompanyAttribute { }
+export interface CompanyModel extends Sequelize.Model<CompanyInstance, CompanyAttribute> { }
 
 // table: mtrCurrency
 export interface mtrCurrencyAttribute {
@@ -98,6 +89,24 @@ export interface mtrCurrencyAttribute {
 }
 export interface mtrCurrencyInstance extends Sequelize.Instance<mtrCurrencyAttribute>, mtrCurrencyAttribute { }
 export interface mtrCurrencyModel extends Sequelize.Model<mtrCurrencyInstance, mtrCurrencyAttribute> { }
+
+// table: mtrManufacturer
+export interface mtrManufacturerAttribute {
+  mnfID:number;
+  mnfName?:string;
+  deActive?:boolean;
+  SSMA_TimeStamp:Date;
+}
+export interface mtrManufacturerInstance extends Sequelize.Instance<mtrManufacturerAttribute>, mtrManufacturerAttribute { }
+export interface mtrManufacturerModel extends Sequelize.Model<mtrManufacturerInstance, mtrManufacturerAttribute> { }
+
+// table: mtrItemImage
+export interface mtrItemImageAttribute {
+  itemId:number;
+  itemImage?:any;
+}
+export interface mtrItemImageInstance extends Sequelize.Instance<mtrItemImageAttribute>, mtrItemImageAttribute { }
+export interface mtrItemImageModel extends Sequelize.Model<mtrItemImageInstance, mtrItemImageAttribute> { }
 
 // table: mtrEmployee
 export interface mtrEmployeeAttribute {
@@ -119,6 +128,19 @@ export interface mtrEmployeeAttribute {
 }
 export interface mtrEmployeeInstance extends Sequelize.Instance<mtrEmployeeAttribute>, mtrEmployeeAttribute { }
 export interface mtrEmployeeModel extends Sequelize.Model<mtrEmployeeInstance, mtrEmployeeAttribute> { }
+
+// table: mtrloyalty
+export interface mtrloyaltyAttribute {
+  loyaltyID:number;
+  loyaltyName?:string;
+  saleAmount?:number;
+  loyaltyPoint?:number;
+  targetPoint?:number;
+  deActive?:boolean;
+  SSMA_TimeStamp:Date;
+}
+export interface mtrloyaltyInstance extends Sequelize.Instance<mtrloyaltyAttribute>, mtrloyaltyAttribute { }
+export interface mtrloyaltyModel extends Sequelize.Model<mtrloyaltyInstance, mtrloyaltyAttribute> { }
 
 // table: mtrledger
 export interface mtrledgerAttribute {
@@ -144,47 +166,6 @@ export interface mtrledgerAttribute {
 export interface mtrledgerInstance extends Sequelize.Instance<mtrledgerAttribute>, mtrledgerAttribute { }
 export interface mtrledgerModel extends Sequelize.Model<mtrledgerInstance, mtrledgerAttribute> { }
 
-// table: mtrManufacturer
-export interface mtrManufacturerAttribute {
-  mnfID:number;
-  mnfName?:string;
-  deActive?:boolean;
-  SSMA_TimeStamp:Date;
-}
-export interface mtrManufacturerInstance extends Sequelize.Instance<mtrManufacturerAttribute>, mtrManufacturerAttribute { }
-export interface mtrManufacturerModel extends Sequelize.Model<mtrManufacturerInstance, mtrManufacturerAttribute> { }
-
-// table: mtrloyalty
-export interface mtrloyaltyAttribute {
-  loyaltyID:number;
-  loyaltyName?:string;
-  saleAmount?:number;
-  loyaltyPoint?:number;
-  targetPoint?:number;
-  deActive?:boolean;
-  SSMA_TimeStamp:Date;
-}
-export interface mtrloyaltyInstance extends Sequelize.Instance<mtrloyaltyAttribute>, mtrloyaltyAttribute { }
-export interface mtrloyaltyModel extends Sequelize.Model<mtrloyaltyInstance, mtrloyaltyAttribute> { }
-
-// table: mtrRolePermission
-export interface mtrRolePermissionAttribute {
-  roleId:number;
-  screenName?:string;
-  isread?:boolean;
-  isadd?:boolean;
-  isedit?:boolean;
-  iscancel?:boolean;
-  isdelete?:boolean;
-  isprint?:boolean;
-  isexport?:boolean;
-  isemail?:boolean;
-  issms?:boolean;
-  SSMA_TimeStamp:Date;
-}
-export interface mtrRolePermissionInstance extends Sequelize.Instance<mtrRolePermissionAttribute>, mtrRolePermissionAttribute { }
-export interface mtrRolePermissionModel extends Sequelize.Model<mtrRolePermissionInstance, mtrRolePermissionAttribute> { }
-
 // table: mtrPricelist
 export interface mtrPricelistAttribute {
   plId:number;
@@ -194,16 +175,6 @@ export interface mtrPricelistAttribute {
 }
 export interface mtrPricelistInstance extends Sequelize.Instance<mtrPricelistAttribute>, mtrPricelistAttribute { }
 export interface mtrPricelistModel extends Sequelize.Model<mtrPricelistInstance, mtrPricelistAttribute> { }
-
-// table: mtrRole
-export interface mtrRoleAttribute {
-  roleId:number;
-  roleName?:string;
-  deActive?:boolean;
-  SSMA_TimeStamp:Date;
-}
-export interface mtrRoleInstance extends Sequelize.Instance<mtrRoleAttribute>, mtrRoleAttribute { }
-export interface mtrRoleModel extends Sequelize.Model<mtrRoleInstance, mtrRoleAttribute> { }
 
 // table: mtrProduct
 export interface mtrProductAttribute {
@@ -246,18 +217,6 @@ export interface mtrProductAttribute {
 export interface mtrProductInstance extends Sequelize.Instance<mtrProductAttribute>, mtrProductAttribute { }
 export interface mtrProductModel extends Sequelize.Model<mtrProductInstance, mtrProductAttribute> { }
 
-// table: mtrUser
-export interface mtrUserAttribute {
-  userId:number;
-  userName?:string;
-  userPass?:string;
-  roleId?:number;
-  deActive?:boolean;
-  SSMA_TimeStamp:Date;
-}
-export interface mtrUserInstance extends Sequelize.Instance<mtrUserAttribute>, mtrUserAttribute { }
-export interface mtrUserModel extends Sequelize.Model<mtrUserInstance, mtrUserAttribute> { }
-
 // table: PrintSettings
 export interface PrintSettingsAttribute {
   Id:number;
@@ -283,35 +242,45 @@ export interface PrintSettingsAttribute {
 export interface PrintSettingsInstance extends Sequelize.Instance<PrintSettingsAttribute>, PrintSettingsAttribute { }
 export interface PrintSettingsModel extends Sequelize.Model<PrintSettingsInstance, PrintSettingsAttribute> { }
 
-// table: trsItemOffer
-export interface trsItemOfferAttribute {
-  id:number;
-  offerName?:string;
-  startDate?:Date;
-  startTime?:Date;
-  endDate?:Date;
-  endTime?:Date;
-  Itemid:number;
-  batch?:string;
-  mrp?:number;
-  rate?:number;
-  Discount?:number;
-  netRate?:number;
-  deActive?:boolean;
-}
-export interface trsItemOfferInstance extends Sequelize.Instance<trsItemOfferAttribute>, trsItemOfferAttribute { }
-export interface trsItemOfferModel extends Sequelize.Model<trsItemOfferInstance, trsItemOfferAttribute> { }
-
-// table: trsBOM
-export interface trsBOMAttribute {
-  bomId:number;
-  bomName?:string;
-  description?:string;
+// table: mtrRole
+export interface mtrRoleAttribute {
+  roleId:number;
+  roleName?:string;
   deActive?:boolean;
   SSMA_TimeStamp:Date;
 }
-export interface trsBOMInstance extends Sequelize.Instance<trsBOMAttribute>, trsBOMAttribute { }
-export interface trsBOMModel extends Sequelize.Model<trsBOMInstance, trsBOMAttribute> { }
+export interface mtrRoleInstance extends Sequelize.Instance<mtrRoleAttribute>, mtrRoleAttribute { }
+export interface mtrRoleModel extends Sequelize.Model<mtrRoleInstance, mtrRoleAttribute> { }
+
+// table: mtrRolePermission
+export interface mtrRolePermissionAttribute {
+  roleId:number;
+  screenName?:string;
+  isread?:boolean;
+  isadd?:boolean;
+  isedit?:boolean;
+  iscancel?:boolean;
+  isdelete?:boolean;
+  isprint?:boolean;
+  isexport?:boolean;
+  isemail?:boolean;
+  issms?:boolean;
+  SSMA_TimeStamp:Date;
+}
+export interface mtrRolePermissionInstance extends Sequelize.Instance<mtrRolePermissionAttribute>, mtrRolePermissionAttribute { }
+export interface mtrRolePermissionModel extends Sequelize.Model<mtrRolePermissionInstance, mtrRolePermissionAttribute> { }
+
+// table: mtrUser
+export interface mtrUserAttribute {
+  userId:number;
+  userName?:string;
+  userPass?:string;
+  roleId?:number;
+  deActive?:boolean;
+  SSMA_TimeStamp:Date;
+}
+export interface mtrUserInstance extends Sequelize.Instance<mtrUserAttribute>, mtrUserAttribute { }
+export interface mtrUserModel extends Sequelize.Model<mtrUserInstance, mtrUserAttribute> { }
 
 // table: trsAttandance
 export interface trsAttandanceAttribute {
@@ -345,19 +314,6 @@ export interface trsAccountsAttribute {
 export interface trsAccountsInstance extends Sequelize.Instance<trsAccountsAttribute>, trsAccountsAttribute { }
 export interface trsAccountsModel extends Sequelize.Model<trsAccountsInstance, trsAccountsAttribute> { }
 
-// table: trsBOMDetail
-export interface trsBOMDetailAttribute {
-  bomId:number;
-  prodID:number;
-  qty?:number;
-  rOrder?:number;
-  bomMode?:number;
-  blnAltUnit?:boolean;
-  SSMA_TimeStamp:Date;
-}
-export interface trsBOMDetailInstance extends Sequelize.Instance<trsBOMDetailAttribute>, trsBOMDetailAttribute { }
-export interface trsBOMDetailModel extends Sequelize.Model<trsBOMDetailInstance, trsBOMDetailAttribute> { }
-
 // table: trsloyalty
 export interface trsloyaltyAttribute {
   SaleID:number;
@@ -371,35 +327,78 @@ export interface trsloyaltyAttribute {
 export interface trsloyaltyInstance extends Sequelize.Instance<trsloyaltyAttribute>, trsloyaltyAttribute { }
 export interface trsloyaltyModel extends Sequelize.Model<trsloyaltyInstance, trsloyaltyAttribute> { }
 
-// table: trsPurchasedetail
-export interface trsPurchasedetailAttribute {
-  invid?:number;
+// table: trsBOM
+export interface trsBOMAttribute {
+  bomId:number;
+  bomName?:string;
+  description?:string;
+  deActive?:boolean;
+  SSMA_TimeStamp:Date;
+}
+export interface trsBOMInstance extends Sequelize.Instance<trsBOMAttribute>, trsBOMAttribute { }
+export interface trsBOMModel extends Sequelize.Model<trsBOMInstance, trsBOMAttribute> { }
+
+// table: trsBOMDetail
+export interface trsBOMDetailAttribute {
+  bomId:number;
+  prodID:number;
+  qty?:number;
+  rOrder?:number;
+  bomMode?:number;
+  blnAltUnit?:boolean;
+  SSMA_TimeStamp:Date;
+}
+export interface trsBOMDetailInstance extends Sequelize.Instance<trsBOMDetailAttribute>, trsBOMDetailAttribute { }
+export interface trsBOMDetailModel extends Sequelize.Model<trsBOMDetailInstance, trsBOMDetailAttribute> { }
+
+// table: trsItemOffer
+export interface trsItemOfferAttribute {
+  id:number;
+  offerName?:string;
+  startDate?:Date;
+  startTime?:Date;
+  endDate?:Date;
+  endTime?:Date;
+  Itemid:number;
+  batch?:string;
+  mrp?:number;
+  rate?:number;
+  Discount?:number;
+  netRate?:number;
+  deActive?:boolean;
+}
+export interface trsItemOfferInstance extends Sequelize.Instance<trsItemOfferAttribute>, trsItemOfferAttribute { }
+export interface trsItemOfferModel extends Sequelize.Model<trsItemOfferInstance, trsItemOfferAttribute> { }
+
+// table: trsOrderDetail
+export interface trsOrderDetailAttribute {
+  invID:number;
   itemid?:number;
   taxper?:number;
-  rate?:any;
+  rate?:number;
+  mrp?:any;
   quantity?:number;
   freeQty?:number;
-  grossAmount?:any;
-  discount?:any;
-  taxable?:any;
-  taxAmount?:any;
-  netAmount?:any;
-  Batch?:string;
-  sRate?:number;
-  mrp?:number;
+  grossAmount?:number;
+  Discount?:number;
+  taxable?:number;
+  taxAmount?:number;
+  netAmount?:number;
+  batch?:string;
   cost?:number;
+  saleValue?:number;
+  profit?:number;
   rOrder?:number;
+  extraColumn?:string;
   SSMA_TimeStamp:Date;
   unitfactor?:number;
   blnAltUnit?:boolean;
-  expDate?:string;
   unit?:string;
-  extraColumn?:string;
-  profit?:number;
-  saleValue?:number;
+  expDate?:string;
+  sRate?:number;
 }
-export interface trsPurchasedetailInstance extends Sequelize.Instance<trsPurchasedetailAttribute>, trsPurchasedetailAttribute { }
-export interface trsPurchasedetailModel extends Sequelize.Model<trsPurchasedetailInstance, trsPurchasedetailAttribute> { }
+export interface trsOrderDetailInstance extends Sequelize.Instance<trsOrderDetailAttribute>, trsOrderDetailAttribute { }
+export interface trsOrderDetailModel extends Sequelize.Model<trsOrderDetailInstance, trsOrderDetailAttribute> { }
 
 // table: trsOrder
 export interface trsOrderAttribute {
@@ -447,36 +446,6 @@ export interface trsOrderAttribute {
 export interface trsOrderInstance extends Sequelize.Instance<trsOrderAttribute>, trsOrderAttribute { }
 export interface trsOrderModel extends Sequelize.Model<trsOrderInstance, trsOrderAttribute> { }
 
-// table: trsOrderDetail
-export interface trsOrderDetailAttribute {
-  invID:number;
-  itemid?:number;
-  taxper?:number;
-  rate?:number;
-  mrp?:any;
-  quantity?:number;
-  freeQty?:number;
-  grossAmount?:number;
-  Discount?:number;
-  taxable?:number;
-  taxAmount?:number;
-  netAmount?:number;
-  batch?:string;
-  cost?:number;
-  saleValue?:number;
-  profit?:number;
-  rOrder?:number;
-  extraColumn?:string;
-  SSMA_TimeStamp:Date;
-  unitfactor?:number;
-  blnAltUnit?:boolean;
-  unit?:string;
-  expDate?:string;
-  sRate?:number;
-}
-export interface trsOrderDetailInstance extends Sequelize.Instance<trsOrderDetailAttribute>, trsOrderDetailAttribute { }
-export interface trsOrderDetailModel extends Sequelize.Model<trsOrderDetailInstance, trsOrderDetailAttribute> { }
-
 // table: trsPricelist
 export interface trsPricelistAttribute {
   plId:number;
@@ -487,6 +456,54 @@ export interface trsPricelistAttribute {
 }
 export interface trsPricelistInstance extends Sequelize.Instance<trsPricelistAttribute>, trsPricelistAttribute { }
 export interface trsPricelistModel extends Sequelize.Model<trsPricelistInstance, trsPricelistAttribute> { }
+
+// table: trsSalaryPay
+export interface trsSalaryPayAttribute {
+  payID?:number;
+  employeeID?:number;
+  InvDate?:Date;
+  fromDate?:Date;
+  toDate?:Date;
+  daysWorked?:string;
+  Quantity?:number;
+  Amount?:number;
+  Advance?:number;
+  Incentive?:number;
+  BalAmount?:number;
+  SSMA_TimeStamp:Date;
+}
+export interface trsSalaryPayInstance extends Sequelize.Instance<trsSalaryPayAttribute>, trsSalaryPayAttribute { }
+export interface trsSalaryPayModel extends Sequelize.Model<trsSalaryPayInstance, trsSalaryPayAttribute> { }
+
+// table: trsPurchasedetail
+export interface trsPurchasedetailAttribute {
+  invid?:number;
+  itemid?:number;
+  taxper?:number;
+  rate?:any;
+  quantity?:number;
+  freeQty?:number;
+  grossAmount?:any;
+  discount?:any;
+  taxable?:any;
+  taxAmount?:any;
+  netAmount?:any;
+  Batch?:string;
+  sRate?:number;
+  mrp?:number;
+  cost?:number;
+  rOrder?:number;
+  SSMA_TimeStamp:Date;
+  unitfactor?:number;
+  blnAltUnit?:boolean;
+  expDate?:string;
+  unit?:string;
+  extraColumn?:string;
+  profit?:number;
+  saleValue?:number;
+}
+export interface trsPurchasedetailInstance extends Sequelize.Instance<trsPurchasedetailAttribute>, trsPurchasedetailAttribute { }
+export interface trsPurchasedetailModel extends Sequelize.Model<trsPurchasedetailInstance, trsPurchasedetailAttribute> { }
 
 // table: trsPurchase
 export interface trsPurchaseAttribute {
@@ -531,84 +548,24 @@ export interface trsPurchaseAttribute {
 export interface trsPurchaseInstance extends Sequelize.Instance<trsPurchaseAttribute>, trsPurchaseAttribute { }
 export interface trsPurchaseModel extends Sequelize.Model<trsPurchaseInstance, trsPurchaseAttribute> { }
 
-// table: trsSalaryPay
-export interface trsSalaryPayAttribute {
-  payID?:number;
-  employeeID?:number;
-  InvDate?:Date;
-  fromDate?:Date;
-  toDate?:Date;
-  daysWorked?:string;
-  Quantity?:number;
-  Amount?:number;
-  Advance?:number;
-  Incentive?:number;
-  BalAmount?:number;
-  SSMA_TimeStamp:Date;
-}
-export interface trsSalaryPayInstance extends Sequelize.Instance<trsSalaryPayAttribute>, trsSalaryPayAttribute { }
-export interface trsSalaryPayModel extends Sequelize.Model<trsSalaryPayInstance, trsSalaryPayAttribute> { }
-
-// table: trsStockJournaldetail
-export interface trsStockJournaldetailAttribute {
-  invid?:number;
+// table: trsStock
+export interface trsStockAttribute {
+  Invid?:number;
+  InvType?:string;
+  Invdate?:Date;
   itemid?:number;
-  taxper?:number;
-  rate?:any;
-  quantity?:number;
-  freeQty?:number;
-  grossAmount?:any;
-  discount?:any;
-  taxable?:any;
-  taxAmount?:any;
-  netAmount?:any;
+  qtyin?:number;
+  qtyout?:number;
   Batch?:string;
-  sRate?:number;
+  SSMA_TimeStamp:Date;
   mrp?:number;
-  cost?:number;
-  saleValue?:number;
-  profit?:number;
-  productionid?:string;
-  rOrder?:number;
-  SSMA_TimeStamp:Date;
-  unitfactor?:number;
-  blnAltUnit?:boolean;
-  expDate?:string;
-  unit?:string;
-  igstPer?:number;
-  extraColumn?:string;
+  sRate?:number;
+  pRate?:number;
+  lid?:number;
+  invNo?:string;
 }
-export interface trsStockJournaldetailInstance extends Sequelize.Instance<trsStockJournaldetailAttribute>, trsStockJournaldetailAttribute { }
-export interface trsStockJournaldetailModel extends Sequelize.Model<trsStockJournaldetailInstance, trsStockJournaldetailAttribute> { }
-
-// table: trsSaledetail
-export interface trsSaledetailAttribute {
-  invid?:number;
-  itemid?:number;
-  taxper?:number;
-  rate?:any;
-  mrp?:any;
-  quantity?:number;
-  freeQty?:number;
-  grossAmount?:any;
-  discount?:any;
-  taxable?:any;
-  taxAmount?:any;
-  netAmount?:any;
-  Batch?:string;
-  cost?:number;
-  saleValue?:number;
-  profit?:number;
-  rOrder?:number;
-  extraColumn?:string;
-  SSMA_TimeStamp:Date;
-  unitfactor?:number;
-  blnAltUnit?:boolean;
-  unit?:string;
-  expDate?:string;
-}
-export interface trsSaledetailInstance extends Sequelize.Instance<trsSaledetailAttribute>, trsSaledetailAttribute { }
-export interface trsSaledetailModel extends Sequelize.Model<trsSaledetailInstance, trsSaledetailAttribute> { }
+export interface trsStockInstance extends Sequelize.Instance<trsStockAttribute>, trsStockAttribute { }
+export interface trsStockModel extends Sequelize.Model<trsStockInstance, trsStockAttribute> { }
 
 // table: trsSale
 export interface trsSaleAttribute {
@@ -667,24 +624,82 @@ export interface trsSaleAttribute {
 export interface trsSaleInstance extends Sequelize.Instance<trsSaleAttribute>, trsSaleAttribute { }
 export interface trsSaleModel extends Sequelize.Model<trsSaleInstance, trsSaleAttribute> { }
 
-// table: trsStock
-export interface trsStockAttribute {
-  Invid?:number;
-  InvType?:string;
-  Invdate?:Date;
+// table: trsSaledetail
+export interface trsSaledetailAttribute {
+  invid?:number;
   itemid?:number;
-  qtyin?:number;
-  qtyout?:number;
+  taxper?:number;
+  rate?:any;
+  mrp?:any;
+  quantity?:number;
+  freeQty?:number;
+  grossAmount?:any;
+  discount?:any;
+  taxable?:any;
+  taxAmount?:any;
+  netAmount?:any;
   Batch?:string;
+  cost?:number;
+  saleValue?:number;
+  profit?:number;
+  rOrder?:number;
+  extraColumn?:string;
   SSMA_TimeStamp:Date;
-  mrp?:number;
-  sRate?:number;
-  pRate?:number;
-  lid?:number;
-  invNo?:string;
+  unitfactor?:number;
+  blnAltUnit?:boolean;
+  unit?:string;
+  expDate?:string;
 }
-export interface trsStockInstance extends Sequelize.Instance<trsStockAttribute>, trsStockAttribute { }
-export interface trsStockModel extends Sequelize.Model<trsStockInstance, trsStockAttribute> { }
+export interface trsSaledetailInstance extends Sequelize.Instance<trsSaledetailAttribute>, trsSaledetailAttribute { }
+export interface trsSaledetailModel extends Sequelize.Model<trsSaledetailInstance, trsSaledetailAttribute> { }
+
+// table: trsStockQty
+export interface trsStockQtyAttribute {
+  ItemID?:number;
+  Batch?:string;
+  Prate?:number;
+  SRate?:number;
+  Mrp?:number;
+  cost?:number;
+  intBatch?:number;
+  SSMA_TimeStamp:Date;
+  deActive?:boolean;
+  expDate?:string;
+}
+export interface trsStockQtyInstance extends Sequelize.Instance<trsStockQtyAttribute>, trsStockQtyAttribute { }
+export interface trsStockQtyModel extends Sequelize.Model<trsStockQtyInstance, trsStockQtyAttribute> { }
+
+// table: trsStockJournaldetail
+export interface trsStockJournaldetailAttribute {
+  invid?:number;
+  itemid?:number;
+  taxper?:number;
+  rate?:any;
+  quantity?:number;
+  freeQty?:number;
+  grossAmount?:any;
+  discount?:any;
+  taxable?:any;
+  taxAmount?:any;
+  netAmount?:any;
+  Batch?:string;
+  sRate?:number;
+  mrp?:number;
+  cost?:number;
+  saleValue?:number;
+  profit?:number;
+  productionid?:string;
+  rOrder?:number;
+  SSMA_TimeStamp:Date;
+  unitfactor?:number;
+  blnAltUnit?:boolean;
+  expDate?:string;
+  unit?:string;
+  igstPer?:number;
+  extraColumn?:string;
+}
+export interface trsStockJournaldetailInstance extends Sequelize.Instance<trsStockJournaldetailAttribute>, trsStockJournaldetailAttribute { }
+export interface trsStockJournaldetailModel extends Sequelize.Model<trsStockJournaldetailInstance, trsStockJournaldetailAttribute> { }
 
 // table: trsStockJournal
 export interface trsStockJournalAttribute {
@@ -732,35 +747,6 @@ export interface trsStockJournalAttribute {
 export interface trsStockJournalInstance extends Sequelize.Instance<trsStockJournalAttribute>, trsStockJournalAttribute { }
 export interface trsStockJournalModel extends Sequelize.Model<trsStockJournalInstance, trsStockJournalAttribute> { }
 
-// table: trsStockQty
-export interface trsStockQtyAttribute {
-  ItemID?:number;
-  Batch?:string;
-  Prate?:number;
-  SRate?:number;
-  Mrp?:number;
-  cost?:number;
-  intBatch?:number;
-  SSMA_TimeStamp:Date;
-  deActive?:boolean;
-  expDate?:string;
-}
-export interface trsStockQtyInstance extends Sequelize.Instance<trsStockQtyAttribute>, trsStockQtyAttribute { }
-export interface trsStockQtyModel extends Sequelize.Model<trsStockQtyInstance, trsStockQtyAttribute> { }
-
-// table: trsUserlog
-export interface trsUserlogAttribute {
-  userId:number;
-  userName?:string;
-  screenName?:string;
-  actionType?:string;
-  logDate?:Date;
-  logTime?:Date;
-  remarks?:string;
-}
-export interface trsUserlogInstance extends Sequelize.Instance<trsUserlogAttribute>, trsUserlogAttribute { }
-export interface trsUserlogModel extends Sequelize.Model<trsUserlogInstance, trsUserlogAttribute> { }
-
 // table: trsVoidItem
 export interface trsVoidItemAttribute {
   userId:number;
@@ -805,3 +791,16 @@ export interface trsVoucherAttribute {
 }
 export interface trsVoucherInstance extends Sequelize.Instance<trsVoucherAttribute>, trsVoucherAttribute { }
 export interface trsVoucherModel extends Sequelize.Model<trsVoucherInstance, trsVoucherAttribute> { }
+
+// table: trsUserlog
+export interface trsUserlogAttribute {
+  userId:number;
+  userName?:string;
+  screenName?:string;
+  actionType?:string;
+  logDate?:Date;
+  logTime?:Date;
+  remarks?:string;
+}
+export interface trsUserlogInstance extends Sequelize.Instance<trsUserlogAttribute>, trsUserlogAttribute { }
+export interface trsUserlogModel extends Sequelize.Model<trsUserlogInstance, trsUserlogAttribute> { }

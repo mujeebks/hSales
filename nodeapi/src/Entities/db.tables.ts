@@ -4,88 +4,88 @@ import * as sequelize from 'sequelize';
 import * as def from './db';
 
 export interface ITables {
-  InvoiceSettings:def.InvoiceSettingsModel;
   companySettings:def.companySettingsModel;
-  Company:def.CompanyModel;
   mtrCategory:def.mtrCategoryModel;
+  InvoiceSettings:def.InvoiceSettingsModel;
   mtrArea:def.mtrAreaModel;
   mtrAccountGroup:def.mtrAccountGroupModel;
-  mtrItemImage:def.mtrItemImageModel;
+  Company:def.CompanyModel;
   mtrCurrency:def.mtrCurrencyModel;
-  mtrEmployee:def.mtrEmployeeModel;
-  mtrledger:def.mtrledgerModel;
   mtrManufacturer:def.mtrManufacturerModel;
+  mtrItemImage:def.mtrItemImageModel;
+  mtrEmployee:def.mtrEmployeeModel;
   mtrloyalty:def.mtrloyaltyModel;
-  mtrRolePermission:def.mtrRolePermissionModel;
+  mtrledger:def.mtrledgerModel;
   mtrPricelist:def.mtrPricelistModel;
-  mtrRole:def.mtrRoleModel;
   mtrProduct:def.mtrProductModel;
-  mtrUser:def.mtrUserModel;
   PrintSettings:def.PrintSettingsModel;
-  trsItemOffer:def.trsItemOfferModel;
-  trsBOM:def.trsBOMModel;
+  mtrRole:def.mtrRoleModel;
+  mtrRolePermission:def.mtrRolePermissionModel;
+  mtrUser:def.mtrUserModel;
   trsAttandance:def.trsAttandanceModel;
   trsAccounts:def.trsAccountsModel;
-  trsBOMDetail:def.trsBOMDetailModel;
   trsloyalty:def.trsloyaltyModel;
-  trsPurchasedetail:def.trsPurchasedetailModel;
-  trsOrder:def.trsOrderModel;
+  trsBOM:def.trsBOMModel;
+  trsBOMDetail:def.trsBOMDetailModel;
+  trsItemOffer:def.trsItemOfferModel;
   trsOrderDetail:def.trsOrderDetailModel;
+  trsOrder:def.trsOrderModel;
   trsPricelist:def.trsPricelistModel;
-  trsPurchase:def.trsPurchaseModel;
   trsSalaryPay:def.trsSalaryPayModel;
-  trsStockJournaldetail:def.trsStockJournaldetailModel;
-  trsSaledetail:def.trsSaledetailModel;
-  trsSale:def.trsSaleModel;
+  trsPurchasedetail:def.trsPurchasedetailModel;
+  trsPurchase:def.trsPurchaseModel;
   trsStock:def.trsStockModel;
-  trsStockJournal:def.trsStockJournalModel;
+  trsSale:def.trsSaleModel;
+  trsSaledetail:def.trsSaledetailModel;
   trsStockQty:def.trsStockQtyModel;
-  trsUserlog:def.trsUserlogModel;
+  trsStockJournaldetail:def.trsStockJournaldetailModel;
+  trsStockJournal:def.trsStockJournalModel;
   trsVoidItem:def.trsVoidItemModel;
   trsVoucher:def.trsVoucherModel;
+  trsUserlog:def.trsUserlogModel;
 }
 
 export const getModels = function(seq:sequelize.Sequelize):ITables {
   const tables:ITables = {
-    InvoiceSettings: seq.import(path.join(__dirname, './InvoiceSettings')),
     companySettings: seq.import(path.join(__dirname, './companySettings')),
-    Company: seq.import(path.join(__dirname, './Company')),
     mtrCategory: seq.import(path.join(__dirname, './mtrCategory')),
+    InvoiceSettings: seq.import(path.join(__dirname, './InvoiceSettings')),
     mtrArea: seq.import(path.join(__dirname, './mtrArea')),
     mtrAccountGroup: seq.import(path.join(__dirname, './mtrAccountGroup')),
-    mtrItemImage: seq.import(path.join(__dirname, './mtrItemImage')),
+    Company: seq.import(path.join(__dirname, './Company')),
     mtrCurrency: seq.import(path.join(__dirname, './mtrCurrency')),
-    mtrEmployee: seq.import(path.join(__dirname, './mtrEmployee')),
-    mtrledger: seq.import(path.join(__dirname, './mtrledger')),
     mtrManufacturer: seq.import(path.join(__dirname, './mtrManufacturer')),
+    mtrItemImage: seq.import(path.join(__dirname, './mtrItemImage')),
+    mtrEmployee: seq.import(path.join(__dirname, './mtrEmployee')),
     mtrloyalty: seq.import(path.join(__dirname, './mtrloyalty')),
-    mtrRolePermission: seq.import(path.join(__dirname, './mtrRolePermission')),
+    mtrledger: seq.import(path.join(__dirname, './mtrledger')),
     mtrPricelist: seq.import(path.join(__dirname, './mtrPricelist')),
-    mtrRole: seq.import(path.join(__dirname, './mtrRole')),
     mtrProduct: seq.import(path.join(__dirname, './mtrProduct')),
-    mtrUser: seq.import(path.join(__dirname, './mtrUser')),
     PrintSettings: seq.import(path.join(__dirname, './PrintSettings')),
-    trsItemOffer: seq.import(path.join(__dirname, './trsItemOffer')),
-    trsBOM: seq.import(path.join(__dirname, './trsBOM')),
+    mtrRole: seq.import(path.join(__dirname, './mtrRole')),
+    mtrRolePermission: seq.import(path.join(__dirname, './mtrRolePermission')),
+    mtrUser: seq.import(path.join(__dirname, './mtrUser')),
     trsAttandance: seq.import(path.join(__dirname, './trsAttandance')),
     trsAccounts: seq.import(path.join(__dirname, './trsAccounts')),
-    trsBOMDetail: seq.import(path.join(__dirname, './trsBOMDetail')),
     trsloyalty: seq.import(path.join(__dirname, './trsloyalty')),
-    trsPurchasedetail: seq.import(path.join(__dirname, './trsPurchasedetail')),
-    trsOrder: seq.import(path.join(__dirname, './trsOrder')),
+    trsBOM: seq.import(path.join(__dirname, './trsBOM')),
+    trsBOMDetail: seq.import(path.join(__dirname, './trsBOMDetail')),
+    trsItemOffer: seq.import(path.join(__dirname, './trsItemOffer')),
     trsOrderDetail: seq.import(path.join(__dirname, './trsOrderDetail')),
+    trsOrder: seq.import(path.join(__dirname, './trsOrder')),
     trsPricelist: seq.import(path.join(__dirname, './trsPricelist')),
-    trsPurchase: seq.import(path.join(__dirname, './trsPurchase')),
     trsSalaryPay: seq.import(path.join(__dirname, './trsSalaryPay')),
-    trsStockJournaldetail: seq.import(path.join(__dirname, './trsStockJournaldetail')),
-    trsSaledetail: seq.import(path.join(__dirname, './trsSaledetail')),
-    trsSale: seq.import(path.join(__dirname, './trsSale')),
+    trsPurchasedetail: seq.import(path.join(__dirname, './trsPurchasedetail')),
+    trsPurchase: seq.import(path.join(__dirname, './trsPurchase')),
     trsStock: seq.import(path.join(__dirname, './trsStock')),
-    trsStockJournal: seq.import(path.join(__dirname, './trsStockJournal')),
+    trsSale: seq.import(path.join(__dirname, './trsSale')),
+    trsSaledetail: seq.import(path.join(__dirname, './trsSaledetail')),
     trsStockQty: seq.import(path.join(__dirname, './trsStockQty')),
-    trsUserlog: seq.import(path.join(__dirname, './trsUserlog')),
+    trsStockJournaldetail: seq.import(path.join(__dirname, './trsStockJournaldetail')),
+    trsStockJournal: seq.import(path.join(__dirname, './trsStockJournal')),
     trsVoidItem: seq.import(path.join(__dirname, './trsVoidItem')),
     trsVoucher: seq.import(path.join(__dirname, './trsVoucher')),
+    trsUserlog: seq.import(path.join(__dirname, './trsUserlog')),
   };
   return tables;
 };

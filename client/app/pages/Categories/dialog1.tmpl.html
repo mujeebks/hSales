@@ -2,7 +2,7 @@
     <form ng-cloak>
         <md-toolbar>
             <div class="md-toolbar-tools">
-                <h2>Mango (Fruit)</h2>
+                <h2>Add Category</h2>
                 <span flex></span>
                 <md-button class="md-icon-button" ng-click="cancel()">
                     <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
@@ -15,31 +15,28 @@
               
                 <form >
                     <div class="form-group">
-                        <label for="email">Email address:</label>
-                        <input type="email" class="form-control" id="email">
+                        <label for="email">Category Name :</label>
+                        <input type="text" ng-model="cat.category" class="form-control" id="email">
                     </div>
                     <div class="form-group">
-                        <label for="pwd">Password:</label>
-                        <input type="password" class="form-control" id="pwd">
+                        <!-- <label for="pwd">Password:</label> -->
+                        <md-checkbox ng-model="cat.deActive" aria-label="Checkbox 1">
+                            Active 
+                          </md-checkbox>
                     </div>
-                    <!--<div class="checkbox">
-                        <label><input type="checkbox"> Remember me</label>
-                    </div>
-                    <button type="submit" class="btn btn-default">Submit</button>-->
+                  
                 </form>
             </div>
         </md-dialog-content>
 
         <md-dialog-actions layout="row">
-            <md-button href="http://en.wikipedia.org/wiki/Mango" target="_blank" md-autofocus>
-                More on Wikipedia
-            </md-button>
             <span flex></span>
-            <md-button ng-click="answer('not useful')">
-                Not Useful
-            </md-button>
-            <md-button ng-click="answer('useful')">
-                Useful
+            <!-- <md-button ng-click="Save(cat)">
+                Save
+            </md-button> -->
+            <md-button ng-click="Save(cat)" class="md-raised md-primary">Save</md-button>
+            <md-button ng-click="cancel()">
+                Cancel
             </md-button>
         </md-dialog-actions>
     </form>

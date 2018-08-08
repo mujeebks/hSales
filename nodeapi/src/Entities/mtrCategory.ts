@@ -20,10 +20,6 @@ module.exports = function(sequelize: sequelize.Sequelize, DataTypes: DataTypes) 
       type: DataTypes.BOOLEAN,
       allowNull: true,
       defaultValue: '0'
-    },
-    SSMA_TimeStamp: {
-      type: DataTypes.DATE,
-      allowNull: false
     }
   }, {
     tableName: 'mtrCategory'

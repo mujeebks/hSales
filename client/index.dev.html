@@ -69,7 +69,12 @@
         body {
             background: inherit;
         }
-     
+        html {
+              background-image: url("assets/global/img/login/6blur.jpg") !important;
+              background-attachment: fixed;
+              background-repeat: no-repeat;
+          }
+
         span > a {
             font-size: 10px;
         }
@@ -81,7 +86,7 @@
             right: 0;
             z-index: -1;
             display: block;
-            /*background-image: url("https://thumbs.dreamstime.com/b/finance-financial-analysis-accounting-accounts-spreadsheet-pen-glasses-calculator-blue-close-up-concept-stock-100945568.jpg") !important;*/
+            /*background-image: url("assets/global/img/login/6blur.jpg") !important;*/
             width: 100%;
             height: 100%;
             background-repeat: no-repeat;
@@ -91,15 +96,15 @@
             -o-filter: blur(2px);
             -ms-filter: blur(2px);
             filter: blur(2px);
-            -webkit-background-size: cover;
-            -moz-background-size: cover;
-            -o-background-size: cover;
-            background-size: cover;
-            /*background: url("assets/global/img/login/6blur.jpg") no-repeat center center fixed  !important;*/
-            -webkit-background-size: cover;
-            -moz-background-size: cover;
-            -o-background-size: cover;
-            background-size: cover;
+             -webkit-background-size: cover;
+                    -moz-background-size: cover;
+                    -o-background-size: cover;
+                    background-size: cover;
+            background: url("assets/global/img/login/6blur.jpg") no-repeat center center fixed  !important;
+          -webkit-background-size: cover;
+          -moz-background-size: cover;
+          -o-background-size: cover;
+          background-size: cover;
         }
 
         #mainContent {
@@ -108,6 +113,7 @@
             z-index: 0;
         }
     </style>
+
 </head>
 <body ng-controller="AppController" class="page-header-fixed page-sidebar-closed-hide-logo page-container-bg-solid page-sidebar-closed-hide-logo page-on-load" ng-class="{'page-sidebar-closed': settings.layout.pageSidebarClosed}">
     <div id="mainContent">

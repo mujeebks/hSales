@@ -76,6 +76,8 @@ MetronicApp.factory('dataService', ['$http', 'ApiUrl', '$q', 'storageService', '
     function GetDashboardDriverTripDrillDownReport(params) {
         return $http.post(baseUrl + 'Transportation/GetDashboardDriverTripDrillDownReport', params);
     };
+  
+    
     function GetPayRollData(data) {
         var promise = $q.defer();
         var request = $http.post(baseUrl + "PayRoll/GetAllEmployeePaymentDetails",data, { timeout: promise.promise })
@@ -1322,9 +1324,13 @@ MetronicApp.factory('dataService', ['$http', 'ApiUrl', '$q', 'storageService', '
     function GetDashboardDiverTripData(filter) {
         return $http.get(baseUrl + 'Transportation/GetDashboardDiverTripData?filterId=' + filter.Id);
     };
+    function SaveCategories(params) {
+        return  $http.post(baseUrl + "Masters/Categories/",params);
+    };
     return {
         PendingRequest: PendingRequest,
         IsGlobal_Filter_Year:IsGlobal_Filter_Year,
+        SaveCategories:SaveCategories,
         //loadcategory: loadcategory,
         //GetCasesSoldRevenueByMonth: GetCasesSoldRevenueByMonth,
         //FilterOPEXcogsExpensesChart: FilterOPEXcogsExpensesChart,

@@ -17,15 +17,15 @@ CategoriesRouter.get("/", function(req, res, next) {
 });
 
 CategoriesRouter.post("/", function(req, res, next) {
-  CategoryServiceModel.SaveEmployees(req, res, next);
+  CategoryServiceModel.SaveCategories(req, res, next);
 });
 
 CategoriesRouter.put("/:id", function(req, res, next) {
-  CategoryServiceModel.SaveEmployees(req, res, next);
+  CategoryServiceModel.SaveCategories(req, res, next);
 });
 
 CategoriesRouter.delete("/:id", function(req, res, next) {
-  CategoryServiceModel.DeleteEmployee(req, res, next);
+  CategoryServiceModel.DeleteCategory(req, res, next);
 });
 
 export default CategoriesRouter;
