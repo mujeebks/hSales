@@ -47,7 +47,7 @@ gulp.task("browserify-dev", function() {
             baseDir: "./",
             index: "index.html"
         },
-        port:49642
+        port:2050
     });
    
   });

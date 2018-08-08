@@ -7,10 +7,14 @@
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <meta http-equiv="pragma" content="no-cache">
     <meta content="" name="description" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <meta content="" name="author" />
-    <!--BEGIN build:css ../assets/global/css/combined.css -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />
     <link href='https://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <!--BEGIN build:css ../assets/global/css/combined.css -->
+ 
+    
+ 
     <link href="assets/global/plugins/font-awesome/css/fontawsom_lates.css" rel="stylesheet" />
     <link href="assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
     <link href="assets/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css" />
@@ -54,7 +58,9 @@
     <link href="assets/admin/layout4/css/login-5.css" rel="stylesheet" />
     <link href="assets/admin/layout4/css/login.css" rel="stylesheet" />
     <link href="assets/global/scripts/slider/rzslider.css" rel="stylesheet" />
+ 
     <!-- endbuild -->
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.css">
     <link rel="shortcut icon" href="../assets/logo/Nagales.png" />
     <style>
         .amcharts-chart-div a {
@@ -68,7 +74,12 @@
         body {
             background: inherit;
         }
-     
+        html {
+              background-image: url("assets/global/img/login/6blur.jpg") !important;
+              background-attachment: fixed;
+              background-repeat: no-repeat;
+          }
+
         span > a {
             font-size: 10px;
         }
@@ -80,7 +91,7 @@
             right: 0;
             z-index: -1;
             display: block;
-            /*background-image: url("https://thumbs.dreamstime.com/b/finance-financial-analysis-accounting-accounts-spreadsheet-pen-glasses-calculator-blue-close-up-concept-stock-100945568.jpg") !important;*/
+            /*background-image: url("assets/global/img/login/6blur.jpg") !important;*/
             width: 100%;
             height: 100%;
             background-repeat: no-repeat;
@@ -90,15 +101,15 @@
             -o-filter: blur(2px);
             -ms-filter: blur(2px);
             filter: blur(2px);
-            -webkit-background-size: cover;
-            -moz-background-size: cover;
-            -o-background-size: cover;
-            background-size: cover;
-            /*background: url("assets/global/img/login/6blur.jpg") no-repeat center center fixed  !important;*/
-            -webkit-background-size: cover;
-            -moz-background-size: cover;
-            -o-background-size: cover;
-            background-size: cover;
+             -webkit-background-size: cover;
+                    -moz-background-size: cover;
+                    -o-background-size: cover;
+                    background-size: cover;
+            background: url("assets/global/img/login/6blur.jpg") no-repeat center center fixed  !important;
+          -webkit-background-size: cover;
+          -moz-background-size: cover;
+          -o-background-size: cover;
+          background-size: cover;
         }
 
         #mainContent {
@@ -107,6 +118,7 @@
             z-index: 0;
         }
     </style>
+
 </head>
 <body ng-controller="AppController" class="page-header-fixed page-sidebar-closed-hide-logo page-container-bg-solid page-sidebar-closed-hide-logo page-on-load" ng-class="{'page-sidebar-closed': settings.layout.pageSidebarClosed}">
     <div id="mainContent">
@@ -126,7 +138,7 @@
         <!-- BEGIN CONTAINER -->
         <div ng-class="{'login-container' : $state.current.name == 'login', 'page-container' : true }" style="margin-top: 95px !important">
             <!-- BEGIN SIDEBAR -->
-            <div data-ng-include="'app/layout/sidebar/sidebar.html?v=60'" data-ng-hide="$state.current.name == 'login'|| $state.current.name == 'resetPassword'" data-ng-controller="SidebarController" class="page-sidebar-wrapper">
+            <div data-ng-include="'app/layout/sidebar/sidebar.html'"  data-ng-controller="SidebarController" class="page-sidebar-wrapper">
             </div>
             <!-- END SIDEBAR -->
             <div class="page-content-wrapper">
@@ -153,7 +165,12 @@
     
         <![endif]-->
         <script src="../appbuild/combined.js"></script>
-     
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-aria.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-messages.min.js"></script>
+
+        <!-- Angular Material Library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.js"></script>
         <script src="assets/global/scripts/canvasgauge/canvasgauge.js"></script>
         <script src="assets/global/scripts/slider/rzslider.js"></script>
         <!--live amchart assets-->
@@ -175,7 +192,7 @@
            <script src="assets/global/scripts/amchartassets/ammap.js"></script>
            <script src="assets/global/scripts/amchartassets/usaLow.js"></script>
            <script src="assets/global/scripts/amchartassets/responsive.min.js"></script>-->
-        <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/themes/smoothness/jquery-ui.css">
+        <!--<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/themes/smoothness/jquery-ui.css">-->
         <script src="assets/global/scripts/jquery.mtz.monthpicker.js"></script>
         <script src="assets/global/scripts/sortable.js"></script>
         <script src="assets/global/plugins/alertify/ng-alertify.js"></script>
@@ -184,6 +201,9 @@
         <link href="assets/global/scripts/timepicker/wickedpicker.css" rel="stylesheet" />
         <script src="assets/global/scripts/timepicker/wickedpicker.js"></script>
         <script src="assets/global/scripts/draganddrop/angular-dragdrop.js"></script>
+
+       
+   
         <script type="text/javascript">
             /* Init Metronic's core jquery plugins and layout scripts */
             $(document).ready(function () {

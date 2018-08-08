@@ -1,6 +1,0 @@
-E:\Projects\Jason\NOgalesReportingTools\NogalesDashboard\Nogales\Nogales\bin\Nogales.Client.dll.config
-E:\Projects\Jason\NOgalesReportingTools\NogalesDashboard\Nogales\Nogales\bin\Nogales.Client.dll
-E:\Projects\Jason\NOgalesReportingTools\NogalesDashboard\Nogales\Nogales\bin\Nogales.Client.pdb
-E:\Projects\Jason\NOgalesReportingTools\NogalesDashboard\Nogales\Nogales\obj\Release\Nogales.Client.csprojResolveAssemblyReference.cache
-E:\Projects\Jason\NOgalesReportingTools\NogalesDashboard\Nogales\Nogales\obj\Release\Nogales.Client.dll
-E:\Projects\Jason\NOgalesReportingTools\NogalesDashboard\Nogales\Nogales\obj\Release\Nogales.Client.pdb

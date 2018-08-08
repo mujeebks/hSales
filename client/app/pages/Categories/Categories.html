@@ -60,6 +60,7 @@
                         <th data-st-sort="categoryid" style="text-align: left !important;min-width:165px">category</th>
                         <th data-st-sort="category" style="text-align: left !important;min-width:165px"><div class="th-head">Category</div></th>
                         <th data-st-sort="deActive"  st-sort-default="reverse" style="text-align: left !important;min-width:174px"><div class="th-head">IsdeActive</div></th>
+                        <th style="text-align: left !important;min-width:174px"><div class="th-head">Action</div></th>
                         
                     </tr>
                 </thead>
@@ -81,7 +82,16 @@
                         <td style="text-align:left">{{shipment.categoryid}}</td>
                         <td style="text-align:right">{{shipment.category}}</td>
                         <td style="text-align:right">{{shipment.deActive}}</td>
-                       
+                       <td style="text-align:left">
+                        <md-button href="http://google.com"
+                                        title="Launch Google.com in new window"
+                                        target="_blank"
+                                        ng-disabled="true"
+                                        aria-label="Google.com"
+                                        class="md-icon-button launch" >
+                            <md-icon md-svg-icon="../../../assets/global/img/baseline-3d_rotation-24px.svg"></md-icon>
+                        </md-button>
+                       </td>
                     </tr>
                   
                 </tbody>
