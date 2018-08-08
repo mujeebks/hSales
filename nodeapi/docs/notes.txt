@@ -1,0 +1,8 @@
+start npx tsc --watch
+
+Typescript compilation
+https://gorrion.io/blog/node-express-js-typescript-sequelize/
+
+
+
+Node js v8 inspector for chrome inspector

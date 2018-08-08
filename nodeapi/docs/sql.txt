@@ -1,0 +1,330 @@
+USE [master]
+GO
+/****** Object:  Database [sq]    Script Date: 7/5/2018 7:00:19 PM ******/
+CREATE DATABASE [sq]
+ CONTAINMENT = NONE
+ ON  PRIMARY 
+( NAME = N'qm', FILENAME = N'D:\Program Files\Microsoft SQL Server\MSSQL13.SQL2016\MSSQL\DATA\qm.mdf' , SIZE = 8192KB , MAXSIZE = UNLIMITED, FILEGROWTH = 65536KB )
+ LOG ON 
+( NAME = N'qm_log', FILENAME = N'D:\Program Files\Microsoft SQL Server\MSSQL13.SQL2016\MSSQL\DATA\qm_log.ldf' , SIZE = 8192KB , MAXSIZE = 2048GB , FILEGROWTH = 65536KB )
+GO
+IF (1 = FULLTEXTSERVICEPROPERTY('IsFullTextInstalled'))
+begin
+EXEC [sq].[dbo].[sp_fulltext_database] @action = 'enable'
+end
+GO
+ALTER DATABASE [sq] SET ANSI_NULL_DEFAULT OFF 
+GO
+ALTER DATABASE [sq] SET ANSI_NULLS OFF 
+GO
+ALTER DATABASE [sq] SET ANSI_PADDING OFF 
+GO
+ALTER DATABASE [sq] SET ANSI_WARNINGS OFF 
+GO
+ALTER DATABASE [sq] SET ARITHABORT OFF 
+GO
+ALTER DATABASE [sq] SET AUTO_CLOSE OFF 
+GO
+ALTER DATABASE [sq] SET AUTO_SHRINK OFF 
+GO
+ALTER DATABASE [sq] SET AUTO_UPDATE_STATISTICS ON 
+GO
+ALTER DATABASE [sq] SET CURSOR_CLOSE_ON_COMMIT OFF 
+GO
+ALTER DATABASE [sq] SET CURSOR_DEFAULT  GLOBAL 
+GO
+ALTER DATABASE [sq] SET CONCAT_NULL_YIELDS_NULL OFF 
+GO
+ALTER DATABASE [sq] SET NUMERIC_ROUNDABORT OFF 
+GO
+ALTER DATABASE [sq] SET QUOTED_IDENTIFIER OFF 
+GO
+ALTER DATABASE [sq] SET RECURSIVE_TRIGGERS OFF 
+GO
+ALTER DATABASE [sq] SET  DISABLE_BROKER 
+GO
+ALTER DATABASE [sq] SET AUTO_UPDATE_STATISTICS_ASYNC OFF 
+GO
+ALTER DATABASE [sq] SET DATE_CORRELATION_OPTIMIZATION OFF 
+GO
+ALTER DATABASE [sq] SET TRUSTWORTHY OFF 
+GO
+ALTER DATABASE [sq] SET ALLOW_SNAPSHOT_ISOLATION OFF 
+GO
+ALTER DATABASE [sq] SET PARAMETERIZATION SIMPLE 
+GO
+ALTER DATABASE [sq] SET READ_COMMITTED_SNAPSHOT OFF 
+GO
+ALTER DATABASE [sq] SET HONOR_BROKER_PRIORITY OFF 
+GO
+ALTER DATABASE [sq] SET RECOVERY FULL 
+GO
+ALTER DATABASE [sq] SET  MULTI_USER 
+GO
+ALTER DATABASE [sq] SET PAGE_VERIFY CHECKSUM  
+GO
+ALTER DATABASE [sq] SET DB_CHAINING OFF 
+GO
+ALTER DATABASE [sq] SET FILESTREAM( NON_TRANSACTED_ACCESS = OFF ) 
+GO
+ALTER DATABASE [sq] SET TARGET_RECOVERY_TIME = 60 SECONDS 
+GO
+ALTER DATABASE [sq] SET DELAYED_DURABILITY = DISABLED 
+GO
+USE [sq]
+GO
+ALTER DATABASE SCOPED CONFIGURATION SET MAXDOP = 0;
+GO
+ALTER DATABASE SCOPED CONFIGURATION FOR SECONDARY SET MAXDOP = PRIMARY;
+GO
+ALTER DATABASE SCOPED CONFIGURATION SET LEGACY_CARDINALITY_ESTIMATION = OFF;
+GO
+ALTER DATABASE SCOPED CONFIGURATION FOR SECONDARY SET LEGACY_CARDINALITY_ESTIMATION = PRIMARY;
+GO
+ALTER DATABASE SCOPED CONFIGURATION SET PARAMETER_SNIFFING = ON;
+GO
+ALTER DATABASE SCOPED CONFIGURATION FOR SECONDARY SET PARAMETER_SNIFFING = PRIMARY;
+GO
+ALTER DATABASE SCOPED CONFIGURATION SET QUERY_OPTIMIZER_HOTFIXES = OFF;
+GO
+ALTER DATABASE SCOPED CONFIGURATION FOR SECONDARY SET QUERY_OPTIMIZER_HOTFIXES = PRIMARY;
+GO
+USE [sq]
+GO
+/****** Object:  Table [dbo].[Errors]    Script Date: 7/5/2018 7:00:19 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Errors](
+	[ErrorId] [int] IDENTITY(1,1) NOT NULL,
+	[IpAddress] [nvarchar](255) NULL,
+	[Date] [datetimeoffset](7) NULL,
+	[Message] [nvarchar](255) NULL,
+	[StackTrace] [nvarchar](255) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[ErrorId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[tbldepartment]    Script Date: 7/5/2018 7:00:19 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[tbldepartment](
+	[departmentid] [int] IDENTITY(1,1) NOT NULL,
+	[departmentname] [nvarchar](max) NULL,
+ CONSTRAINT [PK_tbldepartment] PRIMARY KEY CLUSTERED 
+(
+	[departmentid] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[tblemployees]    Script Date: 7/5/2018 7:00:19 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[tblemployees](
+	[EmployeeId] [int] IDENTITY(1,1) NOT NULL,
+	[RoleId] [int] NULL,
+	[EmployeeName] [nvarchar](max) NULL,
+	[age] [int] NULL,
+	[departmentid] [int] NULL,
+ CONSTRAINT [PK_tblemployees] PRIMARY KEY CLUSTERED 
+(
+	[EmployeeId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[tblitems]    Script Date: 7/5/2018 7:00:19 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[tblitems](
+	[itemid] [int] IDENTITY(1,1) NOT NULL,
+	[itemname] [nvarchar](max) NULL,
+	[employeeid] [int] NULL,
+ CONSTRAINT [PK_tblitems] PRIMARY KEY CLUSTERED 
+(
+	[itemid] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[tblroles]    Script Date: 7/5/2018 7:00:19 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[tblroles](
+	[RoleId] [int] IDENTITY(1,1) NOT NULL,
+	[RoleDescription] [nvarchar](max) NULL,
+ CONSTRAINT [PK_tblroles] PRIMARY KEY CLUSTERED 
+(
+	[RoleId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[users]    Script Date: 7/5/2018 7:00:19 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[users](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[firstname] [nvarchar](255) NULL,
+	[lastname] [nvarchar](255) NULL,
+	[age] [int] NULL,
+	[createdAt] [datetimeoffset](7) NOT NULL,
+	[updatedAt] [datetimeoffset](7) NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+SET IDENTITY_INSERT [dbo].[Errors] ON 
+
+GO
+INSERT [dbo].[Errors] ([ErrorId], [IpAddress], [Date], [Message], [StackTrace]) VALUES (1, N'192.168.10.165', CAST(N'2018-07-04T10:31:38.2640000+00:00' AS DateTimeOffset), N'datafaromdb is not defined', N'ReferenceError: datafaromdb is not defined
+    at Employees_Model_1.default.findAll.then.datafromdb (C:\Users\Riyas-KS\Desktop\server\dist\Services\Employee.services.js:34:37)')
+GO
+INSERT [dbo].[Errors] ([ErrorId], [IpAddress], [Date], [Message], [StackTrace]) VALUES (2, N'192.168.10.165', CAST(N'2018-07-05T04:51:03.1500000+00:00' AS DateTimeOffset), N'Employees_Model_1.default.findAdfeefll is not a function', N'TypeError: Employees_Model_1.default.findAdfeefll is not a function
+    at EmployeeService.GetAllEmployees (C:\Users\Riyas-KS\Desktop\server\dist\Services\Employee.services.js:23:49)')
+GO
+INSERT [dbo].[Errors] ([ErrorId], [IpAddress], [Date], [Message], [StackTrace]) VALUES (3, N'192.168.10.159', CAST(N'2018-07-05T10:19:47.3600000+00:00' AS DateTimeOffset), N'Invalid column name ''NaN''.', N'SequelizeDatabaseError: Invalid column name ''NaN''.
+    at Query.formatError (E:\SequalizeORMNode\node_modules\sequelize\lib\dialects\mssql\query.js:315:12)')
+GO
+INSERT [dbo].[Errors] ([ErrorId], [IpAddress], [Date], [Message], [StackTrace]) VALUES (4, N'192.168.10.159', CAST(N'2018-07-05T10:19:48.4150000+00:00' AS DateTimeOffset), N'Invalid column name ''NaN''.', N'SequelizeDatabaseError: Invalid column name ''NaN''.
+    at Query.formatError (E:\SequalizeORMNode\node_modules\sequelize\lib\dialects\mssql\query.js:315:12)')
+GO
+INSERT [dbo].[Errors] ([ErrorId], [IpAddress], [Date], [Message], [StackTrace]) VALUES (5, N'192.168.10.159', CAST(N'2018-07-05T10:19:50.7930000+00:00' AS DateTimeOffset), N'Invalid column name ''NaN''.', N'SequelizeDatabaseError: Invalid column name ''NaN''.
+    at Query.formatError (E:\SequalizeORMNode\node_modules\sequelize\lib\dialects\mssql\query.js:315:12)')
+GO
+INSERT [dbo].[Errors] ([ErrorId], [IpAddress], [Date], [Message], [StackTrace]) VALUES (6, N'192.168.10.159', CAST(N'2018-07-05T10:19:53.9990000+00:00' AS DateTimeOffset), N'Invalid column name ''NaN''.', N'SequelizeDatabaseError: Invalid column name ''NaN''.
+    at Query.formatError (E:\SequalizeORMNode\node_modules\sequelize\lib\dialects\mssql\query.js:315:12)')
+GO
+SET IDENTITY_INSERT [dbo].[Errors] OFF
+GO
+SET IDENTITY_INSERT [dbo].[tbldepartment] ON 
+
+GO
+INSERT [dbo].[tbldepartment] ([departmentid], [departmentname]) VALUES (1, N'IT')
+GO
+INSERT [dbo].[tbldepartment] ([departmentid], [departmentname]) VALUES (2, N'Electrical')
+GO
+INSERT [dbo].[tbldepartment] ([departmentid], [departmentname]) VALUES (3, N'Civil')
+GO
+INSERT [dbo].[tbldepartment] ([departmentid], [departmentname]) VALUES (4, N'Mechanical')
+GO
+SET IDENTITY_INSERT [dbo].[tbldepartment] OFF
+GO
+SET IDENTITY_INSERT [dbo].[tblemployees] ON 
+
+GO
+INSERT [dbo].[tblemployees] ([EmployeeId], [RoleId], [EmployeeName], [age], [departmentid]) VALUES (1, 1, N'riyas', 29, 1)
+GO
+INSERT [dbo].[tblemployees] ([EmployeeId], [RoleId], [EmployeeName], [age], [departmentid]) VALUES (2, 2, N'sam', 32, 2)
+GO
+INSERT [dbo].[tblemployees] ([EmployeeId], [RoleId], [EmployeeName], [age], [departmentid]) VALUES (3, 2, N'albert', 32, 1)
+GO
+INSERT [dbo].[tblemployees] ([EmployeeId], [RoleId], [EmployeeName], [age], [departmentid]) VALUES (4, 2, N'joseph', 40, 3)
+GO
+INSERT [dbo].[tblemployees] ([EmployeeId], [RoleId], [EmployeeName], [age], [departmentid]) VALUES (5, 2, N'jhon', 35, 1)
+GO
+INSERT [dbo].[tblemployees] ([EmployeeId], [RoleId], [EmployeeName], [age], [departmentid]) VALUES (6, 2, N'xavier', 37, 2)
+GO
+INSERT [dbo].[tblemployees] ([EmployeeId], [RoleId], [EmployeeName], [age], [departmentid]) VALUES (7, 2, N'alex', 25, 1)
+GO
+INSERT [dbo].[tblemployees] ([EmployeeId], [RoleId], [EmployeeName], [age], [departmentid]) VALUES (8, 1, N'francis', 28, 1)
+GO
+INSERT [dbo].[tblemployees] ([EmployeeId], [RoleId], [EmployeeName], [age], [departmentid]) VALUES (10, 1, N'Test user 1', 25, NULL)
+GO
+SET IDENTITY_INSERT [dbo].[tblemployees] OFF
+GO
+SET IDENTITY_INSERT [dbo].[tblitems] ON 
+
+GO
+INSERT [dbo].[tblitems] ([itemid], [itemname], [employeeid]) VALUES (1, N'Item1', 1)
+GO
+INSERT [dbo].[tblitems] ([itemid], [itemname], [employeeid]) VALUES (2, N'Item1', 1)
+GO
+INSERT [dbo].[tblitems] ([itemid], [itemname], [employeeid]) VALUES (3, N'Item1', 1)
+GO
+INSERT [dbo].[tblitems] ([itemid], [itemname], [employeeid]) VALUES (4, N'Item1', 1)
+GO
+INSERT [dbo].[tblitems] ([itemid], [itemname], [employeeid]) VALUES (5, N'Item16', 1)
+GO
+INSERT [dbo].[tblitems] ([itemid], [itemname], [employeeid]) VALUES (6, N'Item15', 1)
+GO
+INSERT [dbo].[tblitems] ([itemid], [itemname], [employeeid]) VALUES (7, N'Item14', 1)
+GO
+INSERT [dbo].[tblitems] ([itemid], [itemname], [employeeid]) VALUES (8, N'Item12', 1)
+GO
+INSERT [dbo].[tblitems] ([itemid], [itemname], [employeeid]) VALUES (9, N'Item13', 1)
+GO
+INSERT [dbo].[tblitems] ([itemid], [itemname], [employeeid]) VALUES (10, N'2-Item1', 2)
+GO
+INSERT [dbo].[tblitems] ([itemid], [itemname], [employeeid]) VALUES (11, N'2-Item1', 2)
+GO
+INSERT [dbo].[tblitems] ([itemid], [itemname], [employeeid]) VALUES (12, N'2-Item1', 2)
+GO
+INSERT [dbo].[tblitems] ([itemid], [itemname], [employeeid]) VALUES (13, N'2-Item16', 2)
+GO
+INSERT [dbo].[tblitems] ([itemid], [itemname], [employeeid]) VALUES (14, N'2-Item15', 2)
+GO
+INSERT [dbo].[tblitems] ([itemid], [itemname], [employeeid]) VALUES (15, N'2-Item14', 2)
+GO
+INSERT [dbo].[tblitems] ([itemid], [itemname], [employeeid]) VALUES (16, N'2-Item12', 2)
+GO
+INSERT [dbo].[tblitems] ([itemid], [itemname], [employeeid]) VALUES (17, N'2-Item13', 2)
+GO
+SET IDENTITY_INSERT [dbo].[tblitems] OFF
+GO
+SET IDENTITY_INSERT [dbo].[tblroles] ON 
+
+GO
+INSERT [dbo].[tblroles] ([RoleId], [RoleDescription]) VALUES (1, N'Admin')
+GO
+INSERT [dbo].[tblroles] ([RoleId], [RoleDescription]) VALUES (2, N'User')
+GO
+SET IDENTITY_INSERT [dbo].[tblroles] OFF
+GO
+SET IDENTITY_INSERT [dbo].[users] ON 
+
+GO
+INSERT [dbo].[users] ([id], [firstname], [lastname], [age], [createdAt], [updatedAt]) VALUES (1, N'riyas', N'ks', 29, CAST(N'2018-07-02T10:26:15.5160000+00:00' AS DateTimeOffset), CAST(N'2018-07-02T10:26:15.5160000+00:00' AS DateTimeOffset))
+GO
+INSERT [dbo].[users] ([id], [firstname], [lastname], [age], [createdAt], [updatedAt]) VALUES (2, N'testuser', N'rtest', 25, CAST(N'2018-07-02T10:28:25.1860000+00:00' AS DateTimeOffset), CAST(N'2018-07-02T10:28:25.1860000+00:00' AS DateTimeOffset))
+GO
+INSERT [dbo].[users] ([id], [firstname], [lastname], [age], [createdAt], [updatedAt]) VALUES (3, N'testusRIYASSSer', N'rtest', 25, CAST(N'2018-07-02T10:28:42.0550000+00:00' AS DateTimeOffset), CAST(N'2018-07-02T10:28:42.0550000+00:00' AS DateTimeOffset))
+GO
+INSERT [dbo].[users] ([id], [firstname], [lastname], [age], [createdAt], [updatedAt]) VALUES (4, N'testusRIYASSSer', N'rtest', 25, CAST(N'2018-07-02T11:03:34.9390000+00:00' AS DateTimeOffset), CAST(N'2018-07-02T11:03:34.9390000+00:00' AS DateTimeOffset))
+GO
+INSERT [dbo].[users] ([id], [firstname], [lastname], [age], [createdAt], [updatedAt]) VALUES (5, N'testusRIYASSSer', N'rtest', 25, CAST(N'2018-07-02T11:09:57.9250000+00:00' AS DateTimeOffset), CAST(N'2018-07-02T11:09:57.9250000+00:00' AS DateTimeOffset))
+GO
+INSERT [dbo].[users] ([id], [firstname], [lastname], [age], [createdAt], [updatedAt]) VALUES (6, N'testusRwdfewfefregfrjewghjrehgjerhgkjrhegjreghjrehgjrhegjrgjegjhgfhregfIYASSSer', N'rtest', 25, CAST(N'2018-07-02T12:35:35.5600000+00:00' AS DateTimeOffset), CAST(N'2018-07-02T12:35:35.5600000+00:00' AS DateTimeOffset))
+GO
+INSERT [dbo].[users] ([id], [firstname], [lastname], [age], [createdAt], [updatedAt]) VALUES (7, N'testusRwdfewfefregfrjewghjrehgjerhgkjrhegjreghjrehgjrhegjrgjegjhgfhregfIYASSSer', N'rtest', 25, CAST(N'2018-07-02T12:38:41.0080000+00:00' AS DateTimeOffset), CAST(N'2018-07-02T12:38:41.0080000+00:00' AS DateTimeOffset))
+GO
+INSERT [dbo].[users] ([id], [firstname], [lastname], [age], [createdAt], [updatedAt]) VALUES (8, N'testusRwdfewfefregfrjewghjrehgjerhgkjrhegjreghjrehgjrhegjrgjegjhgfhregfIYASSSer', N'rtest', 25, CAST(N'2018-07-02T12:39:15.4260000+00:00' AS DateTimeOffset), CAST(N'2018-07-02T12:39:15.4260000+00:00' AS DateTimeOffset))
+GO
+INSERT [dbo].[users] ([id], [firstname], [lastname], [age], [createdAt], [updatedAt]) VALUES (9, N'wssssss', N'rtest', 25, CAST(N'2018-07-02T12:42:59.0920000+00:00' AS DateTimeOffset), CAST(N'2018-07-02T12:42:59.0920000+00:00' AS DateTimeOffset))
+GO
+INSERT [dbo].[users] ([id], [firstname], [lastname], [age], [createdAt], [updatedAt]) VALUES (10, N'wssssss', N'rtest', 25, CAST(N'2018-07-02T12:46:27.9890000+00:00' AS DateTimeOffset), CAST(N'2018-07-02T12:46:27.9890000+00:00' AS DateTimeOffset))
+GO
+SET IDENTITY_INSERT [dbo].[users] OFF
+GO
+USE [master]
+GO
+ALTER DATABASE [sq] SET  READ_WRITE 
+GO
