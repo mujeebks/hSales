@@ -19,6 +19,8 @@ B,how to run node api?
 3,type the command npm install (this will install all the packages which are already in the package.json)-- do this only for first time 
 4,type npm run start (this will start the node application and a couple of command windows may open) 
 
+TEST API working or not 
+goto http://yourlocalip:4001/api/Masters/Categories in your browser
 Recommented IDE for node api is vscode
 
 
