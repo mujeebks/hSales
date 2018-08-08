@@ -19,6 +19,7 @@
     "cors": "^2.8.4",
     "express": "^4.16.3",
     "express-validator": "^5.2.0",
+    "ip": "^1.1.5",
     "jsonwebtoken": "^8.3.0",
     "linq-collections": "^1.0.254",
     "linq-typescript": "^1.0.251",
